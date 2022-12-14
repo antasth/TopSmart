@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { FcTwoSmartphones } from 'react-icons/fc'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className="wrapper">
+      <header>
+        <div className="headerLeft">
+          <FcTwoSmartphones className="logo" />
+          <div className="headerInfo">
+            <h3>Top smartphone </h3>
+            <p>Магазин лучших смартфонов</p>
+          </div>
+        </div>
+        <ul className="headerRight">
+          <li>
+            <svg />
+            <span>9999 р.</span>
+          </li>
+          <li>
+            <svg />
+          </li>
+        </ul>
       </header>
+      <div className="content">
+        <h1>Все смартфоны</h1>
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
