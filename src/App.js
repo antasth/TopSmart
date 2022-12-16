@@ -1,6 +1,7 @@
 import { FcTwoSmartphones } from 'react-icons/fc'
 import { BsCartPlus, BsSearch } from 'react-icons/bs'
-import { BiUserCircle } from 'react-icons/bi'
+import { BiUser, BiHeart } from 'react-icons/bi'
+import { FaPlusCircle } from 'react-icons/fa'
 
 function App() {
   return (
@@ -9,7 +10,9 @@ function App() {
         <div className="flex items-center">
           <FcTwoSmartphones className="logo" />
           <div className="headerInfo">
-            <h3 className="text-3xl font-bold">Top<span className='text-orange-400'>Smart</span> </h3>
+            <h3 className="text-3xl font-bold">
+              Top<span className="text-orange-400">Smart</span>{' '}
+            </h3>
             {/* <p>Магазин лучших смартфонов</p> */}
           </div>
         </div>
@@ -23,22 +26,46 @@ function App() {
             <span> 9999 р.</span>
           </li>
           <li>
-            <BiUserCircle className="icon" />
+            <BiHeart className="icon" />
+          </li>
+          <li>
+            <BiUser className="icon" />
           </li>
         </ul>
       </header>
       <div className="content">
-        <h1>Все смартфоны</h1>
+        <div className="flex items-center justify-between mt-5 ml-5 mr-4">
+          <h1>Все смартфоны</h1>
 
-        <div className="flex flex-wrap">
-          <div className="card">
-            <img src={require('./img/1.jpg')} alt="phone" />
+          <div className="pt-2 relative  text-gray-600">
+            <input
+              className="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
+              type="search"
+              name="search"
+              placeholder="Поиск..."
+            />
+            <button type="submit" className="absolute right-0 top-0 mt-5 mr-4">
+              <BsSearch />
+            </button>
+          </div>
+        </div>
+
+        <div className="flex flex-wrap justify-between ">
+          <div className="card ">
+            <div className='relative'>
+              <img src={require('./img/1.jpg')} alt="phone" />
+              <FaPlusCircle className='plusBtn' />
+            </div>
+
             <h5>POCO M4 Pro 4G 256 ГБ</h5>
-            <div className="flex justify-between">
-              <div className="flex flex-col">
-                <span>Цена:</span>
-                <b> 15 999 р.</b>
-              </div>
+            <div className="flex justify-end ">
+              {/* <span>Цена:</span> */}
+              <b> 15 999 ₽</b>
+            </div>
+            <div className="flex items-center justify-end">
+              <button className="button favorite">
+                <BiHeart />
+              </button>
               <button className="button first"> Купить</button>
             </div>
           </div>
@@ -93,8 +120,10 @@ function App() {
         <div className="flex items-center">
           <FcTwoSmartphones className="logo" />
           <div className="headerInfo">
-            <h3 className="text-3xl font-bold">Top<span className='text-orange-400'>Smart</span> </h3>
-            <p className='opacity-70'>Магазин лучших смартфонов</p>
+            <h3 className="text-3xl font-bold">
+              Top<span className="text-orange-400">Smart</span>{' '}
+            </h3>
+            <p className="opacity-70">Магазин лучших смартфонов</p>
           </div>
         </div>
 

@@ -12,6 +12,10 @@ body {
   color: #2c3450;
 }
 
+* {
+  font-family: 'Lato', sans-serif;
+}
+
 .wrapper {
   background: #f5f8f9;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04);
@@ -21,7 +25,7 @@ body {
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: bold;
 }
 .logo {
@@ -29,6 +33,25 @@ h1 {
   width: 4rem;
   margin: 0 5px 0 20px;
 }
+
+.icon {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.plusBtn {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform:translate(-50%);
+  height: 2rem;
+  width: 2rem;
+  color: #ffffff;
+  opacity: 0;
+  transition: all 0.2s;
+}
+
+
 header {
   background-color: #fff;
 
@@ -46,10 +69,6 @@ header {
         cursor: pointer;
       }
     }
-    .icon {
-      height: 1.5rem;
-      width: 1.5rem;
-    }
   }
 
   h3,
@@ -61,21 +80,19 @@ header {
 .content {
   margin: 0 auto;
   max-width: 1200px;
-  // background: #f5f8f9;
 }
 
 .card {
-  // text-align: center;
   background-color: #fff;
   border-radius: 15px;
   width: 250px;
   padding: 30px;
   margin: 20px;
-  // box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
+  transition: all 0.2s;
   img {
     margin: 0 auto;
-    width: 180px;
+    width: 190px;
   }
   h5 {
     font-weight: 400;
@@ -86,8 +103,23 @@ header {
     text-transform: uppercase;
   }
   b {
-    font-size: 15px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 26px;
     color: #e74c3c;
+  }
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 15px;
+  }
+}
+
+.card:hover {
+  .first {
+    color: #fff;
+    box-shadow: 0 0 40px 40px #e74c3c inset;
+  }
+  .plusBtn {
+    opacity: 0.7;
   }
 }
 
@@ -111,7 +143,7 @@ header {
   font-size: 0.8rem;
   font-weight: 400;
   line-height: 1;
-  margin: 5px;
+  margin-left: 5px;
   padding: 0.9em 1.5em;
   text-decoration: none;
   text-align: center;
@@ -125,12 +157,27 @@ header {
   outline: 0;
 }
 
-.first {
+.first,
+.favorite {
   -webkit-transition: box-shadow 200ms ease-in-out, color 200ms ease-in-out;
   transition: box-shadow 200ms ease-in-out, color 200ms ease-in-out;
 }
 .first:hover {
   box-shadow: 0 0 40px 40px #e74c3c inset;
+  opacity: 1;
+}
+
+.favorite {
+  font-size: 20px;
+  padding: 0.4em;
+  opacity: 0.5;
+  color: gray;
+  border: 1px solid gray;
+  border-radius: 0.4em;
+  &:hover {
+    color: gray;
+    background-color: #e8e9e9;
+  }
 }
 
 footer {
@@ -150,10 +197,6 @@ footer {
         color: #66aed4;
         cursor: pointer;
       }
-    }
-    .icon {
-      height: 1.5rem;
-      width: 1.5rem;
     }
   }
 
