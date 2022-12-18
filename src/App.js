@@ -1,11 +1,61 @@
 import { FcTwoSmartphones } from 'react-icons/fc'
-import { BsCartPlus, BsSearch } from 'react-icons/bs'
+import { BsCartPlus, BsSearch, BsX } from 'react-icons/bs'
 import { BiUser, BiHeart } from 'react-icons/bi'
 import { FaPlusCircle } from 'react-icons/fa'
 
 function App() {
   return (
-    <div className="wrapper">
+    <div className="wrapper relative">
+      <div style={{ display: 'none' }} className="overlay">
+        <div className="drawer flex flex-col justify-between">
+          <div className="cart">
+            <h2 className="mb-5">Корзина</h2>
+            <div className="cartItems ">
+              <div className="cartItem flex justify-between items-center mb-3">
+                <img width={70} src={require('./img/1.jpg')} alt="phone" />
+                <div>
+                  <p>POCO M4 Pro 4G 256 ГБ</p>
+                  <b>15 999 ₽</b>
+                </div>
+                <button className="button grayButton">
+                  <BsX />
+                </button>
+              </div>
+              <div className="cartItem flex justify-between items-center mb-3">
+                <img width={70} src={require('./img/1.jpg')} alt="phone" />
+                <div>
+                  <p>POCO M4 Pro 4G 256 ГБ</p>
+                  <b>15 999 ₽</b>
+                </div>
+                <button className="button grayButton">
+                  <BsX />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div className="fullprice flex flex-col">
+            <div className="fullprice__info flex justify-between mb-4">
+              <div className="fullprice__text">
+                <span className="text-sm opacity-70">Итого: </span>
+                <div className="font-bold text-xl leading-4 ">1 товар</div>
+              </div>
+
+              <div className="fullprice__sum text-right">
+                <div className="price__default text-sm line-through	opacity-70">
+                  17999 ₽
+                </div>
+                <div className="price__current font-bold text-xl leading-4 ">
+                  15999 ₽
+                </div>
+              </div>
+            </div>
+
+            <button className="button orderbutton"> Оформить заказ</button>
+          </div>
+        </div>
+      </div>
+
       <header className="flex justify-between	py-5">
         <div className="flex items-center">
           <FcTwoSmartphones className="logo" />
@@ -13,7 +63,6 @@ function App() {
             <h3 className="text-3xl font-bold">
               Top<span className="text-orange-400">Smart</span>{' '}
             </h3>
-            {/* <p>Магазин лучших смартфонов</p> */}
           </div>
         </div>
 
@@ -23,7 +72,7 @@ function App() {
           </li>
           <li>
             <BsCartPlus className="icon" />
-            <span> 9999 р.</span>
+            <span> 9999 ₽.</span>
           </li>
           <li>
             <BiHeart className="icon" />
@@ -50,20 +99,20 @@ function App() {
           </div>
         </div>
 
-        <div className="flex flex-wrap justify-between ">
+        <div className="flex flex-wrap justify-between">
           <div className="card ">
-            <div className='relative'>
+            <div className="relative cursor-zoom-in">
               <img src={require('./img/1.jpg')} alt="phone" />
-              <FaPlusCircle className='plusBtn' />
+              <FaPlusCircle className="plusBtn" />
             </div>
 
             <h5>POCO M4 Pro 4G 256 ГБ</h5>
-            <div className="flex justify-end ">
+            <div className="flex justify-end">
               {/* <span>Цена:</span> */}
               <b> 15 999 ₽</b>
             </div>
             <div className="flex items-center justify-end">
-              <button className="button favorite">
+              <button className="button grayButton">
                 <BiHeart />
               </button>
               <button className="button first"> Купить</button>
@@ -75,7 +124,7 @@ function App() {
             <div className="flex justify-between">
               <div className="flex flex-col">
                 <span>Цена:</span>
-                <b> 19 999 р.</b>
+                <b> 19 999 ₽.</b>
               </div>
               <button className="button first"> Купить</button>
             </div>
@@ -86,7 +135,7 @@ function App() {
             <div className="flex justify-between">
               <div className="flex flex-col">
                 <span>Цена:</span>
-                <b> 13 999 р.</b>
+                <b> 13 999 ₽.</b>
               </div>
               <button className="button first"> Купить</button>
             </div>
@@ -97,7 +146,7 @@ function App() {
             <div className="flex justify-between">
               <div className="flex flex-col">
                 <span>Цена:</span>
-                <b> 16 999 р.</b>
+                <b> 16 999 ₽.</b>
               </div>
               <button className="button first"> Купить</button>
             </div>
@@ -108,7 +157,7 @@ function App() {
             <div className="flex justify-between">
               <div className="flex flex-col">
                 <span>Цена:</span>
-                <b> 18 999 р.</b>
+                <b> 18 999 ₽.</b>
               </div>
               <button className="button first"> Купить</button>
             </div>
