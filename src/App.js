@@ -13,7 +13,7 @@ function App() {
   }
   return (
     <div className="wrapper relative">
-      <Drawer isActive={activeCart} />
+      <Drawer isActive={activeCart} toggleCart={toggleCart}/>
       <Header toggleCart={toggleCart} />
       <Search />
       <div className="content ">

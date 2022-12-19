@@ -1,14 +1,25 @@
 import { BsX } from 'react-icons/bs'
+import { BiExit } from 'react-icons/bi'
 
-const Drawer = ({ isActive }) => {
+const Drawer = ({ isActive, toggleCart }) => {
   return (
     <div
       style={isActive ? { display: 'block' } : { display: 'none' }}
       className="overlay"
+      onClick={toggleCart}
     >
-      <div className="drawer flex flex-col justify-between">
+      <div
+        className="drawer flex flex-col justify-between"
+        onClick={(e) => e.stopPropagation()}
+      >
         <div className="cart">
-          <h2 className="mb-5">Корзина</h2>
+          <div className="cart__header flex justify-between items-center mb-5">
+            <h2>Корзина</h2>
+            <button className="button grayButton">
+              <BiExit onClick={toggleCart} />
+            </button>
+          </div>
+
           <div className="cartItems mb-10">
             <div className="cartItem flex justify-between items-center mb-3">
               <img width={70} src={require('../img/1.jpg')} alt="phone" />
