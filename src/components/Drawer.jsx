@@ -15,14 +15,14 @@ const Drawer = ({ isActive, toggleCart }) => {
         <div className="cart">
           <div className="cart__header flex justify-between items-center mb-5">
             <h2>Корзина</h2>
-            <button className="button grayButton">
-              <BiExit onClick={toggleCart} />
+            <button className="button grayButton" onClick={toggleCart}>
+              <BiExit  />
             </button>
           </div>
 
-          <div className="cartItems mb-10">
+          {/* <div className="cartItems mb-10">
             <div className="cartItem flex justify-between items-center mb-3">
-              <img width={70} src={require('../img/1.jpg')} alt="phone" />
+              <img width={70} src={require('../assets/img/1.jpg')} alt="phone" />
               <div>
                 <p>POCO M4 Pro 4G 256 ГБ</p>
                 <b>15 999 ₽</b>
@@ -32,7 +32,7 @@ const Drawer = ({ isActive, toggleCart }) => {
               </button>
             </div>
             <div className="cartItem flex justify-between items-center mb-3">
-              <img width={70} src={require('../img/1.jpg')} alt="phone" />
+              <img width={70} src={require('../assets/img/1.jpg')} alt="phone" />
               <div>
                 <p>POCO M4 Pro 4G 256 ГБ</p>
                 <b>15 999 ₽</b>
@@ -42,7 +42,7 @@ const Drawer = ({ isActive, toggleCart }) => {
               </button>
             </div>
             <div className="cartItem flex justify-between items-center mb-3">
-              <img width={70} src={require('../img/1.jpg')} alt="phone" />
+              <img width={70} src={require('../assets/img/1.jpg')} alt="phone" />
               <div>
                 <p>POCO M4 Pro 4G 256 ГБ</p>
                 <b>15 999 ₽</b>
@@ -51,7 +51,7 @@ const Drawer = ({ isActive, toggleCart }) => {
                 <BsX />
               </button>
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div className="fullprice flex flex-col">
