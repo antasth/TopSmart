@@ -2,7 +2,7 @@ import { FcTwoSmartphones } from 'react-icons/fc'
 
 const Footer = () => {
    return (
-      <footer className="flex justify-between	py-5">
+      <footer className="flex	py-5">
         <div className="flex items-center">
           <FcTwoSmartphones className="logo" />
           <div className="headerInfo">

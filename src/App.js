@@ -12,7 +12,7 @@ function App() {
     setActiveCart(!activeCart)
   }
   return (
-    <div className="wrapper relative">
+    <div className="wrapper relative ">
       <Drawer isActive={activeCart} toggleCart={toggleCart}/>
       <Header toggleCart={toggleCart} />
       <Search />

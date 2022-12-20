@@ -16,11 +16,11 @@ const Card = ({
   battery,
   img,
 }) => {
-  console.log(img)
+
   return (
     <div className="card ">
       <div className="relative cursor-zoom-in">
-        <img src={require('../assets/img/POCO/M4_Pro_4G/1.jpg')} alt="phone" />
+        <img src={require('../assets/img/' + img + '/1.jpg')} alt="phoneimg" />
         <FaPlusCircle className="plusBtn" />
       </div>
 
