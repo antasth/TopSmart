@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import Card from './Card'
-// import phones from '../data/phones'
+import Loader from './Loader/Loader'
 
 const Cards = () => {
   const [phones, setPhones] = useState(null)
@@ -23,7 +23,13 @@ const Cards = () => {
 
   return (
     <div className="cards flex flex-wrap mt-5 mb-5">
-      {!isLoading && phones.map((phone) => <Card key={phone.id} {...phone} />)}
+      {!isLoading ? (
+        phones.map((phone) => <Card key={phone.id} {...phone} />)
+      ) : (
+        <Loader />
+      )}
+
+
     </div>
   )
 }

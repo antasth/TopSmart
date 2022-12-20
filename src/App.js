@@ -12,12 +12,12 @@ function App() {
     setActiveCart(!activeCart)
   }
   return (
-    <div className="wrapper relative ">
-      <Drawer isActive={activeCart} toggleCart={toggleCart}/>
+    <div className="wrapper relative min-h-screen ">
+      <Drawer isActive={activeCart} toggleCart={toggleCart} />
       <Header toggleCart={toggleCart} />
       <Search />
-      <div className="content ">
-      <Cards />
+      <div className="content">
+        <Cards />
       </div>
 
       <Footer />

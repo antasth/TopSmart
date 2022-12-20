@@ -2,7 +2,7 @@ import { FcTwoSmartphones } from 'react-icons/fc'
 
 const Footer = () => {
    return (
-      <footer className="flex	py-5">
+      <footer className="flex	py-5 absolute bottom-0 left-0 h-32 w-full">
         <div className="flex items-center">
           <FcTwoSmartphones className="logo" />
           <div className="headerInfo">
