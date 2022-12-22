@@ -14,12 +14,20 @@ const Cards = () => {
         const phones = await res.json()
         setPhones(phones)
       } catch (error) {
-        setError(error.message)
+        setError(error)
       }
       setIsLoading(false)
     }
     fetchData()
   }, [])
+
+  if (error) {
+    return (
+      <h1 className="mt-20">
+        Произошла ошибка при загрузке данных с сервера, попробуйте позже...
+      </h1>
+    )
+  }
 
   return (
     <div className="cards flex flex-wrap my-5">

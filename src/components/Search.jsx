@@ -2,7 +2,7 @@ import { BsSearch } from 'react-icons/bs'
 
 const Search = () => {
    return (
-      <div className="search flex justify-between items-center ml-5 mr-4">
+      <div className="search flex justify-between ">
       <h1>Все смартфоны</h1>
 
       <div className="pt-2 relative  text-gray-600">
