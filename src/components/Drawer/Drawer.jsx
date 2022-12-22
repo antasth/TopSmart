@@ -1,15 +1,16 @@
 import { BsX } from 'react-icons/bs'
 import { BiExit } from 'react-icons/bi'
+import styles from './Drawer.module.scss'
 
 const Drawer = ({ isActive, toggleCart }) => {
   return (
     <div
       style={isActive ? { display: 'block' } : { display: 'none' }}
-      className="overlay"
+      className={styles.overlay}
       onClick={toggleCart}
     >
       <div
-        className="drawer flex flex-col justify-between"
+        className={`${styles.drawer} flex flex-col justify-between`}
         onClick={(e) => e.stopPropagation()}
       >
         <div className="cart">

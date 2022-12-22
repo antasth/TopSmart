@@ -1,8 +1,9 @@
 import { BsSearch } from 'react-icons/bs'
+import styles from './Search.module.scss'
 
 const Search = () => {
    return (
-      <div className="search flex justify-between ">
+      <div className={`${styles.search} flex justify-between`}>
       <h1>Все смартфоны</h1>
 
       <div className="pt-2 relative  text-gray-600">

@@ -1,10 +1,11 @@
 import { FcTwoSmartphones } from 'react-icons/fc'
 import { BsCartPlus, BsSearch } from 'react-icons/bs'
 import { BiUser, BiHeart } from 'react-icons/bi'
+import styles from './Header.module.scss'
 
 const Header = ({ toggleCart }) => {
   return (
-    <header className="flex justify-between py-5 mb-7">
+    <header className={`${styles.header} flex justify-between py-5 mb-7`}>
       <div className="flex items-center">
         <FcTwoSmartphones className="logo" />
         <div className="headerInfo">

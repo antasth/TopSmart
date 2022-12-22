@@ -1,8 +1,9 @@
 import { FcTwoSmartphones } from 'react-icons/fc'
+import styles from './Footer.module.scss'
 
 const Footer = () => {
    return (
-      <footer className="flex	py-5">
+      <footer className={`${styles.footer} flex	py-5`}>
         <div className="flex items-center">
           <FcTwoSmartphones className="logo" />
           <div className="headerInfo">

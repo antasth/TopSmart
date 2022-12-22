@@ -1,5 +1,6 @@
 import { BiHeart } from 'react-icons/bi'
 import { FaPlusCircle } from 'react-icons/fa'
+import styles from './Card.module.scss'
 
 const Card = ({
   display,
@@ -18,9 +19,9 @@ const Card = ({
 }) => {
 
   return (
-    <div className="card ">
+    <div className={styles.card}>
       <div className="relative cursor-zoom-in">
-        <img src={require('../assets/img/' + img + '/1.jpg')} alt="phoneimg" />
+        <img src={require('../../assets/img/' + img + '/1.jpg')} alt="phoneimg" />
         <FaPlusCircle className="plusBtn" />
       </div>
 

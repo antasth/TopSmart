@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import Cards from './components/Cards'
-import Header from './components/Header'
-import Footer from './components/Footer'
-import Search from './components/Search'
-import Drawer from './components/Drawer'
+import Cards from './components/Cards/Cards'
+import Header from './components/Header/Header'
+import Footer from './components/Footer/Footer'
+import Search from './components/Search/Search'
+import Drawer from './components/Drawer/Drawer'
 
 function App() {
   const [activeCart, setActiveCart] = useState(false)

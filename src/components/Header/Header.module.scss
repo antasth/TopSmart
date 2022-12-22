@@ -1,0 +1,19 @@
+.header {
+   background-color: #fff;
+   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px;
+   ul {
+     li {
+       display: flex;
+       list-style-type: none;
+       margin: 20px;
+ 
+       span {
+         margin: 0 10px;
+       }
+       :hover {
+         color: #66aed4;
+         cursor: pointer;
+       }
+     }
+   }
+ }

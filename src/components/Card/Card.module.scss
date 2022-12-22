@@ -1,0 +1,39 @@
+.card {
+   flex: 1 20%;
+   background-color: #fff;
+   border-radius: 15px;
+   max-width: 280px;
+   min-width: 220px;
+   padding: 12px;
+   margin: 10px;
+   box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
+   transition: all 0.2s;
+   img {
+     margin: 0 auto;
+     width: 190px;
+   }
+   h5 {
+     font-weight: 400;
+     font-size: 16px;
+   }
+   span {
+     opacity: 0.5;
+     text-transform: uppercase;
+   }
+   b {
+     font-size: 18px;
+     font-weight: 700;
+     line-height: 26px;
+     color: #e74c3c;
+   }
+   &:hover {
+     box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 15px;
+     .first {
+       color: #fff;
+       box-shadow: 0 0 40px 40px #e74c3c inset;
+     }
+     .plusBtn {
+       opacity: 0.7;
+     }
+   }
+ }

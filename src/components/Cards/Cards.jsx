@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import Card from './Card'
-import Loader from './Loader/Loader'
+import Card from '../Card/Card'
+import Loader from '../Loader/Loader'
 
 const Cards = () => {
   const [phones, setPhones] = useState(null)
