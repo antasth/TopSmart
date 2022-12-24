@@ -37,3 +37,15 @@
      }
    }
  }
+
+ .plusBtn {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%);
+  height: 2rem;
+  width: 2rem;
+  color: #ffffff;
+  opacity: 0;
+  transition: all 0.2s;
+}

@@ -1,6 +1,7 @@
 import { BiHeart } from 'react-icons/bi'
 import { FaPlusCircle } from 'react-icons/fa'
 import styles from './Card.module.scss'
+import Button from '../UI/Button'
 
 const Card = ({
   display,
@@ -22,7 +23,7 @@ const Card = ({
     <div className={styles.card}>
       <div className="relative cursor-zoom-in">
         <img src={require('../../assets/img/' + img + '/1.jpg')} alt="phoneimg" />
-        <FaPlusCircle className="plusBtn" />
+        <FaPlusCircle className={styles.plusBtn} />
       </div>
 
       <h5 className="mt-4">
@@ -34,10 +35,8 @@ const Card = ({
       <div className="flex justify-between items-center mt-5">
         <b> 15 999 ₽</b>
         <div className="flex">
-          <button className="button grayButton">
-            <BiHeart />
-          </button>
-          <button className="button first"> Купить</button>
+          <Button buttonClass="grayButton"> <BiHeart /> </Button>
+          <Button buttonClass="first"> Купить </Button>
         </div>
       </div>
     </div>
