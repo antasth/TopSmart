@@ -18,6 +18,7 @@ const Card = ({
   camera,
   battery,
   img,
+  toggleModal
 }) => {
   const [isCardHover, setIsCardHover] = useState(false)
 
@@ -34,7 +35,7 @@ const Card = ({
       onMouseLeave={hoverCardOff}
       className={styles.card}
     >
-      <div className="relative cursor-zoom-in">
+      <div className="relative cursor-zoom-in" onClick={toggleModal}>
         <img
           src={require('../../assets/img/' + img + '/1.jpg')}
           alt="phoneimg"

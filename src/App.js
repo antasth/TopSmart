@@ -4,12 +4,17 @@ import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import Search from './components/Search/Search'
 import Drawer from './components/Drawer/Drawer'
+import ModalCard from './components/ModalCard/ModalCard'
 
 function App() {
   const [activeCart, setActiveCart] = useState(false)
+  const [modal, setModal] = useState(false)
 
   const toggleCart = () => {
     setActiveCart(!activeCart)
+  }
+  const toggleModal = () => {
+    setModal(!modal)
   }
   return (
     <div className="wrapper relative flex flex-col min-h-screen">
@@ -18,9 +23,10 @@ function App() {
 
       <div className="content flex-1">
         <Search />
-        <Cards />
+        <Cards toggleModal={toggleModal}/>
       </div>
 
+      <ModalCard isActive={modal} toggleModal={toggleModal}/>
       <Footer />
     </div>
   )
