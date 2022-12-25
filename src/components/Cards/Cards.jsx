@@ -21,6 +21,7 @@ const Cards = () => {
     fetchData()
   }, [])
 
+
   if (error) {
     return (
       <h1 className="mt-20">
@@ -32,7 +33,7 @@ const Cards = () => {
   return (
     <div className="cards flex flex-wrap my-5">
       {!isLoading ? (
-        phones.map((phone) => <Card key={phone.id} {...phone} />)
+        phones.map((phone) => <Card  key={phone.id} {...phone} />)
       ) : (
         <Loader />
       )}
