@@ -1,10 +1,10 @@
 import styles from './Button.module.scss'
 
-const Button = ({ children, buttonClass, isHover }) => {
+const Button = ({ children, buttonClass, isCardHover }) => {
   return (
     <button
       className={`${styles.button} ${styles[buttonClass]} ${
-        isHover ? styles[buttonClass + 'ActiveCard'] : ''
+        isCardHover ? styles[buttonClass + 'ActiveCard'] : ''
       }`}
     >
       {children}
