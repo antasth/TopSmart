@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import Card from '../Card/Card'
 import Loader from '../Loader/Loader'
 
-const Cards = ({toggleModal}) => {
+const Cards = ({ toggleModal }) => {
   const [phones, setPhones] = useState(null)
   const [error, setError] = useState('')
   const [isLoading, setIsLoading] = useState(true)
@@ -10,9 +10,18 @@ const Cards = ({toggleModal}) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('http://localhost:3000/phones')
-        const phones = await res.json()
-        setPhones(phones)
+        const res = await fetch(
+          'https://api.jsonbin.io/v3/b/63a46723dfc68e59d56ea726',
+          {
+            headers: {
+              'X-Master-Key':
+                '$2b$10$IsQSs7ZB/l0Bk0iHJLKL3erw66z2I9XRlziY4gGLRt6B/9VX9ZFEK',
+            },
+            method: 'GET',
+          }
+        )
+        const data = await res.json()
+        setPhones(data.record.phones)
       } catch (error) {
         setError(error)
       }
@@ -20,7 +29,6 @@ const Cards = ({toggleModal}) => {
     }
     fetchData()
   }, [])
-
 
   if (error) {
     return (
@@ -33,7 +41,9 @@ const Cards = ({toggleModal}) => {
   return (
     <div className="cards flex flex-wrap my-5">
       {!isLoading ? (
-        phones.map((phone) => <Card  key={phone.id} {...phone} toggleModal={toggleModal}/>)
+        phones.map((phone) => (
+          <Card key={phone.id} {...phone} toggleModal={toggleModal} />
+        ))
       ) : (
         <Loader />
       )}
