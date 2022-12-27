@@ -20,9 +20,9 @@ function App() {
     <div className="wrapper relative flex flex-col min-h-screen">
       <Drawer isActive={activeCart} toggleCart={toggleCart} />
       <Header toggleCart={toggleCart} />
-
+      <Search />
       <div className="content flex-1">
-        <Search />
+        
         <Cards toggleModal={toggleModal}/>
       </div>
 

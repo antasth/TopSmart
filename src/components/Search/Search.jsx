@@ -2,9 +2,9 @@ import { BsSearch } from 'react-icons/bs'
 import styles from './Search.module.scss'
 
 const Search = () => {
-   return (
-      <div className={`${styles.search} flex justify-between`}>
-      <h1>Все смартфоны</h1>
+  return (
+    <div className={styles.search}>
+      <h1 className="text-2xl">Смартфоны</h1>
 
       <div className="pt-2 relative  text-gray-600">
         <input
@@ -18,7 +18,7 @@ const Search = () => {
         </button>
       </div>
     </div>
-   );
-};
+  )
+}
 
-export default Search;
+export default Search
