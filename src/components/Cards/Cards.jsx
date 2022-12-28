@@ -17,7 +17,6 @@ const Cards = ({ toggleModal }) => {
               'X-Master-Key':
                 '$2b$10$IsQSs7ZB/l0Bk0iHJLKL3erw66z2I9XRlziY4gGLRt6B/9VX9ZFEK',
             },
-            method: 'GET',
           }
         )
         const data = await res.json()

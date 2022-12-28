@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import { BiHeart } from 'react-icons/bi'
 import styles from './Card.module.scss'
-import Button from '../UI/Button/Button'
+import BuyButton from '../UI/BuyButton/BuyButton'
+import FavoriteButton from '../UI/FavoriteButton/FavoriteButton'
 import MoreButton from '../UI/MoreButton/MoreButton'
 
 const Card = ({
@@ -18,9 +18,10 @@ const Card = ({
   camera,
   battery,
   img,
-  toggleModal
+  toggleModal,
 }) => {
   const [isCardHover, setIsCardHover] = useState(false)
+
 
   const hoverCardOn = () => {
     setIsCardHover(true)
@@ -52,12 +53,10 @@ const Card = ({
       <div className="flex justify-between items-center mt-5">
         <b> 15 999 ₽</b>
         <div className="flex">
-          <Button buttonClass="favoriteButton">
-            <BiHeart />
-          </Button>
-          <Button buttonClass="buyButton" isCardHover={isCardHover}>
+          <FavoriteButton />
+          <BuyButton isCardHover={isCardHover}>
             Купить
-          </Button>
+          </BuyButton>
         </div>
       </div>
     </div>

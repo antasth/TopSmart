@@ -1,0 +1,24 @@
+.favButton {
+   font-size: 20px;
+   padding: 0.4em;
+   opacity: 0.5;
+   color: gray;
+   border: 1px solid gray;
+   border-radius: 0.4em;
+   &:hover {
+     color: gray;
+     background-color: #e8e9e9;
+   }
+ }
+
+ .usedFavButton {
+  border-color: #e74c3c;
+  color: #e74c3c;
+  opacity: 1;
+  &:hover {
+    border-color: #e74c3c;
+    color: #e74c3c;
+    background-color: #fad3d3;
+    opacity: 1;
+  }
+}
