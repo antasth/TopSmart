@@ -22,7 +22,6 @@ const Card = ({
 }) => {
   const [isCardHover, setIsCardHover] = useState(false)
 
-
   const hoverCardOn = () => {
     setIsCardHover(true)
   }
@@ -32,9 +31,9 @@ const Card = ({
 
   return (
     <div
+      className={styles.card}
       onMouseEnter={hoverCardOn}
       onMouseLeave={hoverCardOff}
-      className={styles.card}
     >
       <div className="relative cursor-zoom-in" onClick={toggleModal}>
         <img
@@ -54,9 +53,7 @@ const Card = ({
         <b> 15 999 ₽</b>
         <div className="flex">
           <FavoriteButton />
-          <BuyButton isCardHover={isCardHover}>
-            Купить
-          </BuyButton>
+          <BuyButton isCardHover={isCardHover}>Купить</BuyButton>
         </div>
       </div>
     </div>
