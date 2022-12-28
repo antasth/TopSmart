@@ -1,0 +1,21 @@
+.orderbutton {
+  border: 1px solid #e74c3c;
+  border-radius: 0.6em;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  height: 3rem;
+  width: 100%;
+  color: #fff;
+  background-color: #e74c3c;
+  transition: box-shadow 200ms ease-in-out, color 200ms ease-in-out;
+  &:hover {
+    background-color: #fd5341;
+  }
+}

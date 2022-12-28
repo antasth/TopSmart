@@ -11,7 +11,7 @@ const BuyButton = ({ children, isCardHover }) => {
   return (
     <button
       className={`${styles.buyButton} 
-      ${isCardHover ? styles.buyButton + 'ActiveCard' : ''}
+      ${isCardHover ? styles.buyButton__ActiveCard : ''}
         `}
       onClick={toggleIsUsedState}
     >

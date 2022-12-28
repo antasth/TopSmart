@@ -27,35 +27,19 @@
   text-transform: uppercase;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-}
-
-.buyButton,
-.orderbutton {
   -webkit-transition: box-shadow 200ms ease-in-out, color 200ms ease-in-out;
   transition: box-shadow 200ms ease-in-out, color 200ms ease-in-out;
-}
-.buyButton:hover {
-  color: #fff;
-  outline: 0;
-  box-shadow: 0 0 40px 40px #e74c3c inset;
-  opacity: 1;
-}
-
-.buyButtonActiveCard {
-  color: #fff;
-  outline: 0;
-  box-shadow: 0 0 40px 40px #e74c3c inset;
-  opacity: 1;
-}
-
-.orderbutton {
-  display: block;
-  height: 3rem;
-  width: 100%;
-  color: #fff;
-  background-color: #e74c3c;
   &:hover {
-    background-color: #fd5341;
+    color: #fff;
+    outline: 0;
+    box-shadow: 0 0 40px 40px #e74c3c inset;
+    opacity: 1;
+  }
+  &__ActiveCard {
+    color: #fff;
+    outline: 0;
+    box-shadow: 0 0 40px 40px #e74c3c inset;
+    opacity: 1;
   }
 }
 

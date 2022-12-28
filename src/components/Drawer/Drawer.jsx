@@ -1,5 +1,6 @@
 import { BsX } from 'react-icons/bs'
 import { BiExit } from 'react-icons/bi'
+import OrderButton from '../UI/OrderButton/OrderButton'
 import styles from './Drawer.module.scss'
 
 const Drawer = ({ isActive, toggleCart }) => {
@@ -17,7 +18,7 @@ const Drawer = ({ isActive, toggleCart }) => {
           <div className="cart__header flex justify-between items-center mb-5">
             <h2>Корзина</h2>
             <button className="button grayButton" onClick={toggleCart}>
-              <BiExit  />
+              <BiExit />
             </button>
           </div>
 
@@ -72,7 +73,7 @@ const Drawer = ({ isActive, toggleCart }) => {
             </div>
           </div>
 
-          <button className="button orderbutton"> Оформить заказ</button>
+          <OrderButton />
         </div>
       </div>
     </div>
