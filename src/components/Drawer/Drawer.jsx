@@ -3,13 +3,9 @@ import { BiExit } from 'react-icons/bi'
 import OrderButton from '../UI/OrderButton/OrderButton'
 import styles from './Drawer.module.scss'
 
-const Drawer = ({ isActive, toggleCart }) => {
+const Drawer = ({ toggleCart }) => {
   return (
-    <div
-      style={isActive ? { display: 'block' } : { display: 'none' }}
-      className={styles.overlay}
-      onClick={toggleCart}
-    >
+    <div className={styles.overlay} onClick={toggleCart}>
       <div
         className={`${styles.drawer} flex flex-col justify-between`}
         onClick={(e) => e.stopPropagation()}

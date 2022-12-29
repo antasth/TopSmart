@@ -18,15 +18,13 @@ function App() {
   }
   return (
     <div className="wrapper relative flex flex-col min-h-screen">
-      <Drawer isActive={activeCart} toggleCart={toggleCart} />
+      {activeCart ? <Drawer toggleCart={toggleCart} /> : null}
+      {modal ? <ModalCard toggleModal={toggleModal} /> : null}
       <Header toggleCart={toggleCart} />
       <Search />
       <div className="content flex-1">
-        
-        <Cards toggleModal={toggleModal}/>
+        <Cards toggleModal={toggleModal} />
       </div>
-
-      <ModalCard isActive={modal} toggleModal={toggleModal}/>
       <Footer />
     </div>
   )

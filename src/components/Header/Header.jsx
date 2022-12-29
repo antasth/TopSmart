@@ -15,8 +15,8 @@ const Header = ({ toggleCart }) => {
         <li>
           <BsSearch className="icon" />
         </li>
-        <li>
-          <BsCartPlus className="icon" onClick={toggleCart} />
+        <li onClick={toggleCart}>
+          <BsCartPlus className="icon"  />
           <span> 9999 ₽.</span>
         </li>
         <li>

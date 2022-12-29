@@ -36,7 +36,7 @@ const Card = ({
       onMouseLeave={hoverCardOff}
     >
       <div className="relative cursor-zoom-in" onClick={toggleModal}>
-        
+
         <img
           src={require('../../assets/img/' + img + '/1.jpg')}
           alt="phoneimg"
