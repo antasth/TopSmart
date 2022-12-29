@@ -4,18 +4,18 @@ import styles from './Button.module.scss'
 const BuyButton = ({ children, isCardHover, onBuyClick }) => {
   const [isUsed, setIsUsed] = useState(false)
 
-  const toggleIsUsedState = () => {
+  const changeIsUsedState = () => {
     setIsUsed(!isUsed)
   }
 
   return (
     <button
       className={`${styles.buyButton} 
-      ${isCardHover ? styles.buyButton__ActiveCard : ''}
+      ${isCardHover && styles.buyButton__ActiveCard}
         `}
       onClick={() => {
-        toggleIsUsedState()
-        onBuyClick()
+        !isUsed && onBuyClick()
+        !isUsed && changeIsUsedState()
       }}
     >
       {isUsed ? 'В корзине' : `${children}`}
