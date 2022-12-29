@@ -1,23 +1,26 @@
 .overlay {
-   position: absolute;
-   left: 0;
-   top: 0;
-   width: 100%;
-   height: 100%;
-   background-color: rgba(0, 0, 0, 0.5);
-   z-index: 1;
- }
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
 
 .drawer {
-   position: absolute;
-   width: 450px;
-   padding: 30px;
-   right: 0;
-   background: #f5f8f9;
-   box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.01);
- }
+  position: absolute;
+  width: 450px;
+  padding: 30px;
+  right: 0;
+  background: #f5f8f9;
+  box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.01);
 
- .cartItem {
+	-webkit-animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.cartItem {
   background-color: #fff;
   border-radius: 15px;
   padding: 25px;
@@ -25,5 +28,30 @@
   p,
   b {
     font-size: 0.9rem;
+  }
+}
+
+ @-webkit-keyframes slide-in-top {
+  0% {
+    -webkit-transform: translateY(-1000px);
+            transform: translateY(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-top {
+  0% {
+    -webkit-transform: translateY(-1000px);
+            transform: translateY(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
   }
 }

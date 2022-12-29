@@ -18,9 +18,9 @@ const Drawer = ({ toggleCart }) => {
             </button>
           </div>
 
-          {/* <div className="cartItems mb-10">
+          <div className="cartItems mb-10">
             <div className="cartItem flex justify-between items-center mb-3">
-              <img width={70} src={require('../assets/img/1.jpg')} alt="phone" />
+              <img width={70} src={require('../../assets/img/DEXP/a350_MIX/1.jpg')} alt="phone" />
               <div>
                 <p>POCO M4 Pro 4G 256 ГБ</p>
                 <b>15 999 ₽</b>
@@ -30,7 +30,7 @@ const Drawer = ({ toggleCart }) => {
               </button>
             </div>
             <div className="cartItem flex justify-between items-center mb-3">
-              <img width={70} src={require('../assets/img/1.jpg')} alt="phone" />
+              <img width={70} src={require('../../assets/img/POCO/M4_Pro_4G/1.jpg')} alt="phone" />
               <div>
                 <p>POCO M4 Pro 4G 256 ГБ</p>
                 <b>15 999 ₽</b>
@@ -40,7 +40,7 @@ const Drawer = ({ toggleCart }) => {
               </button>
             </div>
             <div className="cartItem flex justify-between items-center mb-3">
-              <img width={70} src={require('../assets/img/1.jpg')} alt="phone" />
+              <img width={70} src={require('../../assets/img/XIAOMI/XY_NH3/1.jpg')} alt="phone" />
               <div>
                 <p>POCO M4 Pro 4G 256 ГБ</p>
                 <b>15 999 ₽</b>
@@ -49,7 +49,7 @@ const Drawer = ({ toggleCart }) => {
                 <BsX />
               </button>
             </div>
-          </div> */}
+          </div>
         </div>
 
         <div className="fullprice flex flex-col">
