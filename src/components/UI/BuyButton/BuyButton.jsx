@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import styles from './Button.module.scss'
 
-const BuyButton = ({ children, isCardHover }) => {
+const BuyButton = ({ children, isCardHover, onBuyClick }) => {
   const [isUsed, setIsUsed] = useState(false)
 
   const toggleIsUsedState = () => {
@@ -13,7 +13,10 @@ const BuyButton = ({ children, isCardHover }) => {
       className={`${styles.buyButton} 
       ${isCardHover ? styles.buyButton__ActiveCard : ''}
         `}
-      onClick={toggleIsUsedState}
+      onClick={() => {
+        toggleIsUsedState()
+        onBuyClick()
+      }}
     >
       {isUsed ? 'В корзине' : `${children}`}
     </button>

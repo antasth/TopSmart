@@ -4,7 +4,7 @@ import { BiUser, BiHeart } from 'react-icons/bi'
 import styles from './Header.module.scss'
 import Logo from '../UI/Logo/Logo'
 
-const Header = ({ toggleCart }) => {
+const Header = ({ onShowCart }) => {
   return (
     <header className={`${styles.header} flex justify-between py-3 mb-7`}>
       <div className="flex items-center">
@@ -15,7 +15,7 @@ const Header = ({ toggleCart }) => {
         <li>
           <BsSearch className="icon" />
         </li>
-        <li onClick={toggleCart}>
+        <li onClick={onShowCart}>
           <BsCartPlus className="icon"  />
           <span> 9999 ₽.</span>
         </li>

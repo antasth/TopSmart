@@ -18,7 +18,8 @@ const Card = ({
   camera,
   battery,
   img,
-  toggleModal,
+  onImgClick,
+  onBuyClick,
 }) => {
   const [isCardHover, setIsCardHover] = useState(false)
 
@@ -35,8 +36,7 @@ const Card = ({
       onMouseEnter={hoverCardOn}
       onMouseLeave={hoverCardOff}
     >
-      <div className="relative cursor-zoom-in" onClick={toggleModal}>
-
+      <div className="relative cursor-zoom-in" onClick={onImgClick}>
         <img
           src={require('../../assets/img/' + img + '/1.jpg')}
           alt="phoneimg"
@@ -54,7 +54,9 @@ const Card = ({
         <b> 15 999 ₽</b>
         <div className="flex">
           <FavoriteButton />
-          <BuyButton isCardHover={isCardHover}>Купить</BuyButton>
+          <BuyButton isCardHover={isCardHover} onBuyClick={onBuyClick}>
+            Купить
+          </BuyButton>
         </div>
       </div>
     </div>

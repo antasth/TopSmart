@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react'
 import Card from '../Card/Card'
 import Loader from '../Loader/Loader'
 
-const Cards = ({ toggleModal }) => {
-  const [phones, setPhones] = useState(null)
+const Cards = ({ toggleModal, onAddToCart }) => {
+  const [phones, setPhones] = useState([])
   const [error, setError] = useState('')
   const [isLoading, setIsLoading] = useState(true)
 
@@ -41,7 +41,12 @@ const Cards = ({ toggleModal }) => {
     <div className="cards flex flex-wrap my-5">
       {!isLoading ? (
         phones.map((phone) => (
-          <Card key={phone.id} {...phone} toggleModal={toggleModal} />
+          <Card
+            key={phone.id}
+            {...phone}
+            onImgClick={toggleModal}
+            onBuyClick={() => onAddToCart(phone)}
+          />
         ))
       ) : (
         <Loader />

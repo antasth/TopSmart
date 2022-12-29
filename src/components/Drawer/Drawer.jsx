@@ -3,7 +3,7 @@ import { BiExit } from 'react-icons/bi'
 import OrderButton from '../UI/OrderButton/OrderButton'
 import styles from './Drawer.module.scss'
 
-const Drawer = ({ toggleCart }) => {
+const Drawer = ({ toggleCart, cartItems }) => {
   return (
     <div className={styles.overlay} onClick={toggleCart}>
       <div
@@ -14,41 +14,29 @@ const Drawer = ({ toggleCart }) => {
           <div className="cart__header flex justify-between items-center mb-5">
             <h2>Корзина</h2>
             <button className="button grayButton" onClick={toggleCart}>
-              <BiExit />
+              <BiExit className="icon" />
             </button>
           </div>
 
           <div className="cartItems mb-10">
-            <div className="cartItem flex justify-between items-center mb-3">
-              <img width={70} src={require('../../assets/img/DEXP/a350_MIX/1.jpg')} alt="phone" />
-              <div>
-                <p>POCO M4 Pro 4G 256 ГБ</p>
-                <b>15 999 ₽</b>
+            {cartItems.map((item) => (
+              <div key={item.id} className="cartItem flex justify-between items-center mb-3">
+                <img
+                  width={70}
+                  src={require('../../assets/img/' + item.img + '/1.jpg')}
+                  alt="phone"
+                />
+                <div>
+                  <p>
+                    {item.production} {item.model} {item.ram} {item.rom}
+                  </p>
+                  <b>{item.price} ₽</b>
+                </div>
+                <button className="button grayButton">
+                  <BsX />
+                </button>
               </div>
-              <button className="button grayButton">
-                <BsX />
-              </button>
-            </div>
-            <div className="cartItem flex justify-between items-center mb-3">
-              <img width={70} src={require('../../assets/img/POCO/M4_Pro_4G/1.jpg')} alt="phone" />
-              <div>
-                <p>POCO M4 Pro 4G 256 ГБ</p>
-                <b>15 999 ₽</b>
-              </div>
-              <button className="button grayButton">
-                <BsX />
-              </button>
-            </div>
-            <div className="cartItem flex justify-between items-center mb-3">
-              <img width={70} src={require('../../assets/img/XIAOMI/XY_NH3/1.jpg')} alt="phone" />
-              <div>
-                <p>POCO M4 Pro 4G 256 ГБ</p>
-                <b>15 999 ₽</b>
-              </div>
-              <button className="button grayButton">
-                <BsX />
-              </button>
-            </div>
+            ))}
           </div>
         </div>
 

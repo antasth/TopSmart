@@ -9,6 +9,11 @@ import ModalCard from './components/ModalCard/ModalCard'
 function App() {
   const [activeCart, setActiveCart] = useState(false)
   const [modal, setModal] = useState(false)
+  const [cartItems, setCartItems] = useState([])
+
+  const onAddToCart = (item) => {
+    setCartItems([...cartItems, item])
+  }
 
   const toggleCart = () => {
     setActiveCart(!activeCart)
@@ -18,14 +23,15 @@ function App() {
   }
   return (
     <div className="wrapper relative flex flex-col min-h-screen">
-      {activeCart ? <Drawer toggleCart={toggleCart} /> : null}
-      {modal ? <ModalCard toggleModal={toggleModal} /> : null}
-      <Header toggleCart={toggleCart} />
+      <Header onShowCart={toggleCart} />
       <Search />
       <div className="content flex-1">
-        <Cards toggleModal={toggleModal} />
+        <Cards toggleModal={toggleModal} onAddToCart={onAddToCart} />
       </div>
       <Footer />
+
+      {activeCart && <Drawer toggleCart={toggleCart} cartItems={cartItems} />}
+      {modal && <ModalCard toggleModal={toggleModal} />}
     </div>
   )
 }
