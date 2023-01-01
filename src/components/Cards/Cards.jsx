@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import Card from '../Card/Card'
 import Loader from '../Loader/Loader'
 
-const Cards = ({ toggleModal, onAddToCart }) => {
+const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
   const [phones, setPhones] = useState([])
   const [error, setError] = useState('')
   const [isLoading, setIsLoading] = useState(true)
@@ -45,6 +45,7 @@ const Cards = ({ toggleModal, onAddToCart }) => {
             key={phone.id}
             {...phone}
             onImgClick={toggleModal}
+            showCart={toggleCart}
             onBuyClick={() => onAddToCart(phone)}
           />
         ))

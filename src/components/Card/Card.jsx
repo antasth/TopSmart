@@ -20,6 +20,7 @@ const Card = ({
   img,
   onImgClick,
   onBuyClick,
+  showCart
 }) => {
   const [isCardHover, setIsCardHover] = useState(false)
 
@@ -54,7 +55,7 @@ const Card = ({
         <b> 15 999 ₽</b>
         <div className="flex">
           <FavoriteButton />
-          <BuyButton isCardHover={isCardHover} onBuyClick={onBuyClick}>
+          <BuyButton isCardHover={isCardHover} onBuyClick={onBuyClick} showCart={showCart}>
             Купить
           </BuyButton>
         </div>

@@ -26,7 +26,7 @@ function App() {
       <Header onShowCart={toggleCart} />
       <Search />
       <div className="content flex-1">
-        <Cards toggleModal={toggleModal} onAddToCart={onAddToCart} />
+        <Cards toggleModal={toggleModal} toggleCart={toggleCart} onAddToCart={onAddToCart} />
       </div>
       <Footer />
 
