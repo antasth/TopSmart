@@ -18,6 +18,7 @@ const Card = ({
   camera,
   battery,
   img,
+  price,
   onImgClick,
   onBuyClick,
   showCart
@@ -52,7 +53,7 @@ const Card = ({
       </h5>
 
       <div className="flex justify-between items-center mt-5">
-        <b> 15 999 ₽</b>
+        <b> {price} ₽</b>
         <div className="flex">
           <FavoriteButton />
           <BuyButton isCardHover={isCardHover} onBuyClick={onBuyClick} showCart={showCart}>

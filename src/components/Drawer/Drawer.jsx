@@ -3,7 +3,7 @@ import { BiExit } from 'react-icons/bi'
 import OrderButton from '../UI/OrderButton/OrderButton'
 import styles from './Drawer.module.scss'
 
-const Drawer = ({ toggleCart, cartItems }) => {
+const Drawer = ({ toggleCart, deleteItem, cartItems }) => {
   return (
     <div className={styles.overlay} onClick={toggleCart}>
       <div
@@ -36,7 +36,7 @@ const Drawer = ({ toggleCart, cartItems }) => {
                   <b>{item.price} ₽</b>
                 </div>
                 <button className="button grayButton">
-                  <BsX />
+                  <BsX onClick={() => deleteItem(item)}/>
                 </button>
               </div>
             ))}

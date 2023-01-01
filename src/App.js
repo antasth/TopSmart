@@ -14,6 +14,11 @@ function App() {
   const onAddToCart = (item) => {
     setCartItems([...cartItems, item])
   }
+  const deleteItem = (item) => {
+    console.log(cartItems)
+    setCartItems(cartItems.filter((cartItem) => cartItem.id !== item.id))
+    console.log(cartItems)
+  }
 
   const toggleCart = () => {
     setActiveCart(!activeCart)
@@ -26,11 +31,21 @@ function App() {
       <Header onShowCart={toggleCart} />
       <Search />
       <div className="content flex-1">
-        <Cards toggleModal={toggleModal} toggleCart={toggleCart} onAddToCart={onAddToCart} />
+        <Cards
+          toggleModal={toggleModal}
+          toggleCart={toggleCart}
+          onAddToCart={onAddToCart}
+        />
       </div>
       <Footer />
 
-      {activeCart && <Drawer toggleCart={toggleCart} cartItems={cartItems} />}
+      {activeCart && (
+        <Drawer
+          toggleCart={toggleCart}
+          cartItems={cartItems}
+          deleteItem={deleteItem}
+        />
+      )}
       {modal && <ModalCard toggleModal={toggleModal} />}
     </div>
   )
