@@ -1,36 +1,38 @@
 import { useState, useEffect } from 'react'
+import { getPagesCount } from '../../Utils/Pages'
 import Card from '../Card/Card'
 import Loader from '../Loader/Loader'
+import Pagination from '../Pagination/Pagination'
 
 const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
-  const [phones, setPhones] = useState([])
   const [error, setError] = useState('')
   const [isLoading, setIsLoading] = useState(true)
   const [allBrands, setAllBrands] = useState([])
-  const [gsmArenaBrand, setGsmArenaBrand] = useState([])
-  let allDeviceList =[]
+  const [page, setPage] = useState(1)
+  const [totalPages, setTotalPages] = useState(0)
+  let allDeviceList = []
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       let raw = "{\n    \"route\": \"device-detail\",\n    \"key\": \"apple_iphone_13_pro_max-11089\"\n}";
- 
-  //       let requestOptions = {
-  //         method: 'POST',
-  //         body: raw,
-  //         redirect: 'follow'
-  //       };
-         
-  //       const res = await fetch("https://script.google.com/macros/s/AKfycbxNu27V2Y2LuKUIQMK8lX1y0joB6YmG6hUwB1fNeVbgzEh22TcDGrOak03Fk3uBHmz-/exec", requestOptions)
-  //         const data = await res.json()
-  //       setGsmArena(data.data)
-  //     } catch (error) {
-  //       setError(error)
-  //     }
-  //   }
-  //   fetchData()
-  // }, [])
-  // console.log(`gsmArena`, gsmArena)
+  const changePage = (page) => {
+    setPage(page)
+  }
+  const changeTotalPages = () => {
+    setTotalPages(getPagesCount(allDeviceList.length, 20))
+
+    console.log(getPagesCount(allDeviceList.length, 20))
+  }
+
+  const getAllDevicesList = (allBrands, callback) => {
+    allBrands.map(
+      (brand) =>
+        (allDeviceList = [
+          ...allDeviceList,
+          ...brand.device_list.map(
+            (device) => (device = { ...device, brand_name: brand.brand_name })
+          ),
+        ])
+    )
+    callback()
+  }
 
   // useEffect(() => {
   //   const fetchData = async () => {
@@ -57,31 +59,27 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
   // All Brands
   useEffect(() => {
     const fetchData = async () => {
-    var raw = "{\n    \"route\": \"device-list-by-brand\",\n    \"brand_id\": 80,\n    \"brand_name\": \"xiaomi\",\n    \"page\": 1\n}";
- 
-    var requestOptions = {
-      method: 'GET',
-      redirect: 'follow'
-    };
-     
-   const res = await fetch("https://script.google.com/macros/s/AKfycbxNu27V2Y2LuKUIQMK8lX1y0joB6YmG6hUwB1fNeVbgzEh22TcDGrOak03Fk3uBHmz-/exec?route=device-list", requestOptions)
-   const data = await res.json()
-  //  console.log(data.data);
-   setAllBrands(data.data)
-  }
-  fetchData()
-  // console.log(gsmArenaBrand);
+      let requestOptions = {
+        method: 'GET',
+        redirect: 'follow',
+      }
+      const res = await fetch(
+        'https://script.google.com/macros/s/AKfycbxNu27V2Y2LuKUIQMK8lX1y0joB6YmG6hUwB1fNeVbgzEh22TcDGrOak03Fk3uBHmz-/exec?route=device-list',
+        requestOptions
+      )
+      const json = await res.json()
+      console.log(json.status)
+      setAllBrands(json.data)
+    }
+    fetchData()
+    getAllDevicesList(allBrands, changeTotalPages)
   }, [])
-console.log('allBrands', allBrands);
+  // console.log('allBrands', allBrands)
 
+  // setTotalPages(getPagesCount(allDeviceList.length, 20))
+  // console.log(allDeviceList.length)
 
-// allBrands.map(brand => brand.price = brand.brand_name)
-// console.log(allBrands)
-
-  allBrands.map(brand =>  allDeviceList = [...allDeviceList, ...brand.device_list.map(device => device = {...device, brand_name: brand.brand_name} )])
-
-  console.log('allDeviceList', allDeviceList);
-  // allDeviceList.map(device => console.log(device.device_name))
+  // console.log('allDeviceList', allDeviceList)
 
   if (error) {
     return (
@@ -107,7 +105,6 @@ console.log('allBrands', allBrands);
         <Loader />
       )} */}
 
-
       {/* {!isLoading ? (
         phones.map((phone) => (
           <Card
@@ -121,6 +118,7 @@ console.log('allBrands', allBrands);
       ) : (
         <Loader />
       )} */}
+      <Pagination changePage={changePage} totalPages={totalPages} page={page} />
     </div>
   )
 }
