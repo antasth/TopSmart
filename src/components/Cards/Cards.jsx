@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { getPagesCount } from '../../Utils/Pages'
 import Card from '../Card/Card'
 import Loader from '../Loader/Loader'
@@ -72,8 +72,17 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
       setAllBrands(json.data)
     }
     fetchData()
-    getAllDevicesList(allBrands, changeTotalPages)
   }, [])
+
+  const didMount = useRef(false)
+  useEffect(() => {
+    if (didMount.current) {
+      getAllDevicesList(allBrands, changeTotalPages)
+    } else {
+      didMount.current = true
+    }
+  }, [allBrands])
+
   // console.log('allBrands', allBrands)
 
   // setTotalPages(getPagesCount(allDeviceList.length, 20))
