@@ -9,18 +9,18 @@ const BuyButton = ({ children, isCardHover, onBuyClick, showCart }) => {
   }
 
   return (
-    <button
-      className={`${styles.buyButton} 
+      <button
+        className={`${styles.buyButton} 
       ${isCardHover && styles.buyButton__ActiveCard}
         `}
-      onClick={() => {
-        !isUsed && onBuyClick()
-        !isUsed && changeIsUsedState()
-        isUsed && showCart()
-      }}
-    >
-      {isUsed ? 'В корзине' : `${children}`}
-    </button>
+        onClick={() => {
+          !isUsed && onBuyClick()
+          !isUsed && changeIsUsedState()
+          isUsed && showCart()
+        }}
+      >
+        {isUsed ? 'В корзине' : `${children}`}
+      </button>
   )
 }
 

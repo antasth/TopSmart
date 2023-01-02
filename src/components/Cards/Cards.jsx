@@ -6,28 +6,82 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
   const [phones, setPhones] = useState([])
   const [error, setError] = useState('')
   const [isLoading, setIsLoading] = useState(true)
+  const [allBrands, setAllBrands] = useState([])
+  const [gsmArenaBrand, setGsmArenaBrand] = useState([])
+  let allDeviceList =[]
 
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       let raw = "{\n    \"route\": \"device-detail\",\n    \"key\": \"apple_iphone_13_pro_max-11089\"\n}";
+ 
+  //       let requestOptions = {
+  //         method: 'POST',
+  //         body: raw,
+  //         redirect: 'follow'
+  //       };
+         
+  //       const res = await fetch("https://script.google.com/macros/s/AKfycbxNu27V2Y2LuKUIQMK8lX1y0joB6YmG6hUwB1fNeVbgzEh22TcDGrOak03Fk3uBHmz-/exec", requestOptions)
+  //         const data = await res.json()
+  //       setGsmArena(data.data)
+  //     } catch (error) {
+  //       setError(error)
+  //     }
+  //   }
+  //   fetchData()
+  // }, [])
+  // console.log(`gsmArena`, gsmArena)
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const res = await fetch(
+  //         'https://api.jsonbin.io/v3/b/63a46723dfc68e59d56ea726',
+  //         {
+  //           headers: {
+  //             'X-Master-Key':
+  //               '$2b$10$IsQSs7ZB/l0Bk0iHJLKL3erw66z2I9XRlziY4gGLRt6B/9VX9ZFEK',
+  //           },
+  //         }
+  //       )
+  //       const data = await res.json()
+  //       setPhones(data.record.phones)
+  //     } catch (error) {
+  //       setError(error)
+  //     }
+  //     setIsLoading(false)
+  //   }
+  //   fetchData()
+  // }, [])
+
+  // All Brands
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const res = await fetch(
-          'https://api.jsonbin.io/v3/b/63a46723dfc68e59d56ea726',
-          {
-            headers: {
-              'X-Master-Key':
-                '$2b$10$IsQSs7ZB/l0Bk0iHJLKL3erw66z2I9XRlziY4gGLRt6B/9VX9ZFEK',
-            },
-          }
-        )
-        const data = await res.json()
-        setPhones(data.record.phones)
-      } catch (error) {
-        setError(error)
-      }
-      setIsLoading(false)
-    }
-    fetchData()
+    var raw = "{\n    \"route\": \"device-list-by-brand\",\n    \"brand_id\": 80,\n    \"brand_name\": \"xiaomi\",\n    \"page\": 1\n}";
+ 
+    var requestOptions = {
+      method: 'GET',
+      redirect: 'follow'
+    };
+     
+   const res = await fetch("https://script.google.com/macros/s/AKfycbxNu27V2Y2LuKUIQMK8lX1y0joB6YmG6hUwB1fNeVbgzEh22TcDGrOak03Fk3uBHmz-/exec?route=device-list", requestOptions)
+   const data = await res.json()
+  //  console.log(data.data);
+   setAllBrands(data.data)
+  }
+  fetchData()
+  // console.log(gsmArenaBrand);
   }, [])
+console.log('allBrands', allBrands);
+
+
+// allBrands.map(brand => brand.price = brand.brand_name)
+// console.log(allBrands)
+
+  allBrands.map(brand =>  allDeviceList = [...allDeviceList, ...brand.device_list.map(device => device = {...device, brand_name: brand.brand_name} )])
+
+  console.log('allDeviceList', allDeviceList);
+  // allDeviceList.map(device => console.log(device.device_name))
 
   if (error) {
     return (
@@ -39,7 +93,22 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
 
   return (
     <div className="cards flex flex-wrap my-5">
-      {!isLoading ? (
+      {/* {!isLoading ? (
+        allDeviceList.map((device) => (
+          <Card
+            key={device.key}
+            {...device}
+            onImgClick={toggleModal}
+            showCart={toggleCart}
+            onBuyClick={() => onAddToCart(device)}
+          />
+        ))
+      ) : (
+        <Loader />
+      )} */}
+
+
+      {/* {!isLoading ? (
         phones.map((phone) => (
           <Card
             key={phone.id}
@@ -51,7 +120,7 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
         ))
       ) : (
         <Loader />
-      )}
+      )} */}
     </div>
   )
 }

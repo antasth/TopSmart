@@ -5,20 +5,22 @@ import FavoriteButton from '../UI/FavoriteButton/FavoriteButton'
 import MoreButton from '../UI/MoreButton/MoreButton'
 
 const Card = ({
-  display,
-  production,
-  model,
-  ram,
-  rom,
-  color,
-  proc,
-  procModel,
-  simCount,
-  displaySize,
-  camera,
-  battery,
-  img,
-  price,
+  device_name,
+  device_image,
+  // display,
+  // production,
+  // model,
+  // ram,
+  // rom,
+  // color,
+  // proc,
+  // procModel,
+  // simCount,
+  // displaySize,
+  // camera,
+  // battery,
+  // img,
+  // price,
   onImgClick,
   onBuyClick,
   showCart
@@ -40,20 +42,23 @@ const Card = ({
     >
       <div className="relative cursor-zoom-in" onClick={onImgClick}>
         <img
-          src={require('../../assets/img/' + img + '/1.jpg')}
+          // src={require('../../assets/img/' + img + '/1.jpg')}
+          src={device_image}
           alt="phoneimg"
         />
         <MoreButton isCardHover={isCardHover} />
       </div>
 
       <h5 className="mt-4">
-        "{display} Смартфон {production} {model} {color} [{proc} {procModel}{' '}
+        "{device_name}
+         {/* Смартфон {production} {model} {color} [{proc} {procModel}{' '}
         {ram}, {rom} {simCount} SIM, {displaySize}, камера {camera}, {battery}{' '}
-        мА*ч]
+        мА*ч] */}
       </h5>
 
       <div className="flex justify-between items-center mt-5">
-        <b> {price} ₽</b>
+        {/* <b> {price} ₽</b> */}
+        <b> 111 ₽</b>
         <div className="flex">
           <FavoriteButton />
           <BuyButton isCardHover={isCardHover} onBuyClick={onBuyClick} showCart={showCart}>
