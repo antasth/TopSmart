@@ -4,27 +4,16 @@ import BuyButton from '../UI/BuyButton/BuyButton'
 import FavoriteButton from '../UI/FavoriteButton/FavoriteButton'
 import MoreButton from '../UI/MoreButton/MoreButton'
 
-const Card = ({
+const Card = (
+{  // props
+  brand_name,
   device_name,
   device_image,
-  // display,
-  // production,
-  // model,
-  // ram,
-  // rom,
-  // color,
-  // proc,
-  // procModel,
-  // simCount,
-  // displaySize,
-  // camera,
-  // battery,
-  // img,
-  // price,
-  onImgClick,
-  onBuyClick,
-  showCart
-}) => {
+  // onImgClick,
+  // onBuyClick,
+  // showCart
+}
+) => {
   const [isCardHover, setIsCardHover] = useState(false)
 
   const hoverCardOn = () => {
@@ -33,14 +22,16 @@ const Card = ({
   const hoverCardOff = () => {
     setIsCardHover(false)
   }
-
+  // console.log('CARD',props)
   return (
     <div
       className={styles.card}
       onMouseEnter={hoverCardOn}
       onMouseLeave={hoverCardOff}
     >
-      <div className="relative cursor-zoom-in" onClick={onImgClick}>
+      <div className="relative cursor-zoom-in" 
+      // onClick={onImgClick}
+      >
         <img
           // src={require('../../assets/img/' + img + '/1.jpg')}
           src={device_image}
@@ -50,7 +41,7 @@ const Card = ({
       </div>
 
       <h5 className="mt-4">
-        "{device_name}
+        {brand_name} {device_name}
          {/* Смартфон {production} {model} {color} [{proc} {procModel}{' '}
         {ram}, {rom} {simCount} SIM, {displaySize}, камера {camera}, {battery}{' '}
         мА*ч] */}
@@ -61,9 +52,9 @@ const Card = ({
         <b> 111 ₽</b>
         <div className="flex">
           <FavoriteButton />
-          <BuyButton isCardHover={isCardHover} onBuyClick={onBuyClick} showCart={showCart}>
+          {/* <BuyButton isCardHover={isCardHover} onBuyClick={onBuyClick} showCart={showCart}>
             Купить
-          </BuyButton>
+          </BuyButton> */}
         </div>
       </div>
     </div>

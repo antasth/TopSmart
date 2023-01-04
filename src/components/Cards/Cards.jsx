@@ -10,29 +10,58 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
   const [allBrands, setAllBrands] = useState([])
   const [page, setPage] = useState(1)
   const [totalPages, setTotalPages] = useState(0)
-  let allDeviceList = []
+  let allDevices = []
+  const [allDeviceList, setAllDeviceList] = useState([])
+  const itemsOnPage = 20
 
   const changePage = (page) => {
-    setPage(page)
+    console.log(page)
+    page > 0 && setPage(page)
   }
   const changeTotalPages = () => {
-    setTotalPages(getPagesCount(allDeviceList.length, 20))
-
-    console.log(getPagesCount(allDeviceList.length, 20))
+    // setTotalPages(getPagesCount(allDeviceList.length, itemsOnPage))
+    // console.log(allDeviceList.length)
+    // console.log('allBrands', allBrands)
+    setAllDeviceList(allDevices)
+    // console.log('allDeviceList finally', allDeviceList);
   }
 
   const getAllDevicesList = (allBrands, callback) => {
+    console.log('allDeviceList function')
     allBrands.map(
       (brand) =>
-        (allDeviceList = [
-          ...allDeviceList,
+        (allDevices = ([
+          ...allDevices,
           ...brand.device_list.map(
             (device) => (device = { ...device, brand_name: brand.brand_name })
           ),
-        ])
+        ]))
     )
     callback()
   }
+
+// let allDev = []
+  // allDeviceList.map (
+  //   brand => 
+  // let allDev = brand.reduce(function(prev, curr) { 
+  //     return [...prev, ...curr.device_list]
+  //   })
+  // )
+
+  // const getAllDevicesList = (allDevices, callback) => {
+  //   allDevices.map(
+  //     (brand) =>
+  //       (setAllDeviceList ([
+  //         ...allDeviceList,
+  //         ...brand.device_list
+  //         .map(
+  //           (device) => (device = { ...device, brand_name: brand.brand_name })
+  //         ),
+  //       ]))
+  //   )
+  //   console.log('device List is ready', allDeviceList)
+  //   callback()
+  // }
 
   // useEffect(() => {
   //   const fetchData = async () => {
@@ -53,23 +82,32 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
   //     }
   //     setIsLoading(false)
   //   }
-  //   fetchData()
+  // fetchData()
   // }, [])
 
   // All Brands
   useEffect(() => {
     const fetchData = async () => {
-      let requestOptions = {
-        method: 'GET',
-        redirect: 'follow',
+      try {
+        let requestOptions = {
+          method: 'GET',
+          redirect: 'follow',
+        }
+        const res = await fetch(
+          'https://script.google.com/macros/s/AKfycbxNu27V2Y2LuKUIQMK8lX1y0joB6YmG6hUwB1fNeVbgzEh22TcDGrOak03Fk3uBHmz-/exec?route=device-list',
+          requestOptions
+        )
+        const json = await res.json()
+        console.log(json.status)
+        setAllBrands(json.data)
+        // console.log('allBrands complete')
+        // getAllDevicesList(allBrands, changeTotalPages)
+        // console.log('allDeviceList', allDeviceList)
+        // console.log('allBrands', allBrands)
+      } catch (error) {
+        setError(error)
       }
-      const res = await fetch(
-        'https://script.google.com/macros/s/AKfycbxNu27V2Y2LuKUIQMK8lX1y0joB6YmG6hUwB1fNeVbgzEh22TcDGrOak03Fk3uBHmz-/exec?route=device-list',
-        requestOptions
-      )
-      const json = await res.json()
-      console.log(json.status)
-      setAllBrands(json.data)
+      setIsLoading(false)
     }
     fetchData()
   }, [])
@@ -83,13 +121,6 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
     }
   }, [allBrands])
 
-  // console.log('allBrands', allBrands)
-
-  // setTotalPages(getPagesCount(allDeviceList.length, 20))
-  // console.log(allDeviceList.length)
-
-  // console.log('allDeviceList', allDeviceList)
-
   if (error) {
     return (
       <h1 className="mt-20">
@@ -98,21 +129,30 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
     )
   }
 
+  // const array = [1,2,4,5,7,44,3,2,3]
   return (
     <div className="cards flex flex-wrap my-5">
-      {/* {!isLoading ? (
-        allDeviceList.map((device) => (
-          <Card
-            key={device.key}
-            {...device}
-            onImgClick={toggleModal}
-            showCart={toggleCart}
-            onBuyClick={() => onAddToCart(device)}
-          />
-        ))
-      ) : (
+      {/* {console.log('render', allDeviceList)} */}
+      {/* <Card {...allDeviceList} /> */}
+      {!isLoading ? (
+        // console.log('try to render cards', allDeviceList.length)
+      
+        // (
+        allDeviceList
+          .slice(0, 60)
+          .map((device) => (
+        <Card
+          key={device.key}
+          // brand_name={device.brand_name}
+          {...device}
+          onImgClick={toggleModal}
+          showCart={toggleCart}
+          onBuyClick={() => onAddToCart(device)}
+        />
+        )
+        )) :
         <Loader />
-      )} */}
+      }
 
       {/* {!isLoading ? (
         phones.map((phone) => (
@@ -127,7 +167,8 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
       ) : (
         <Loader />
       )} */}
-      <Pagination changePage={changePage} totalPages={totalPages} page={page} />
+      <Pagination changePage={changePage} totalPages={166} page={page} />
+      {/* <Pagination /> */}
     </div>
   )
 }
