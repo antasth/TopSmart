@@ -1,10 +1,10 @@
-// import { FcTwoSmartphones } from 'react-icons/fc'
 import { BsCartPlus, BsSearch } from 'react-icons/bs'
 import { BiUser, BiHeart } from 'react-icons/bi'
 import styles from './Header.module.scss'
 import Logo from '../UI/Logo/Logo'
 
 const Header = ({ onShowCart }) => {
+
   return (
     <header className={`${styles.header} flex justify-between py-3 mb-7`}>
       <div className="flex items-center">
@@ -16,7 +16,7 @@ const Header = ({ onShowCart }) => {
           <BsSearch className="icon" />
         </li>
         <li onClick={onShowCart}>
-          <BsCartPlus className="icon"  />
+          <BsCartPlus className="icon" />
           <span> 9999 ₽.</span>
         </li>
         <li>

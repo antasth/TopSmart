@@ -38,12 +38,14 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
           method: 'GET',
           redirect: 'follow',
         }
-        fetch(
+       const res = await fetch(
           'https://script.google.com/macros/s/AKfycbxNu27V2Y2LuKUIQMK8lX1y0joB6YmG6hUwB1fNeVbgzEh22TcDGrOak03Fk3uBHmz-/exec?route=device-list',
           requestOptions
         )
-          .then((res) => res.json())
-          .then((json) => setAllBrands(json.data))
+          // .then((res) => res.json())
+          // .then((json) => setAllBrands(json.data))
+          const json = await res.json()
+          setAllBrands(json.data)
       } catch (error) {
         setError(error)
       }
