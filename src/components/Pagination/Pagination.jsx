@@ -1,24 +1,4 @@
 import { getPagesArray } from '../../Utils/Pages'
-import styles from './Pagination.module.scss'
-
-// const Pagination = ({ totalPages, page, changePage }) => {
-//   let pagesArray = getPagesArray(totalPages)
-//   return (
-//     <div className={styles.pages__wrapper}>
-//       {pagesArray.map((p) => (
-//         <span
-//           key={p}
-//           onClick={() => changePage(p)}
-//           className={
-//             page === p ? `${styles.page} ${styles.page__current}` : styles.page
-//           }
-//         >
-//           {p}
-//         </span>
-//       ))}
-//     </div>
-//   )
-// }
 
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid'
 
@@ -85,46 +65,6 @@ const Pagination = ({ totalPages, page, changePage }) => {
                 </a>
               ) : null
             )}
-
-            {/* <a
-              href="/#"
-              className="relative inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20"
-            >
-              2
-            </a>
-            <a
-              href="//#"
-              className="relative hidden items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20 md:inline-flex"
-            >
-              3
-            </a>
-            <a
-              href="//#"
-              className="relative hidden items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20 md:inline-flex"
-            >
-              4
-            </a>
-            <a
-              href="//#"
-              className="relative hidden items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20 md:inline-flex"
-            >
-              5
-            </a> */}
-            {/* <span className="relative inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700">
-              ...
-            </span> */}
-            {/* <a
-              href="/#"
-              className="relative inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20"
-            >
-              {totalPages - 1}
-            </a> */}
-            {/* <a
-              href="/#"
-              className="relative inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20"
-            >
-              {totalPages}
-            </a> */}
             <a
               href="/#"
               className="relative inline-flex items-center rounded-r-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20"
