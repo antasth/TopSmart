@@ -19,7 +19,7 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
 
   const getAllDevicesList = (data, callback) => {
     const allDevices = data.reduce((acc, brand) => {
-      const devices = brand.device_list.map((device) => ({
+      const devices = brand.device_list.slice(0, 3).map((device) => ({
         ...device,
         full_name: `${brand.brand_name} ${device.device_name}`,
       }))

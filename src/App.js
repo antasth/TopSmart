@@ -15,7 +15,7 @@ function App() {
     setCartItems([...cartItems, item])
   }
   const deleteItem = (item) => {
-    setCartItems(cartItems.filter((cartItem) => cartItem.id !== item.id))
+    setCartItems(cartItems.filter((cartItem) => cartItem.device_id !== item.device_id))
   }
 
   const toggleCart = () => {

@@ -21,19 +21,20 @@ const Drawer = ({ toggleCart, deleteItem, cartItems }) => {
           <div className="cartItems mb-10">
             {cartItems.map((item) => (
               <div
-                key={item.id}
+                key={item.key}
                 className="cartItem flex justify-between items-center mb-3"
               >
                 <img
                   width={70}
-                  src={require('../../assets/img/' + item.img + '/1.jpg')}
+                  // src={require('../../assets/img/' + item.img + '/1.jpg')}
+                  src={item.device_image}
                   alt="phone"
                 />
                 <div>
                   <p>
-                    {item.production} {item.model} {item.ram} {item.rom}
+                    {item.full_name} 
                   </p>
-                  <b>{item.price} ₽</b>
+                  {/* <b>{item.price} ₽</b> */}
                 </div>
                 <button className="button grayButton">
                   <BsX
@@ -69,11 +70,11 @@ const Drawer = ({ toggleCart, deleteItem, cartItems }) => {
                 17999 ₽
               </div> */}
               <div className="price__current font-bold text-xl leading-4 ">
-                {cartItems.reduce(
+                {/* {cartItems.reduce(
                   (acc, curr) => acc + Number(curr.price.replace(/ /g, '')),
                   0
-                )}{' '}
-                ₽
+                )}{' '} */}
+                100 ₽
               </div>
             </div>
           </div>
