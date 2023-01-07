@@ -14,13 +14,12 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
   const itemsOnPage = 20
 
   const changePage = (page) => {
-    console.log(page)
-    page > 0 && setPage(page)
+    if (page > 0 && page <= totalPages) setPage(page)
   }
 
   const getAllDevicesList = (data, callback) => {
     const allDevices = data.reduce((acc, brand) => {
-      const devices = brand.device_list.map((device) => ({
+      const devices = brand.device_list.slice(0, 2).map((device) => ({
         ...device,
         full_name: `${brand.brand_name} ${device.device_name}`,
       }))
