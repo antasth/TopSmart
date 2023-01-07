@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { getPagesCount } from '../../Utils/Pages'
+import { getPagesCount, shuffleArray } from '../../Utils/Pages'
 import Card from '../Card/Card'
 import Loader from '../Loader/Loader'
 import Pagination from '../Pagination/Pagination'
@@ -19,13 +19,13 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
 
   const getAllDevicesList = (data, callback) => {
     const allDevices = data.reduce((acc, brand) => {
-      const devices = brand.device_list.slice(0, 2).map((device) => ({
+      const devices = brand.device_list.map((device) => ({
         ...device,
         full_name: `${brand.brand_name} ${device.device_name}`,
       }))
       return acc.concat(devices)
     }, [])
-
+    shuffleArray(allDevices)
     setAllDeviceList(allDevices)
     callback(allDevices.length)
   }

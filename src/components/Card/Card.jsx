@@ -6,8 +6,7 @@ import MoreButton from '../UI/MoreButton/MoreButton'
 
 const Card = (
 {  // props
-  brand_name,
-  device_name,
+  full_name,
   device_image,
   onImgClick,
   onBuyClick,
@@ -41,7 +40,7 @@ const Card = (
       </div>
 
       <h5 className="mt-4">
-        {brand_name} {device_name}
+        {full_name} 
          {/* Смартфон {production} {model} {color} [{proc} {procModel}{' '}
         {ram}, {rom} {simCount} SIM, {displaySize}, камера {camera}, {battery}{' '}
         мА*ч] */}
