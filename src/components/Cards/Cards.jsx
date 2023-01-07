@@ -20,7 +20,7 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
 
   const getAllDevicesList = (data, callback) => {
     const allDevices = data.reduce((acc, brand) => {
-      const devices = brand.device_list.slice(0, 1).map((device) => ({
+      const devices = brand.device_list.map((device) => ({
         ...device,
         full_name: `${brand.brand_name} ${device.device_name}`,
       }))
@@ -38,14 +38,14 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
           method: 'GET',
           redirect: 'follow',
         }
-       const res = await fetch(
+        const res = await fetch(
           'https://script.google.com/macros/s/AKfycbxNu27V2Y2LuKUIQMK8lX1y0joB6YmG6hUwB1fNeVbgzEh22TcDGrOak03Fk3uBHmz-/exec?route=device-list',
           requestOptions
         )
-          // .then((res) => res.json())
-          // .then((json) => setAllBrands(json.data))
-          const json = await res.json()
-          setAllBrands(json.data)
+        // .then((res) => res.json())
+        // .then((json) => setAllBrands(json.data))
+        const json = await res.json()
+        setAllBrands(json.data)
       } catch (error) {
         setError(error)
       }
@@ -78,7 +78,7 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
       <div className="cards flex flex-wrap my-5">
         {!isLoading ? (
           allDeviceList
-            .slice(0, 19)
+            .slice(page * itemsOnPage - itemsOnPage, page * itemsOnPage)
             .map((device) => (
               <Card
                 key={device.key}
@@ -92,7 +92,13 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
           <Loader />
         )}
       </div>
-      <Pagination changePage={changePage} totalPages={totalPages} page={page} />
+      {!isLoading && (
+        <Pagination
+          changePage={changePage}
+          totalPages={totalPages}
+          page={page}
+        />
+      )}
     </>
   )
 }

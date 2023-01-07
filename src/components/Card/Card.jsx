@@ -9,9 +9,9 @@ const Card = (
   brand_name,
   device_name,
   device_image,
-  // onImgClick,
-  // onBuyClick,
-  // showCart
+  onImgClick,
+  onBuyClick,
+  showCart
 }
 ) => {
   const [isCardHover, setIsCardHover] = useState(false)
@@ -30,7 +30,7 @@ const Card = (
       onMouseLeave={hoverCardOff}
     >
       <div className="relative cursor-zoom-in" 
-      // onClick={onImgClick}
+      onClick={onImgClick}
       >
         <img
           // src={require('../../assets/img/' + img + '/1.jpg')}
@@ -52,9 +52,9 @@ const Card = (
         <b> 111 ₽</b>
         <div className="flex">
           <FavoriteButton />
-          {/* <BuyButton isCardHover={isCardHover} onBuyClick={onBuyClick} showCart={showCart}>
+          <BuyButton isCardHover={isCardHover} onBuyClick={onBuyClick} showCart={showCart}>
             Купить
-          </BuyButton> */}
+          </BuyButton>
         </div>
       </div>
     </div>
