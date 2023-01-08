@@ -15,7 +15,10 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
   const itemsOnPage = 12
 
   const changePage = (page) => {
-    if (page > 0 && page <= totalPages) setPage(page)
+    if (page > 0 && page <= totalPages) {
+      setPage(page)
+      setDevicesData([])
+    }
   }
   // Функция преобразовывает массив брендов в массив устройств
   const getAllDevicesList = (data, callback) => {
@@ -65,8 +68,8 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
   useEffect(() => {
     getDeviceDetails()
   }, [page])
-  
-// Функция делает запрос по деталям устройства
+
+  // Функция делает запрос по деталям устройства
   const fetchDeviceDetails = (device) => {
     let raw = `{\n    "route": "device-detail",\n    "key": "${device}"\n}`
 
