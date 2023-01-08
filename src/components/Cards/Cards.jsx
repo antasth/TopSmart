@@ -9,6 +9,7 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
   const [isLoading, setIsLoading] = useState(true)
   const [allBrands, setAllBrands] = useState([])
   const [page, setPage] = useState(0)
+  const [devicesData, setDevicesData] = useState([])
   const [totalPages, setTotalPages] = useState(0)
   const [allDeviceList, setAllDeviceList] = useState([])
   const itemsOnPage = 12
@@ -53,20 +54,21 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
     fetchData()
   }, [])
 
-// Функция собирает ключи от устройств на текущей странице
+  // Функция собирает ключи от устройств на текущей странице
   const getDeviceDetails = () => {
     const devicesKeysOnPage = allDeviceList
       .slice(page * itemsOnPage - itemsOnPage, page * itemsOnPage)
       .reduce((acc, device) => [...acc, device.key], [])
+    devicesKeysOnPage.map((key) => fetchDeviceDetails(key))
   }
 
   useEffect(() => {
     getDeviceDetails()
   }, [page])
-
+  
+// Функция делает запрос по деталям устройства
   const fetchDeviceDetails = (device) => {
-    let raw =
-      '{\n    "route": "device-detail",\n    "key": "apple_iphone_13_pro_max-11089"\n}'
+    let raw = `{\n    "route": "device-detail",\n    "key": "${device}"\n}`
 
     let requestOptions = {
       method: 'POST',
@@ -78,8 +80,10 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
       'https://script.google.com/macros/s/AKfycbxNu27V2Y2LuKUIQMK8lX1y0joB6YmG6hUwB1fNeVbgzEh22TcDGrOak03Fk3uBHmz-/exec',
       requestOptions
     )
-      .then((response) => response.text())
-      .then((result) => console.log(result))
+      .then((response) => response.json())
+      .then((result) =>
+        setDevicesData((prevState) => [...prevState, result.data])
+      )
       .catch((error) => console.log('error', error))
   }
 
