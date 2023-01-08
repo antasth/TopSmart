@@ -15,7 +15,9 @@ function App() {
     setCartItems([...cartItems, item])
   }
   const deleteItem = (item) => {
-    setCartItems(cartItems.filter((cartItem) => cartItem.device_id !== item.device_id))
+    setCartItems(
+      cartItems.filter((cartItem) => cartItem.device_id !== item.device_id)
+    )
   }
 
   const toggleCart = () => {
@@ -38,11 +40,11 @@ function App() {
       <Footer />
 
       {activeCart && (
-          <Drawer
-            toggleCart={toggleCart}
-            cartItems={cartItems}
-            deleteItem={deleteItem}
-          />
+        <Drawer
+          toggleCart={toggleCart}
+          cartItems={cartItems}
+          deleteItem={deleteItem}
+        />
       )}
       {modal && <ModalCard toggleModal={toggleModal} />}
     </div>

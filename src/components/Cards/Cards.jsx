@@ -8,15 +8,15 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
   const [error, setError] = useState('')
   const [isLoading, setIsLoading] = useState(true)
   const [allBrands, setAllBrands] = useState([])
-  const [page, setPage] = useState(1)
+  const [page, setPage] = useState(0)
   const [totalPages, setTotalPages] = useState(0)
   const [allDeviceList, setAllDeviceList] = useState([])
-  const itemsOnPage = 20
+  const itemsOnPage = 12
 
   const changePage = (page) => {
     if (page > 0 && page <= totalPages) setPage(page)
   }
-
+  // Функция преобразовывает массив брендов в массив устройств
   const getAllDevicesList = (data, callback) => {
     const allDevices = data.reduce((acc, brand) => {
       const devices = brand.device_list.slice(0, 3).map((device) => ({
@@ -53,12 +53,43 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
     fetchData()
   }, [])
 
+// Функция собирает ключи от устройств на текущей странице
+  const getDeviceDetails = () => {
+    const devicesKeysOnPage = allDeviceList
+      .slice(page * itemsOnPage - itemsOnPage, page * itemsOnPage)
+      .reduce((acc, device) => [...acc, device.key], [])
+  }
+
+  useEffect(() => {
+    getDeviceDetails()
+  }, [page])
+
+  const fetchDeviceDetails = (device) => {
+    let raw =
+      '{\n    "route": "device-detail",\n    "key": "apple_iphone_13_pro_max-11089"\n}'
+
+    let requestOptions = {
+      method: 'POST',
+      body: raw,
+      redirect: 'follow',
+    }
+
+    fetch(
+      'https://script.google.com/macros/s/AKfycbxNu27V2Y2LuKUIQMK8lX1y0joB6YmG6hUwB1fNeVbgzEh22TcDGrOak03Fk3uBHmz-/exec',
+      requestOptions
+    )
+      .then((response) => response.text())
+      .then((result) => console.log(result))
+      .catch((error) => console.log('error', error))
+  }
+
   const didMount = useRef(false)
   useEffect(() => {
     if (didMount.current) {
       getAllDevicesList(allBrands, (count) => {
         setTotalPages(getPagesCount(count, itemsOnPage))
       })
+      setPage(1)
     } else {
       didMount.current = true
     }
@@ -84,7 +115,7 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
                 {...device}
                 onImgClick={toggleModal}
                 showCart={toggleCart}
-                onBuyClick={() => onAddToCart(device)}
+                onAddToCart={() => onAddToCart(device)}
               />
             ))
         ) : (

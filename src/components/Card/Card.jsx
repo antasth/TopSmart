@@ -9,7 +9,7 @@ const Card = (
   full_name,
   device_image,
   onImgClick,
-  onBuyClick,
+  onAddToCart,
   showCart
 }
 ) => {
@@ -51,7 +51,7 @@ const Card = (
         <b> 111 ₽</b>
         <div className="flex">
           <FavoriteButton />
-          <BuyButton isCardHover={isCardHover} onBuyClick={onBuyClick} showCart={showCart}>
+          <BuyButton isCardHover={isCardHover} onAddToCart={onAddToCart} showCart={showCart}>
             Купить
           </BuyButton>
         </div>

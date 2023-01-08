@@ -4,6 +4,7 @@ const Test = () => {
   const [allBrands, setAllBrands] = useState([])
   const [allDeviceList, setAllDeviceList] = useState([])   
 
+
   const brands = [
     {
       id: 1,
