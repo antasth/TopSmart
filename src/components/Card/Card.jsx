@@ -42,7 +42,7 @@ const Card = ({
       </div>
 
       <h5 className="mt-4">
-        {display_size} {device_name} {storage} {ram} {camera} {os_type} {battery}
+        {display_size} {device_name} {storage.split(' ')[0]} {ram} {camera} {os_type.split(',')[0]} {battery}
       </h5>
 
       <div className="flex justify-between items-center mt-7">
