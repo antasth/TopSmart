@@ -52,17 +52,18 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
       } catch (error) {
         setError(error)
       }
-      setIsLoading(false)
+      // setIsLoading(false)
     }
     fetchData()
   }, [])
 
-  // Функция собирает ключи от устройств на текущей странице
+  // Функция собирает ключи от устройств на текущей странице и делает запросы на сервер по ключам
   const getDeviceDetails = () => {
     const devicesKeysOnPage = allDeviceList
       .slice(page * itemsOnPage - itemsOnPage, page * itemsOnPage)
       .reduce((acc, device) => [...acc, device.key], [])
     devicesKeysOnPage.map((key) => fetchDeviceDetails(key))
+    setIsLoading(false)
   }
 
   useEffect(() => {
@@ -114,6 +115,20 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
     <>
       <div className="cards flex flex-wrap my-5">
         {!isLoading ? (
+          devicesData
+            .map((device) => (
+              <Card
+                key={device.key}
+                {...device}
+                onImgClick={toggleModal}
+                showCart={toggleCart}
+                onAddToCart={() => onAddToCart(device)}
+              />
+            ))
+        ) : (
+          <Loader />
+        )}
+        {/* {!isLoading ? (
           allDeviceList
             .slice(page * itemsOnPage - itemsOnPage, page * itemsOnPage)
             .map((device) => (
@@ -127,7 +142,7 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
             ))
         ) : (
           <Loader />
-        )}
+        )} */}
       </div>
       {!isLoading && (
         <Pagination
