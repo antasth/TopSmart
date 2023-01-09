@@ -18,6 +18,7 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
     if (page > 0 && page <= totalPages) {
       setPage(page)
       setDevicesData([])
+      setIsLoading(true)
     }
   }
   // Функция преобразовывает массив брендов в массив устройств
@@ -63,7 +64,8 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
       .slice(page * itemsOnPage - itemsOnPage, page * itemsOnPage)
       .reduce((acc, device) => [...acc, device.key], [])
     devicesKeysOnPage.map((key) => fetchDeviceDetails(key))
-    setIsLoading(false)
+
+    // setIsLoading(false)
   }
 
   useEffect(() => {
@@ -88,6 +90,7 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
       .then((result) =>
         setDevicesData((prevState) => [...prevState, result.data])
       )
+      .then(() => setIsLoading(false))
       .catch((error) => console.log('error', error))
   }
 
@@ -115,34 +118,21 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
     <>
       <div className="cards flex flex-wrap my-5">
         {!isLoading ? (
-          devicesData
-            .map((device) => (
-              <Card
-                key={device.key}
-                {...device}
-                onImgClick={toggleModal}
-                showCart={toggleCart}
-                // onAddToCart={() => onAddToCart(device)}
-              />
-            ))
+          devicesData.map(
+            (device) =>
+              device && (
+                <Card
+                  key={device.key}
+                  {...device}
+                  onImgClick={toggleModal}
+                  showCart={toggleCart}
+                  onAddToCart={() => onAddToCart(device)}
+                />
+              )
+          )
         ) : (
           <Loader />
         )}
-        {/* {!isLoading ? (
-          allDeviceList
-            .slice(page * itemsOnPage - itemsOnPage, page * itemsOnPage)
-            .map((device) => (
-              <Card
-                key={device.key}
-                {...device}
-                onImgClick={toggleModal}
-                showCart={toggleCart}
-                onAddToCart={() => onAddToCart(device)}
-              />
-            ))
-        ) : (
-          <Loader />
-        )} */}
       </div>
       {!isLoading && (
         <Pagination
