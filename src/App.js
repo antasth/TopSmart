@@ -12,7 +12,7 @@ function App() {
   const [cartItems, setCartItems] = useState([])
 
   const onAddToCart = (item) => {
-    setCartItems([...cartItems, item])
+    setCartItems(prevState => [...prevState, item])
   }
   const deleteItem = (item) => {
     setCartItems(

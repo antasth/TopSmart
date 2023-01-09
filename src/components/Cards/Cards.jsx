@@ -122,7 +122,7 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
                 {...device}
                 onImgClick={toggleModal}
                 showCart={toggleCart}
-                onAddToCart={() => onAddToCart(device)}
+                // onAddToCart={() => onAddToCart(device)}
               />
             ))
         ) : (

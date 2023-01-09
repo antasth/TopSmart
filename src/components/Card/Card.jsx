@@ -45,7 +45,7 @@ const Card = ({
         {display_size} {device_name} {storage} {ram} {camera} {os_type} {battery}
       </h5>
 
-      <div className="flex justify-between items-center mt-5">
+      <div className="flex justify-between items-center mt-7">
         {/* <b> {price} ₽</b> */}
         <b> 111 ₽</b>
         <div className="flex">
