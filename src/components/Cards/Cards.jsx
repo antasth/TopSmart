@@ -60,7 +60,7 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
     const deviceKeysOnPage = allDeviceList
       .slice(page * itemsOnPage - itemsOnPage, page * itemsOnPage)
       .reduce((acc, device) => [...acc, device.key], [])
-    deviceKeysOnPage.map((key) => request_retry(key, 20))
+    deviceKeysOnPage.map((key) => fetchDeviceDetails(key, 20))
   }
   const didPageMount = useRef(false)
   useEffect(() => {
@@ -74,8 +74,8 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
     console.log('delay')
     return new Promise((resolve) => setTimeout(resolve, ms))
   }
-
-  const request_retry = async (key, tryCount) => {
+  // Функция делает запрос по деталям устройства, если плохой ответ, то делает повторный запрос
+  const fetchDeviceDetails = async (key, tryCount) => {
     let raw = `{\n    "route": "device-detail",\n    "key": "${key}"\n}`
     let url =
       'https://script.google.com/macros/s/AKfycbxNu27V2Y2LuKUIQMK8lX1y0joB6YmG6hUwB1fNeVbgzEh22TcDGrOak03Fk3uBHmz-/exec'
@@ -91,17 +91,16 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
       console.log(json)
       if (json.status !== 200) {
         if (tryCount <= 1) throw Error
-        await delay(1000)
-        return await request_retry(key, tryCount - 1)
+        await delay(500)
+        return await fetchDeviceDetails(key, (tryCount -= 1))
       } else {
         setDevicesData((prevState) => [...prevState, json.data])
         setIsLoading(false)
       }
     } catch (error) {
       console.log('error', error)
-      await delay(1000)
-      await request_retry(key, tryCount - 1)
-      if (tryCount <= 1) throw Error
+      await delay(500)
+      tryCount > 1 && (await fetchDeviceDetails(key, (tryCount -= 1)))
     }
   }
 
