@@ -46,53 +46,85 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
           'https://script.google.com/macros/s/AKfycbxNu27V2Y2LuKUIQMK8lX1y0joB6YmG6hUwB1fNeVbgzEh22TcDGrOak03Fk3uBHmz-/exec?route=device-list',
           requestOptions
         )
-        // .then((res) => res.json())
-        // .then((json) => setAllBrands(json.data))
         const json = await res.json()
         setAllBrands(json.data)
       } catch (error) {
         setError(error)
       }
-      // setIsLoading(false)
     }
     fetchData()
   }, [])
 
   // Функция собирает ключи от устройств на текущей странице и делает запросы на сервер по ключам
   const getDeviceDetails = () => {
-    const devicesKeysOnPage = allDeviceList
+    const deviceKeysOnPage = allDeviceList
       .slice(page * itemsOnPage - itemsOnPage, page * itemsOnPage)
       .reduce((acc, device) => [...acc, device.key], [])
-    devicesKeysOnPage.map((key) => fetchDeviceDetails(key))
-
-    // setIsLoading(false)
+    deviceKeysOnPage.map((key) => request_retry(key, 20))
   }
-
+  const didPageMount = useRef(false)
   useEffect(() => {
-    getDeviceDetails()
+    if (didPageMount.current) {
+      getDeviceDetails()
+    }
+    didPageMount.current = true
   }, [page])
 
-  // Функция делает запрос по деталям устройства
-  const fetchDeviceDetails = (device) => {
-    let raw = `{\n    "route": "device-detail",\n    "key": "${device}"\n}`
+  const delay = (ms) => {
+    console.log('delay')
+    return new Promise((resolve) => setTimeout(resolve, ms))
+  }
 
-    let requestOptions = {
+  const request_retry = async (key, tryCount) => {
+    let raw = `{\n    "route": "device-detail",\n    "key": "${key}"\n}`
+    let url =
+      'https://script.google.com/macros/s/AKfycbxNu27V2Y2LuKUIQMK8lX1y0joB6YmG6hUwB1fNeVbgzEh22TcDGrOak03Fk3uBHmz-/exec'
+    let options = {
       method: 'POST',
       body: raw,
       redirect: 'follow',
     }
 
-    fetch(
-      'https://script.google.com/macros/s/AKfycbxNu27V2Y2LuKUIQMK8lX1y0joB6YmG6hUwB1fNeVbgzEh22TcDGrOak03Fk3uBHmz-/exec',
-      requestOptions
-    )
-      .then((response) => response.json())
-      .then((result) =>
-        setDevicesData((prevState) => [...prevState, result.data])
-      )
-      .then(() => setIsLoading(false))
-      .catch((error) => console.log('error', error))
+    try {
+      const response = await fetch(url, options)
+      const json = await response.json()
+      console.log(json)
+      if (json.status !== 200) {
+        if (tryCount <= 1) throw Error
+        await delay(1000)
+        return await request_retry(key, tryCount - 1)
+      } else {
+        setDevicesData((prevState) => [...prevState, json.data])
+        setIsLoading(false)
+      }
+    } catch (error) {
+      console.log('error', error)
+      await delay(1000)
+      await request_retry(key, tryCount - 1)
+      if (tryCount <= 1) throw Error
+    }
   }
+
+  // Функция делает запрос по деталям устройства
+  // const  fetchDeviceDetails = (key) => {
+  //   let raw = `{\n    "route": "device-detail",\n    "key": "${key}"\n}`
+
+  //   let requestOptions = {
+  //     method: 'POST',
+  //     body: raw,
+  //     redirect: 'follow',
+  //   }
+
+  //   fetch(
+  //     'https://script.google.com/macros/s/AKfycbxNu27V2Y2LuKUIQMK8lX1y0joB6YmG6hUwB1fNeVbgzEh22TcDGrOak03Fk3uBHmz-/exec',
+  //     requestOptions
+  //   )
+  //     .then((response) => response.json())
+  //     .then(json => console.log(json))
+  //     .then((json) => setDevicesData((prevState) => [...prevState, json.data]))
+  //     .then(() => setIsLoading(false))
+  //     .catch((error) => console.log('error', error))
+  // }
 
   const didMount = useRef(false)
   useEffect(() => {
