@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
-import { getPagesCount, shuffleArray } from '../../Utils/Pages'
+import { getPagesCount, shuffleArray, useCards } from '../../Utils/Pages'
 import Card from '../Card/Card'
+import Search from '../Search/Search'
 import Loader from '../Loader/Loader'
 import Pagination from '../Pagination/Pagination'
 
@@ -10,10 +11,13 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
   const [allBrands, setAllBrands] = useState([])
   const [page, setPage] = useState(0)
   const [devicesData, setDevicesData] = useState([])
+  const [filter, setFilter] = useState({ query: '' })
   const [totalPages, setTotalPages] = useState(0)
   const [allDeviceList, setAllDeviceList] = useState([])
+  const foundCards = useCards(allDeviceList, filter.query)
   const itemsOnPage = 12
 
+  console.log(foundCards)
   const changePage = (page) => {
     if (page > 0 && page <= totalPages) {
       setPage(page)
@@ -24,7 +28,7 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
   // Функция преобразовывает массив брендов в массив устройств
   const getAllDevicesList = (data, callback) => {
     const allDevices = data.reduce((acc, brand) => {
-      const devices = brand.device_list.slice(0, 3).map((device) => ({
+      const devices = brand.device_list.map((device) => ({
         ...device,
         full_name: `${brand.brand_name} ${device.device_name}`,
       }))
@@ -91,7 +95,7 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
       console.log(json)
       if (json.status !== 200) {
         if (tryCount <= 1) throw Error
-        await delay(500)
+        await delay(1000)
         return await fetchDeviceDetails(key, (tryCount -= 1))
       } else {
         setDevicesData((prevState) => [...prevState, json.data])
@@ -126,6 +130,7 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
 
   return (
     <>
+      {!isLoading && <Search filter={filter} setFilter={setFilter} />}
       <div className="cards flex flex-wrap my-5">
         {!isLoading ? (
           devicesData.map(

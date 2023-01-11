@@ -1,3 +1,5 @@
+import { useMemo } from 'react'
+
 export const getPagesCount = (totalCount, limit) => {
   return Math.ceil(totalCount / limit)
 }
@@ -15,4 +17,13 @@ export const shuffleArray = (array) => {
     let j = Math.floor(Math.random() * (i + 1))
     ;[array[i], array[j]] = [array[j], array[i]]
   }
+}
+
+export const useCards = (cards, query) => {
+  const foundCards = useMemo(() => {
+    return cards.filter((card) =>
+      card.device_name.toLowerCase().includes(query.toLowerCase())
+    )
+  }, [query, cards])
+  return foundCards
 }

@@ -31,7 +31,7 @@ const Drawer = ({ toggleCart, deleteItem, cartItems }) => {
                   alt="phone"
                 />
                 <div>
-                  <p>
+                  <p className='mx-3'>
                     {item.display_size} {item.device_name} {item.storage} {item.ram} {item.battery}
                   </p>
                   {/* <b>{item.price} ₽</b> */}
