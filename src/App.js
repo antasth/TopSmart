@@ -16,7 +16,7 @@ function App() {
   }
   const deleteItem = (item) => {
     setCartItems(
-      cartItems.filter((cartItem) => cartItem.device_id !== item.device_id)
+      cartItems.filter((cartItem) => cartItem.key !== item.key)
     )
   }
 

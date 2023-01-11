@@ -104,27 +104,6 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
     }
   }
 
-  // Функция делает запрос по деталям устройства
-  // const  fetchDeviceDetails = (key) => {
-  //   let raw = `{\n    "route": "device-detail",\n    "key": "${key}"\n}`
-
-  //   let requestOptions = {
-  //     method: 'POST',
-  //     body: raw,
-  //     redirect: 'follow',
-  //   }
-
-  //   fetch(
-  //     'https://script.google.com/macros/s/AKfycbxNu27V2Y2LuKUIQMK8lX1y0joB6YmG6hUwB1fNeVbgzEh22TcDGrOak03Fk3uBHmz-/exec',
-  //     requestOptions
-  //   )
-  //     .then((response) => response.json())
-  //     .then(json => console.log(json))
-  //     .then((json) => setDevicesData((prevState) => [...prevState, json.data]))
-  //     .then(() => setIsLoading(false))
-  //     .catch((error) => console.log('error', error))
-  // }
-
   const didMount = useRef(false)
   useEffect(() => {
     if (didMount.current) {

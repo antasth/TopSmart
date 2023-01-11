@@ -32,7 +32,7 @@ const Drawer = ({ toggleCart, deleteItem, cartItems }) => {
                 />
                 <div>
                   <p>
-                    {item.full_name} 
+                    {item.display_size} {item.device_name} {item.storage} {item.ram} {item.battery}
                   </p>
                   {/* <b>{item.price} ₽</b> */}
                 </div>
