@@ -22,7 +22,7 @@ export const shuffleArray = (array) => {
 export const useCards = (cards, query) => {
   const foundCards = useMemo(() => {
     return cards.filter((card) =>
-      card.device_name.toLowerCase().includes(query.toLowerCase())
+      card.full_name.toLowerCase().includes(query.toLowerCase())
     )
   }, [query, cards])
   return foundCards
