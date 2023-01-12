@@ -1,7 +1,7 @@
 import { BsSearch } from 'react-icons/bs'
 import styles from './Search.module.scss'
 
-const Search = ({ filter, setFilter }) => {
+const Search = ({ filter, setFilter, showFoundCards }) => {
   return (
     <div className={styles.search}>
       {/* <h1 className="text-2xl">Смартфоны</h1> */}
@@ -16,7 +16,7 @@ const Search = ({ filter, setFilter }) => {
           onChange={(e) => setFilter({ ...filter, query: e.target.value })}
         />
         <button type="submit" className="absolute right-0 top-0 mt-5 mr-4">
-          <BsSearch />
+          <BsSearch onClick={showFoundCards}/>
         </button>
       </div>
     </div>

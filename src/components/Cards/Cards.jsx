@@ -21,9 +21,13 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
   const changePage = (page) => {
     if (page > 0 && page <= totalPages) {
       setPage(page)
-      setDevicesData([])
+      // setDevicesData([])
       setIsLoading(true)
     }
+  }
+
+  const showFoundCards = () => {
+    getDeviceDetails(foundCards)
   }
   // Функция преобразовывает массив брендов в массив устройств
   const getAllDevicesList = (data, callback) => {
@@ -60,16 +64,19 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
   }, [])
 
   // Функция собирает ключи от устройств на текущей странице и делает запросы на сервер по ключам
-  const getDeviceDetails = () => {
-    const deviceKeysOnPage = allDeviceList
+  const getDeviceDetails = (data) => {
+    const deviceKeysOnPage = data
       .slice(page * itemsOnPage - itemsOnPage, page * itemsOnPage)
       .reduce((acc, device) => [...acc, device.key], [])
+    setDevicesData([])
     deviceKeysOnPage.map((key) => fetchDeviceDetails(key, 20))
   }
   const didPageMount = useRef(false)
   useEffect(() => {
     if (didPageMount.current) {
-      getDeviceDetails()
+      filter.query
+        ? getDeviceDetails(foundCards)
+        : getDeviceDetails(allDeviceList)
     }
     didPageMount.current = true
   }, [page])
@@ -130,7 +137,13 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
 
   return (
     <>
-      {!isLoading && <Search filter={filter} setFilter={setFilter} />}
+      {!isLoading && (
+        <Search
+          filter={filter}
+          setFilter={setFilter}
+          showFoundCards={showFoundCards}
+        />
+      )}
       <div className="cards flex flex-wrap my-5">
         {!isLoading ? (
           devicesData.map(
