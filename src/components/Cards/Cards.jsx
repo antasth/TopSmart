@@ -17,17 +17,17 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
   const foundCards = useCards(allDeviceList, filter.query)
   const itemsOnPage = 12
 
-  console.log(foundCards)
   const changePage = (page) => {
     if (page > 0 && page <= totalPages) {
       setPage(page)
-      // setDevicesData([])
       setIsLoading(true)
     }
   }
 
   const showFoundCards = () => {
-    getDeviceDetails(foundCards)
+    getDeviceDetails(foundCards).then(() =>
+      setTotalPages(getPagesCount(foundCards.length, itemsOnPage))
+    )
   }
   // Функция преобразовывает массив брендов в массив устройств
   const getAllDevicesList = (data, callback) => {
@@ -64,18 +64,21 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
   }, [])
 
   // Функция собирает ключи от устройств на текущей странице и делает запросы на сервер по ключам
-  const getDeviceDetails = (data) => {
-    const deviceKeysOnPage = data
+  const getDeviceDetails = async (data) => {
+    const deviceKeysOnPage = await data
       .slice(page * itemsOnPage - itemsOnPage, page * itemsOnPage)
       .reduce((acc, device) => [...acc, device.key], [])
     setDevicesData([])
-    deviceKeysOnPage.map((key) => fetchDeviceDetails(key, 20))
+    await deviceKeysOnPage.map((key) => fetchDeviceDetails(key, 20))
   }
+
   const didPageMount = useRef(false)
   useEffect(() => {
     if (didPageMount.current) {
       filter.query
-        ? getDeviceDetails(foundCards)
+        ? getDeviceDetails(foundCards).then(() =>
+            setTotalPages(getPagesCount(foundCards.length, itemsOnPage))
+          )
         : getDeviceDetails(allDeviceList)
     }
     didPageMount.current = true
@@ -99,7 +102,6 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
     try {
       const response = await fetch(url, options)
       const json = await response.json()
-      console.log(json)
       if (json.status !== 200) {
         if (tryCount <= 1) throw Error
         await delay(1000)
