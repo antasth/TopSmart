@@ -24,10 +24,12 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
     }
   }
 
+  const countCurrrentPages = (data) => {
+    setTotalPages(getPagesCount(data.length, itemsOnPage))
+  }
+
   const showFoundCards = () => {
-    getDeviceDetails(foundCards).then(() =>
-      setTotalPages(getPagesCount(foundCards.length, itemsOnPage))
-    )
+    getDeviceDetails(foundCards).then(() => countCurrrentPages(foundCards))
   }
   // Функция преобразовывает массив брендов в массив устройств
   const getAllDevicesList = (data, callback) => {
@@ -77,7 +79,7 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
     if (didPageMount.current) {
       filter.query
         ? getDeviceDetails(foundCards).then(() =>
-            setTotalPages(getPagesCount(foundCards.length, itemsOnPage))
+            countCurrrentPages(foundCards)
           )
         : getDeviceDetails(allDeviceList)
     }
