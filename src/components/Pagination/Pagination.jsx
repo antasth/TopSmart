@@ -1,10 +1,11 @@
 import { getPagesArray } from '../../Utils/Pages'
+import styles from './Pagination.module.scss'
 
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid'
 
 const Pagination = ({ totalPages, page, changePage }) => {
   const pagesArray = getPagesArray(totalPages)
-
+  console.log(page)
   return (
     <div className=" flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 mb-10 sm:px-6 rounded-2xl shadow-md">
       <div className="flex flex-1 justify-between sm:hidden">
@@ -35,7 +36,7 @@ const Pagination = ({ totalPages, page, changePage }) => {
           >
             <a
               href="/#"
-              className="relative inline-flex items-center rounded-l-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20"
+              className="relative inline-flex items-center rounded-l-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-200  focus:z-20"
             >
               <span className="sr-only">Previous</span>
               <ChevronLeftIcon
@@ -53,21 +54,22 @@ const Pagination = ({ totalPages, page, changePage }) => {
               1
             </a> */}
 
-            {pagesArray.map((page) =>
-              page < 9 ? (
+            {pagesArray.map((p) =>
+              p < 9 ? (
                 <a
-                key={page}
-                onClick={()=> changePage(page)}
+                key={p}
+                onClick={()=> changePage(p)}
                   href="/#"
-                  className="relative inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20"
+                  
+                  className={`${p === page && styles.active} relative inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-red-600 focus:z-20`}
                 >
-                  {page}
+                  {p}
                 </a>
               ) : null
             )}
             <a
               href="/#"
-              className="relative inline-flex items-center rounded-r-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20"
+              className="relative inline-flex items-center rounded-r-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-200 focus:z-20"
             >
               <span className="sr-only">Next</span>
               <ChevronRightIcon

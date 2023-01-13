@@ -29,6 +29,7 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
   }
 
   const showFoundCards = () => {
+    setPage(1)
     getDeviceDetails(foundCards).then(() => countCurrrentPages(foundCards))
   }
   // Функция преобразовывает массив брендов в массив устройств

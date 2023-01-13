@@ -72,3 +72,10 @@ const Test = () => {
 };
 
 export default Test;
+
+const allPhones = [1, 5, 6, 7, 3, 4, 8]
+const blackList = [6, 3, 8, 12]
+
+const result = allPhones.filter(element => !blackList.includes(element))
+
+console.log(result);
