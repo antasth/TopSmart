@@ -30,9 +30,10 @@ const Drawer = ({ toggleCart, deleteItem, cartItems }) => {
                   src={item.device_image}
                   alt="phone"
                 />
-                <div>
-                  <p className='mx-3'>
-                    {item.display_size} {item.device_name} {item.storage} {item.ram} {item.battery}
+                <div className="mx-3">
+                  <p>
+                    {item.display_size} {item.device_name} {item.storage}{' '}
+                    {item.ram} {item.battery}
                   </p>
                   <b>{item.prices} ₽</b>
                 </div>
@@ -70,11 +71,8 @@ const Drawer = ({ toggleCart, deleteItem, cartItems }) => {
                 17999 ₽
               </div> */}
               <div className="price__current font-bold text-xl leading-4 ">
-                {/* {cartItems.reduce(
-                  (acc, curr) => acc + Number(curr.price.replace(/ /g, '')),
-                  0
-                )}{' '} */}
-                100 ₽
+                {cartItems.reduce((acc, curr) => acc + Number(curr.prices), 0)}{' '}
+                ₽
               </div>
             </div>
           </div>
