@@ -13,6 +13,7 @@ const Card = ({
   storage,
   os_type,
   camera,
+  prices,
   onImgClick,
   onAddToCart,
   showCart,
@@ -25,7 +26,10 @@ const Card = ({
   const hoverCardOff = () => {
     setIsCardHover(false)
   }
-  // console.log('CARD',props)
+
+const roundTo100 = (val) => {
+  return Math.round(val / 100) * 100
+}
   return (
     <div
       className={styles.card}
@@ -46,8 +50,7 @@ const Card = ({
       </h5>
 
       <div className="flex justify-between items-center mt-7">
-        {/* <b> {price} ₽</b> */}
-        <b> 111 ₽</b>
+        <b> {roundTo100(prices * 70)} ₽</b>
         <div className="flex">
           <FavoriteButton />
           <BuyButton
