@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { getPagesCount, shuffleArray, useCards } from '../../Utils/Pages'
+import { getPagesCount, shuffleArray, randomPrice, useCards } from '../../Utils/Pages'
 import Card from '../Card/Card'
 import Search from '../Search/Search'
 import Loader from '../Loader/Loader'
@@ -110,7 +110,7 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
         await delay(1000)
         return await fetchDeviceDetails(key, (tryCount -= 1))
       } else {
-        json.data.prices = Math.floor(Math.random() * (1000 - 200) + 200)
+        json.data.prices = randomPrice()
         setDevicesData((prevState) => [...prevState, json.data])
         setIsLoading(false)
       }
@@ -120,6 +120,7 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
       tryCount > 1 && (await fetchDeviceDetails(key, (tryCount -= 1)))
     }
   }
+
 
   const didMount = useRef(false)
   useEffect(() => {

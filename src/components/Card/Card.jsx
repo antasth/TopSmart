@@ -27,9 +27,6 @@ const Card = ({
     setIsCardHover(false)
   }
 
-const roundTo100 = (val) => {
-  return Math.round(val / 100) * 100
-}
   return (
     <div
       className={styles.card}
@@ -50,7 +47,7 @@ const roundTo100 = (val) => {
       </h5>
 
       <div className="flex justify-between items-center mt-7">
-        <b> {roundTo100(prices * 70)} ₽</b>
+        <b> {prices} ₽</b>
         <div className="flex">
           <FavoriteButton />
           <BuyButton

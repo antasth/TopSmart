@@ -34,7 +34,7 @@ const Drawer = ({ toggleCart, deleteItem, cartItems }) => {
                   <p className='mx-3'>
                     {item.display_size} {item.device_name} {item.storage} {item.ram} {item.battery}
                   </p>
-                  {/* <b>{item.price} ₽</b> */}
+                  <b>{item.prices} ₽</b>
                 </div>
                 <button className="button grayButton">
                   <BsX

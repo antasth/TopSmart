@@ -27,3 +27,7 @@ export const useCards = (cards, query) => {
   }, [query, cards])
   return foundCards
 }
+
+export const randomPrice = () => {
+  return Math.round(Math.floor(Math.random() * (1000 - 100) + 100) / 10) * 1000
+}
