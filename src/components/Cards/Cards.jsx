@@ -110,6 +110,7 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
         await delay(1000)
         return await fetchDeviceDetails(key, (tryCount -= 1))
       } else {
+        json.data.prices = Math.floor(Math.random() * (1000 - 200) + 200)
         setDevicesData((prevState) => [...prevState, json.data])
         setIsLoading(false)
       }

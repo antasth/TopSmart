@@ -5,7 +5,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid'
 
 const Pagination = ({ totalPages, page, changePage }) => {
   const pagesArray = getPagesArray(totalPages)
-  console.log(page)
+
   return (
     <div className=" flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 mb-10 sm:px-6 rounded-2xl shadow-md">
       <div className="flex flex-1 justify-between sm:hidden">
@@ -45,23 +45,16 @@ const Pagination = ({ totalPages, page, changePage }) => {
                 onClick={() => changePage(page - 1)}
               />
             </a>
-            {/* Current: "z-10 bg-indigo-50 border-indigo-500 text-indigo-600", Default: "bg-white border-gray-300 text-gray-500 hover:bg-gray-50" */}
-            {/* <a
-              href="/#"
-              aria-current="page"
-              className="relative z-10 inline-flex items-center border border-indigo-500 bg-indigo-50 px-4 py-2 text-sm font-medium text-indigo-600 focus:z-20"
-            >
-              1
-            </a> */}
 
             {pagesArray.map((p) =>
               p < 9 ? (
                 <a
-                key={p}
-                onClick={()=> changePage(p)}
+                  key={p}
+                  onClick={() => changePage(p)}
                   href="/#"
-                  
-                  className={`${p === page && styles.active} relative inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-red-600 focus:z-20`}
+                  className={`${
+                    p === page && styles.active
+                  } relative inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-red-600 focus:z-20`}
                 >
                   {p}
                 </a>
