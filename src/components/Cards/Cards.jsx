@@ -5,7 +5,7 @@ import Search from '../Search/Search'
 import Loader from '../Loader/Loader'
 import Pagination from '../Pagination/Pagination'
 
-const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
+const Cards = ({ toggleModal, toggleCart, onAddToCart, cartItems }) => {
   const [error, setError] = useState('')
   const [isLoading, setIsLoading] = useState(true)
   const [allBrands, setAllBrands] = useState([])
@@ -162,6 +162,7 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart }) => {
                   onImgClick={toggleModal}
                   showCart={toggleCart}
                   onAddToCart={() => onAddToCart(device)}
+                  isActive={cartItems.includes(device) ? true : false}
                 />
               )
           )

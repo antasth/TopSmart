@@ -37,7 +37,7 @@ const Drawer = ({ toggleCart, deleteItem, cartItems }) => {
                   </p>
                   <b>{item.prices} ₽</b>
                 </div>
-                <button className="button grayButton">
+                <button>
                   <BsX
                     onClick={() => {
                       deleteItem(item)

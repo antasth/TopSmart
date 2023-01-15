@@ -17,6 +17,7 @@ const Card = ({
   onImgClick,
   onAddToCart,
   showCart,
+  isActive
 }) => {
   const [isCardHover, setIsCardHover] = useState(false)
 
@@ -54,6 +55,7 @@ const Card = ({
             isCardHover={isCardHover}
             onAddToCart={onAddToCart}
             showCart={showCart}
+            isActive={isActive}
           >
             Купить
           </BuyButton>

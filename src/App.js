@@ -33,6 +33,7 @@ function App() {
           toggleModal={toggleModal}
           toggleCart={toggleCart}
           onAddToCart={onAddToCart}
+          cartItems={cartItems}
         />
       </div>
       <Footer />
