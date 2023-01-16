@@ -1,4 +1,4 @@
-import { BsX } from 'react-icons/bs'
+import { BsTrash } from 'react-icons/bs'
 import { BiExit } from 'react-icons/bi'
 import OrderButton from '../UI/OrderButton/OrderButton'
 import styles from './Drawer.module.scss'
@@ -38,7 +38,7 @@ const Drawer = ({ toggleCart, deleteItem, cartItems, fullPrice }) => {
                   <b>{item.prices} ₽</b>
                 </div>
                 <button>
-                  <BsX
+                  <BsTrash
                     onClick={() => {
                       deleteItem(item)
                     }}

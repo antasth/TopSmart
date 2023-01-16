@@ -30,7 +30,7 @@ function App() {
   return (
     <div className="wrapper relative flex flex-col min-h-screen">
       <Header onShowCart={toggleCart} fullPrice={fullPrice} />
-      <div className="content flex-1">
+      <div className="content flex-1 ">
         <Cards
           toggleModal={toggleModal}
           toggleCart={toggleCart}
