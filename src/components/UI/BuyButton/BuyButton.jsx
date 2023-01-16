@@ -27,7 +27,6 @@ const BuyButton = ({
         !isUsed && onAddToCart()
         !isUsed && changeIsUsedState()
         isUsed && showCart()
-        console.log(isActive)
       }}
     >
       {isUsed && isActive ? 'В корзине' : `${children}`}

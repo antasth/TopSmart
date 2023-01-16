@@ -3,7 +3,7 @@ import { BiExit } from 'react-icons/bi'
 import OrderButton from '../UI/OrderButton/OrderButton'
 import styles from './Drawer.module.scss'
 
-const Drawer = ({ toggleCart, deleteItem, cartItems }) => {
+const Drawer = ({ toggleCart, deleteItem, cartItems, fullPrice }) => {
   return (
     <div className={styles.overlay} onClick={toggleCart}>
       <div
@@ -71,8 +71,7 @@ const Drawer = ({ toggleCart, deleteItem, cartItems }) => {
                 17999 ₽
               </div> */}
               <div className="price__current font-bold text-xl leading-4 ">
-                {cartItems.reduce((acc, curr) => acc + Number(curr.prices), 0)}{' '}
-                ₽
+                {fullPrice} ₽
               </div>
             </div>
           </div>
