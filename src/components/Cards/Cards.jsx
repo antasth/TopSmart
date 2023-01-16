@@ -1,5 +1,10 @@
 import { useState, useEffect, useRef } from 'react'
-import { getPagesCount, shuffleArray, randomPrice, useCards } from '../../Utils/Pages'
+import {
+  getPagesCount,
+  shuffleArray,
+  randomPrice,
+  useCards,
+} from '../../Utils/Pages'
 import Card from '../Card/Card'
 import Search from '../Search/Search'
 import Loader from '../Loader/Loader'
@@ -120,7 +125,6 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart, cartItems }) => {
       tryCount > 1 && (await fetchDeviceDetails(key, (tryCount -= 1)))
     }
   }
-
 
   const didMount = useRef(false)
   useEffect(() => {

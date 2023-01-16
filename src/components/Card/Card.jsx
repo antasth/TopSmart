@@ -24,7 +24,7 @@ const Card = ({
   const [isCardHover, setIsCardHover] = useState(false)
   const [gallery, setGallery] = useState(false)
 
-  const showGallery = () => {
+  const toggleGallery = () => {
     setGallery(!gallery)
   }
 
@@ -42,7 +42,7 @@ const Card = ({
         onMouseEnter={hoverCardOn}
         onMouseLeave={hoverCardOff}
       >
-        <div className="relative cursor-zoom-in" onClick={showGallery}>
+        <div className="relative cursor-zoom-in" onClick={toggleGallery}>
           {/* <div className="relative cursor-zoom-in" onClick={}> */}
           <img
             // src={require('../../assets/img/' + img + '/1.jpg')}
@@ -72,7 +72,7 @@ const Card = ({
           </div>
         </div>
       </div>
-      {gallery && <Gallery pictures={pictures}/>}
+      {gallery && <Gallery pictures={pictures} toggleGallery={toggleGallery} />}
     </>
   )
 }
