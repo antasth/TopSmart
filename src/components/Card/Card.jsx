@@ -72,7 +72,7 @@ const Card = ({
           </div>
         </div>
       </div>
-      {gallery && <Gallery pictures={pictures} toggleGallery={toggleGallery} />}
+      {gallery && <Gallery pictures={pictures} device_name={device_name} toggleGallery={toggleGallery} />}
     </>
   )
 }

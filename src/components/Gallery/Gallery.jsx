@@ -10,7 +10,7 @@ import 'swiper/css/navigation'
 import Logo from '../UI/Logo/Logo'
 import styles from './Gallery.module.scss'
 
-const Gallery = ({ pictures, toggleGallery }) => {
+const Gallery = ({ pictures, device_name, toggleGallery }) => {
   return (
     <>
       <Swiper
@@ -26,15 +26,16 @@ const Gallery = ({ pictures, toggleGallery }) => {
         modules={[Mousewheel, Pagination, Navigation]}
         className={styles.swiper}
       >
-        lod2d2dgo
-        <BsXLg className={styles.close} onClick={toggleGallery} />
+        <div className={styles.header}>
+          <Logo />
+          <h3>{device_name}</h3>
+          <BsXLg className={styles.close} onClick={toggleGallery} />
+        </div>
         {pictures.map((pic) => (
           <SwiperSlide key={pic} className={styles.swiperSlide}>
             <img src={pic} alt="phoneimg" />
           </SwiperSlide>
         ))}
-        <BsXLg onClick={toggleGallery} />
-        logogo
       </Swiper>
     </>
   )
