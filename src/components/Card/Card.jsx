@@ -26,6 +26,9 @@ const Card = ({
 
   const toggleGallery = () => {
     setGallery(!gallery)
+    !gallery
+      ? document.body.classList.add('locked')
+      : document.body.classList.remove('locked')
   }
 
   const hoverCardOn = () => {
@@ -72,7 +75,13 @@ const Card = ({
           </div>
         </div>
       </div>
-      {gallery && <Gallery pictures={pictures} device_name={device_name} toggleGallery={toggleGallery} />}
+      {gallery && (
+        <Gallery
+          pictures={pictures}
+          device_name={device_name}
+          toggleGallery={toggleGallery}
+        />
+      )}
     </>
   )
 }

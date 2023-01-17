@@ -18,6 +18,12 @@ body {
   color: #2c3450;
 }
 
+.locked {
+  &::-webkit-scrollbar { /* chrome based */
+    width: 0px;  /* ширина scrollbar'a */
+  }
+}
+
 * {
   font-family: 'Lato', sans-serif;
 }
