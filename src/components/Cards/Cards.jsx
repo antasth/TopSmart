@@ -9,6 +9,7 @@ import Card from '../Card/Card'
 import Search from '../Search/Search'
 import Loader from '../Loader/Loader'
 import Pagination from '../Pagination/Pagination'
+import Receipts from '../Receipts/Receipts'
 
 const Cards = ({ toggleModal, toggleCart, onAddToCart, cartItems }) => {
   const [error, setError] = useState('')
@@ -149,11 +150,14 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart, cartItems }) => {
   return (
     <>
       {!isLoading && (
-        <Search
-          filter={filter}
-          setFilter={setFilter}
-          showFoundCards={showFoundCards}
-        />
+        <div className='flex '>
+          <Search
+            filter={filter}
+            setFilter={setFilter}
+            showFoundCards={showFoundCards}
+          />
+          <Receipts />
+        </div>
       )}
       <div className="cards flex flex-wrap my-5">
         {!isLoading ? (

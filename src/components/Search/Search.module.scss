@@ -1,11 +1,11 @@
 .search {
   display: flex;
+  align-self: flex-start;
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
-  max-width: 1200px;
-  width: 100%;
   padding: 0 10px;
+  margin-right: 15px;
 }
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,
