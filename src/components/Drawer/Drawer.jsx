@@ -12,17 +12,17 @@ const Drawer = ({ toggleCart, deleteItem, cartItems, fullPrice }) => {
       >
         <div className="cart">
           <div className="cart__header flex justify-between items-center mb-5">
-            <h2>Корзина</h2>
+            <h2 className='text-base'>Корзина</h2>
             <button className="button grayButton" onClick={toggleCart}>
               <BiExit className="icon" />
             </button>
           </div>
 
-          <div className="cartItems mb-10">
+          <div className="cartItems mb-7">
             {cartItems.map((item) => (
               <div
                 key={item.key}
-                className="cartItem flex justify-between items-center mb-3"
+                className="cartItem flex justify-between items-center mb-3 text-sm"
               >
                 <img
                   width={70}
@@ -33,7 +33,7 @@ const Drawer = ({ toggleCart, deleteItem, cartItems, fullPrice }) => {
                 <div className="mx-3">
                   <p>
                     {item.display_size} {item.device_name} {item.storage}{' '}
-                    {item.ram} {item.battery}
+                     {item.battery}
                   </p>
                   <b>{item.prices} ₽</b>
                 </div>

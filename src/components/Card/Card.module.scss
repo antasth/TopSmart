@@ -12,7 +12,8 @@
   transition: all 0.2s;
   img {
     margin: 0 auto;
-    width: 190px;
+    max-width: 200px;
+    max-height: 200px;
   }
   h5 {
     flex-grow: 1;

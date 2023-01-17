@@ -10,7 +10,7 @@
 
 .drawer {
   position: sticky;
-  top: 85px;
+  top: 55px;
   left: 100%;
   width: 450px;
   padding: 30px;
@@ -20,17 +20,6 @@
 
 	-webkit-animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	        animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-}
-
-.cartItem {
-  background-color: #fff;
-  border-radius: 15px;
-  padding: 25px;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 10px;
-  p,
-  b {
-    font-size: 0.9rem;
-  }
 }
 
  @-webkit-keyframes slide-in-top {

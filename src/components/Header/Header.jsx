@@ -6,7 +6,7 @@ import Logo from '../UI/Logo/Logo'
 const Header = ({ onShowCart, fullPrice }) => {
 
   return (
-    <header className={`${styles.header} flex justify-between py-3 mb-7 sticky top-0 z-10`}>
+    <header className={`${styles.header} flex justify-between py-1.5 h-50 mb-7 sticky top-0 z-10`}>
       <div className="flex items-center">
         <Logo />
       </div>
