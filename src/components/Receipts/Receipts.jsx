@@ -27,6 +27,7 @@ const Receipts = () => {
           {receipts[key]}
         </FilterButton>
       ))}
+      <FilterButton>Сбросить фильтры</FilterButton>
     </div>
   )
 }
