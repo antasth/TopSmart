@@ -79,3 +79,6 @@ const blackList = [6, 3, 8, 12]
 const result = allPhones.filter(element => !blackList.includes(element))
 
 console.log(result);
+
+const testObject = { a: 'b', c: 'd' };
+Object.keys(testObject).map(key => console.log(key, testObject[key]));
