@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
-import {FiDelete} from 'react-icons/fi'
+import { useState } from 'react'
+import { FiDelete } from 'react-icons/fi'
 import FilterButton from '../UI/FilterButton/FilterButton'
 import styles from './Receipts.module.scss'
 
@@ -23,17 +23,25 @@ const Receipts = () => {
 
   const clearFilters = () => {
     setFilters([])
-    // console.log('clearFilters');
   }
 
   return (
     <div className={styles.receipts}>
       {Object.keys(receipts).map((key) => (
-        <FilterButton key={key} getReceipts={getReceipts} name={key} filters={filters}>
+        <FilterButton
+          key={key}
+          getReceipts={getReceipts}
+          name={key}
+          filters={filters}
+        >
           {receipts[key]}
         </FilterButton>
       ))}
-      <button onClick={clearFilters}>Очистить</button>
+      <FiDelete
+        className={styles.delete}
+        onClick={clearFilters}
+        title="Очистить фильтры"
+      ></FiDelete>
     </div>
   )
 }
