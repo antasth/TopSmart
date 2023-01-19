@@ -18,7 +18,8 @@ const Receipts = () => {
   }
 
   const getReceipts = (filter) => {
-    setFilters((prevState) => [...prevState, filter])
+    !filters.includes(filter) &&
+      setFilters((prevState) => [...prevState, filter])
   }
 
   const clearFilters = () => {
