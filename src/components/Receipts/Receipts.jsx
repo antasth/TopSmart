@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import {FiDelete} from 'react-icons/fi'
 import FilterButton from '../UI/FilterButton/FilterButton'
 import styles from './Receipts.module.scss'
 
@@ -20,14 +21,19 @@ const Receipts = () => {
     setFilters((prevState) => [...prevState, filter])
   }
 
+  const clearFilters = () => {
+    setFilters([])
+    // console.log('clearFilters');
+  }
+
   return (
     <div className={styles.receipts}>
       {Object.keys(receipts).map((key) => (
-        <FilterButton key={key} getReceipts={getReceipts} name={key}>
+        <FilterButton key={key} getReceipts={getReceipts} name={key} filters={filters}>
           {receipts[key]}
         </FilterButton>
       ))}
-      <FilterButton>Сбросить фильтры</FilterButton>
+      <button onClick={clearFilters}>Очистить</button>
     </div>
   )
 }

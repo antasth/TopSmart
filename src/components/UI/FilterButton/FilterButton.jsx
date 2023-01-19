@@ -1,22 +1,14 @@
-import { useState } from 'react'
 import styles from './FilterButton.module.scss'
 
-const FilterButton = ({ children, getReceipts, name }) => {
-  const [isUsed, setIsUsed] = useState(false)
-
-  const changeIsUsedState = () => {
-    setIsUsed(!isUsed)
-  }
-
+const FilterButton = ({ children, getReceipts, name, filters }) => {
   return (
     <>
       <button
         onClick={() => {
           getReceipts(name)
-          changeIsUsedState()
         }}
         className={`${styles.filterButton} ${
-          isUsed ? styles.filterButton_Used : ''
+          filters.includes(name) ? styles.filterButton_Used : ''
         }`}
       >
         {children}
