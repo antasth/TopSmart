@@ -14,11 +14,20 @@ function App() {
   const onAddToCart = (item) => {
     setCartItems((prevState) => [...prevState, item])
   }
+
   const deleteItem = (item) => {
     setCartItems(cartItems.filter((cartItem) => cartItem.key !== item.key))
   }
+
+  useEffect(() => {
+    const items = JSON.parse(localStorage.getItem('cartItems'))
+    setCartItems(items)
+    console.log(items)
+  }, [])
+
   useEffect(() => {
     setFullPrice(cartItems.reduce((acc, curr) => acc + Number(curr.prices), 0))
+    localStorage.setItem('cartItems', JSON.stringify(cartItems))
   }, [cartItems])
 
   const toggleCart = () => {
@@ -27,6 +36,7 @@ function App() {
   const toggleModal = () => {
     setModal(!modal)
   }
+
   return (
     <div className="wrapper relative flex flex-col min-h-screen">
       <Header onShowCart={toggleCart} fullPrice={fullPrice} />

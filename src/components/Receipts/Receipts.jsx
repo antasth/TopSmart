@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { FiDelete } from 'react-icons/fi'
 import FilterButton from '../UI/FilterButton/FilterButton'
 import styles from './Receipts.module.scss'
