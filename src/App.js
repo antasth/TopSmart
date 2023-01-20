@@ -17,17 +17,30 @@ function App() {
 
   const deleteItem = (item) => {
     setCartItems(cartItems.filter((cartItem) => cartItem.key !== item.key))
+    saveToLocalStorage()
+  }
+
+  const saveToLocalStorage = () => {
+    localStorage.setItem('cartItems', JSON.stringify(cartItems))
   }
 
   useEffect(() => {
-    const items = JSON.parse(localStorage.getItem('cartItems'))
-    setCartItems(items)
-    console.log(items)
+    const getFromLocalStorage = () => {
+      if (localStorage.getItem('cartItems')) {
+        const items = JSON.parse(localStorage.getItem('cartItems'))
+        setCartItems(items)
+      }
+    }
+    getFromLocalStorage()
   }, [])
 
   useEffect(() => {
-    setFullPrice(cartItems.reduce((acc, curr) => acc + Number(curr.prices), 0))
-    localStorage.setItem('cartItems', JSON.stringify(cartItems))
+    if (cartItems) {
+      setFullPrice(
+        cartItems.reduce((acc, curr) => acc + Number(curr.prices), 0)
+      )
+      saveToLocalStorage()
+    }
   }, [cartItems])
 
   const toggleCart = () => {
