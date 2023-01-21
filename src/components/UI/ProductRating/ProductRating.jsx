@@ -8,6 +8,7 @@ const ProductRating = () => {
          <i></i>
          <i></i>
          <i></i>
+         <span>random</span>
       </div>
    );
 };

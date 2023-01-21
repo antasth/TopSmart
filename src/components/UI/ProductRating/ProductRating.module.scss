@@ -1,12 +1,24 @@
 .ProductRating {
- i {
-      background-image: url('../../../assets/img/star.png');
-      background-position: 50%;
-      background-repeat: no-repeat;
-      background-size: contain;
-      display: inline-block;
-      height: 18px;
-      margin-right: 4px;
-      width: 12px;
-   }
+  display: flex;
+  align-self: end;
+  align-items: center;
+  margin-top: 20px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  display: inline-flex;
+  font-size: 14px;
+  line-height: 18px;
+  padding: 6px;
+  text-decoration: none !important;
+  white-space: nowrap;
+  i {
+    background-image: url('../../../assets/img/star-red.png');
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    height: 18px;
+    margin-right: 4px;
+    width: 12px;
+  }
 }
