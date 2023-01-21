@@ -1,16 +1,17 @@
 import { useState, useEffect } from 'react'
 import Cards from '../components/Cards/Cards'
 import Header from '../components/Header/Header'
-import Footer from '../components/Footer/Footer'
 import Drawer from '../components/Drawer/Drawer'
-import ModalCard from '../components/ModalCard/ModalCard'
 
 const Main = () => {
    const [activeCart, setActiveCart] = useState(false)
-   const [modal, setModal] = useState(false)
    const [cartItems, setCartItems] = useState([])
    const [fullPrice, setFullPrice] = useState()
  
+   const toggleCart = () => {
+      setActiveCart(!activeCart)
+    }
+
    const onAddToCart = (item) => {
      setCartItems((prevState) => [...prevState, item])
    }
@@ -43,12 +44,6 @@ const Main = () => {
      }
    }, [cartItems])
  
-   const toggleCart = () => {
-     setActiveCart(!activeCart)
-   }
-   const toggleModal = () => {
-     setModal(!modal)
-   }
   return (
    <div className="wrapper relative flex flex-col min-h-screen">
    <Header onShowCart={toggleCart} fullPrice={fullPrice} />
@@ -59,7 +54,6 @@ const Main = () => {
        cartItems={cartItems}
      />
    </div>
-   <Footer />
 
    {activeCart && (
      <Drawer

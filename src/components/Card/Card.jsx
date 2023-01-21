@@ -4,6 +4,7 @@ import BuyButton from '../UI/BuyButton/BuyButton'
 import FavoriteButton from '../UI/FavoriteButton/FavoriteButton'
 import MoreButton from '../UI/MoreButton/MoreButton'
 import Gallery from '../Gallery/Gallery'
+import ProductRating from '../UI/ProductRating/ProductRating'
 
 const Card = ({
   device_name,
@@ -16,7 +17,6 @@ const Card = ({
   camera,
   prices,
   pictures,
-  onImgClick,
   onAddToCart,
   showCart,
   isActive,
@@ -56,10 +56,10 @@ const Card = ({
         </div>
 
         <h5 className="mt-4">
-          {display_size} {device_name} {storage.split('/')[0]} {ram.split('/')[1]} {camera}{' '}
-          {os_type.split(',')[0]} {battery}
+          {display_size} {device_name} {storage.split('/')[0]}{' '}
+          {ram.split('/')[1]} {camera} {os_type.split(',')[0]} {battery}
         </h5>
-
+        <ProductRating />
         <div className="flex justify-between items-center mt-7">
           <b> {prices} ₽</b>
           <div className="flex">

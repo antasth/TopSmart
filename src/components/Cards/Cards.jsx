@@ -167,7 +167,6 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart, cartItems }) => {
                 <Card
                   key={device.key}
                   {...device}
-                  onImgClick={toggleModal}
                   showCart={toggleCart}
                   onAddToCart={() => onAddToCart(device)}
                   isActive={cartItems.includes(device) ? true : false}
