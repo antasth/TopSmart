@@ -36,6 +36,7 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart, cartItems }) => {
   }
 
   const showFoundCards = () => {
+    setIsLoading(true)
     setPage(1)
     getDeviceDetails(foundCards).then(() => countCurrrentPages(foundCards))
   }
@@ -118,7 +119,7 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart, cartItems }) => {
         return await fetchDeviceDetails(key, (tryCount -= 1))
       } else {
         json.data.prices = randomPrice()
-        json.data.rating = randomMinMax(1, 5, 1)
+        json.data.rating = randomMinMax(2.5, 5, 1)
         json.data.rateCount = randomMinMax(1, 100, 0)
         setDevicesData((prevState) => [...prevState, json.data])
         setIsLoading(false)
@@ -180,12 +181,14 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart, cartItems }) => {
           <Loader />
         )}
       </div>
-      {!isLoading && (
+      {!isLoading ? (
         <Pagination
           changePage={changePage}
           totalPages={totalPages}
           page={page}
         />
+      ) : (
+        <Loader />
       )}
     </>
   )
