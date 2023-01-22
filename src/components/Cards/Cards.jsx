@@ -118,8 +118,8 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart, cartItems }) => {
         return await fetchDeviceDetails(key, (tryCount -= 1))
       } else {
         json.data.prices = randomPrice()
-        json.data.rating = randomMinMax(1, 5)
-        json.data.rateCount = randomMinMax(1, 100)
+        json.data.rating = randomMinMax(1, 5, 1)
+        json.data.rateCount = randomMinMax(1, 100, 0)
         setDevicesData((prevState) => [...prevState, json.data])
         setIsLoading(false)
       }

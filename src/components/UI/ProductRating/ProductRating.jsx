@@ -12,7 +12,7 @@ const ProductRating = ({ rateCount, rating }) => {
             style={{ width: `${ratingWidth}%` }}
           ></div>
         </div>
-        <span className={styles.rating__count}>{rateCount}</span>
+        <p className={styles.rating__count}>{rateCount}</p>
       </div>
     </>
   )

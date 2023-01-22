@@ -38,7 +38,14 @@
 
   &__count {
     padding-left: 10px;
-    font-size: 80%;
+    font-size: 70%;
+    color: rgb(48, 48, 48);
+    opacity: 1;
+  }
+
+  &:hover {
+    border-color: #e74c3c;
+    cursor: pointer;
   }
 }
 

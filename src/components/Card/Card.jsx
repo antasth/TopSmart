@@ -48,12 +48,7 @@ const Card = ({
         onMouseLeave={hoverCardOff}
       >
         <div className="relative cursor-zoom-in" onClick={toggleGallery}>
-          {/* <div className="relative cursor-zoom-in" onClick={}> */}
-          <img
-            // src={require('../../assets/img/' + img + '/1.jpg')}
-            src={device_image}
-            alt="phoneimg"
-          />
+          <img src={device_image} alt="phoneimg" />
           <MoreButton isCardHover={isCardHover} />
         </div>
 
@@ -61,7 +56,7 @@ const Card = ({
           {display_size} {device_name} {storage.split('/')[0]}{' '}
           {ram.split('/')[1]} {camera} {os_type.split(',')[0]} {battery}
         </h5>
-        <ProductRating rating={rating} rateCount={rateCount}/>
+        <ProductRating rating={rating} rateCount={rateCount} />
         <div className="flex justify-between items-center mt-7">
           <b> {prices} ₽</b>
           <div className="flex">
