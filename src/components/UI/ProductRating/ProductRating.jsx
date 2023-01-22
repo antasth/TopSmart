@@ -1,16 +1,16 @@
 import styles from './ProductRating.module.scss'
 
-const ProductRating = () => {
-   return (
-      <div className={styles.ProductRating}>
-         <i></i>
-         <i></i>
-         <i></i>
-         <i></i>
-         <i></i>
-         <span>random</span>
-      </div>
-   );
-};
+const ProductRating = ({ rateCount }) => {
+  return (
+    <div className={styles.ProductRating}>
+      <i></i>
+      <i></i>
+      <i></i>
+      <i></i>
+      <i></i>
+      <span>{rateCount}</span>
+    </div>
+  )
+}
 
-export default ProductRating;
+export default ProductRating

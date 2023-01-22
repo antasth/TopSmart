@@ -31,8 +31,6 @@ export const useCards = (cards, query) => {
 export const randomPrice = () => {
   return Math.round(Math.floor(Math.random() * (1000 - 100) + 100) / 20) * 1000
 }
-export const randomRating = () => {
-  return Math.floor(Math.random() * (1000 - 100) + 100) / 20
+export const randomMinMax = (min, max) => {
+  return Math.floor(Math.random() * (max - min) + min)
 }
-
-console.log(Math.floor(Math.random() * (5 - 1) + 1))

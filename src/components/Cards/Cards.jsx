@@ -4,6 +4,7 @@ import {
   shuffleArray,
   randomPrice,
   useCards,
+  randomMinMax,
 } from '../../Utils/Pages'
 import Card from '../Card/Card'
 import Search from '../Search/Search'
@@ -117,12 +118,14 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart, cartItems }) => {
         return await fetchDeviceDetails(key, (tryCount -= 1))
       } else {
         json.data.prices = randomPrice()
+        json.data.rating = randomMinMax(1, 5)
+        json.data.rateCount = randomMinMax(1, 100)
         setDevicesData((prevState) => [...prevState, json.data])
         setIsLoading(false)
       }
     } catch (error) {
       console.log('error', error)
-      await delay(500)
+      await delay(1000)
       tryCount > 1 && (await fetchDeviceDetails(key, (tryCount -= 1)))
     }
   }
@@ -150,7 +153,7 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart, cartItems }) => {
   return (
     <>
       {!isLoading && (
-        <div className='flex '>
+        <div className="flex ">
           <Search
             filter={filter}
             setFilter={setFilter}

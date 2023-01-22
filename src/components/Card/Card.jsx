@@ -16,6 +16,7 @@ const Card = ({
   os_type,
   camera,
   prices,
+  rateCount,
   pictures,
   onAddToCart,
   showCart,
@@ -59,7 +60,7 @@ const Card = ({
           {display_size} {device_name} {storage.split('/')[0]}{' '}
           {ram.split('/')[1]} {camera} {os_type.split(',')[0]} {battery}
         </h5>
-        <ProductRating />
+        <ProductRating rateCount={rateCount}/>
         <div className="flex justify-between items-center mt-7">
           <b> {prices} ₽</b>
           <div className="flex">
