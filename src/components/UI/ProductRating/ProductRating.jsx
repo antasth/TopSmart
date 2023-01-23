@@ -18,4 +18,4 @@ const ProductRating = ({ rateCount, rating }) => {
   )
 }
 
-export default ProductRating
+export { ProductRating }

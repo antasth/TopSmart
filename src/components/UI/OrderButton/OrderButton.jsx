@@ -4,4 +4,4 @@ const OrderButton = () => {
   return <button className={styles.orderbutton}> Оформить заказ</button>
 }
 
-export default OrderButton
+export { OrderButton }

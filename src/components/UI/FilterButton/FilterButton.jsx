@@ -17,4 +17,4 @@ const FilterButton = ({ children, getReceipts, name, filters }) => {
   )
 }
 
-export default FilterButton
+export { FilterButton }

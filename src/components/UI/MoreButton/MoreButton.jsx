@@ -11,4 +11,4 @@ const MoreButton = ({ isCardHover }) => {
   )
 }
 
-export default MoreButton
+export { MoreButton }

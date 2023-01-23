@@ -1,13 +1,10 @@
 import { BsXLg } from 'react-icons/bs'
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react'
-// import required modules
 import { Mousewheel, Pagination, Navigation } from 'swiper'
-// Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
-import Logo from '../UI/Logo/Logo'
+import { Logo } from '../UI/Logo/Logo'
 import styles from './Gallery.module.scss'
 
 const Gallery = ({ pictures, device_name, toggleGallery }) => {
@@ -41,4 +38,4 @@ const Gallery = ({ pictures, device_name, toggleGallery }) => {
   )
 }
 
-export default Gallery
+export { Gallery }

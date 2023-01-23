@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import styles from './Card.module.scss'
-import BuyButton from '../UI/BuyButton/BuyButton'
-import FavoriteButton from '../UI/FavoriteButton/FavoriteButton'
-import MoreButton from '../UI/MoreButton/MoreButton'
-import Gallery from '../Gallery/Gallery'
-import ProductRating from '../UI/ProductRating/ProductRating'
+import {BuyButton} from '../UI/BuyButton/BuyButton'
+import {FavoriteButton} from '../UI/FavoriteButton/FavoriteButton'
+import {MoreButton} from '../UI/MoreButton/MoreButton'
+import {Gallery} from '../Gallery/Gallery'
+import {ProductRating} from '../UI/ProductRating/ProductRating'
 
 const Card = ({
   device_name,
@@ -83,4 +83,4 @@ const Card = ({
   )
 }
 
-export default Card
+export {Card}

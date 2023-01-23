@@ -1,4 +1,4 @@
-import { getPagesArray } from '../../Utils/Pages'
+import { getPagesArray } from '../../Utils/PageFunctions'
 import styles from './Pagination.module.scss'
 
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid'
@@ -78,4 +78,4 @@ const Pagination = ({ totalPages, page, changePage }) => {
   )
 }
 
-export default Pagination
+export { Pagination }

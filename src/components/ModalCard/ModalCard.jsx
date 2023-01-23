@@ -12,4 +12,4 @@ const ModalCard = ({ toggleModal }) => {
   )
 }
 
-export default ModalCard
+export { ModalCard }

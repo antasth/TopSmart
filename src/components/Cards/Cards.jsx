@@ -5,12 +5,12 @@ import {
   randomPrice,
   useCards,
   randomMinMax,
-} from '../../Utils/Pages'
-import Card from '../Card/Card'
-import Search from '../Search/Search'
-import Loader from '../Loader/Loader'
-import Pagination from '../Pagination/Pagination'
-import Receipts from '../Receipts/Receipts'
+} from '../../Utils/PageFunctions'
+import { Card } from '../Card/Card'
+import { Search } from '../Search/Search'
+import { Loader } from '../Loader/Loader'
+import { Pagination } from '../Pagination/Pagination'
+import { Receipts } from '../Receipts/Receipts'
 
 const Cards = ({ toggleModal, toggleCart, onAddToCart, cartItems }) => {
   const [error, setError] = useState('')
@@ -194,4 +194,4 @@ const Cards = ({ toggleModal, toggleCart, onAddToCart, cartItems }) => {
   )
 }
 
-export default Cards
+export { Cards }

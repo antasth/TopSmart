@@ -1,6 +1,6 @@
 import { BsTrash } from 'react-icons/bs'
 import { BiExit } from 'react-icons/bi'
-import OrderButton from '../UI/OrderButton/OrderButton'
+import { OrderButton } from '../UI/OrderButton/OrderButton'
 import styles from './Drawer.module.scss'
 
 const Drawer = ({ toggleCart, deleteItem, cartItems, fullPrice }) => {
@@ -12,7 +12,7 @@ const Drawer = ({ toggleCart, deleteItem, cartItems, fullPrice }) => {
       >
         <div className="cart">
           <div className="cart__header flex justify-between items-center mb-5">
-            <h2 className='text-base'>Корзина</h2>
+            <h2 className="text-base">Корзина</h2>
             <button className="button grayButton" onClick={toggleCart}>
               <BiExit className="icon" />
             </button>
@@ -33,7 +33,7 @@ const Drawer = ({ toggleCart, deleteItem, cartItems, fullPrice }) => {
                 <div className="mx-3">
                   <p>
                     {item.display_size} {item.device_name} {item.storage}{' '}
-                     {item.battery}
+                    {item.battery}
                   </p>
                   <b>{item.prices} ₽</b>
                 </div>
@@ -83,4 +83,4 @@ const Drawer = ({ toggleCart, deleteItem, cartItems, fullPrice }) => {
   )
 }
 
-export default Drawer
+export { Drawer }

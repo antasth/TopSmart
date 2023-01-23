@@ -18,4 +18,4 @@ const FavoriteButton = () => {
   )
 }
 
-export default FavoriteButton
+export { FavoriteButton }

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { FiDelete } from 'react-icons/fi'
-import FilterButton from '../UI/FilterButton/FilterButton'
+import { FilterButton } from '../UI/FilterButton/FilterButton'
 import styles from './Receipts.module.scss'
 
 const Receipts = () => {
@@ -47,4 +47,4 @@ const Receipts = () => {
   )
 }
 
-export default Receipts
+export { Receipts }

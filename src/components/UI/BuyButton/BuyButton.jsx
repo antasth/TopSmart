@@ -34,4 +34,4 @@ const BuyButton = ({
   )
 }
 
-export default BuyButton
+export { BuyButton }
