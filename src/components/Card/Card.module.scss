@@ -25,10 +25,11 @@
     text-transform: uppercase;
   }
   b {
-    font-size: 18px;
-    font-weight: 700;
+    font-family: 'PT Sans', sans-serif;    
+    font-size: 22px;
+    font-weight: 500;
     line-height: 26px;
-    color: var(--red);
+    color: var(--black);
   }
   &:hover {
     box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 15px;

@@ -1,5 +1,5 @@
 .orderbutton {
-  border: 1px solid var(--red);
+  border: 1px solid var(--green);
   border-radius: 0.6em;
   cursor: pointer;
   display: flex;
@@ -13,9 +13,9 @@
   height: 3rem;
   width: 100%;
   color: var(--white);
-  background-color: var(--red);
+  background-color: var(--green);
   transition: var(--transition);
   &:hover {
-    background-color: var(--bright-red);
+    background-color: var(--bright-green);
   }
 }

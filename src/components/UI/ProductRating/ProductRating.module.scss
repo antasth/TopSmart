@@ -14,7 +14,7 @@
     &::before {
       content: '★★★★★';
       display: block;
-      color: rgb(201, 201, 201);
+      color: var(--light-gray);
     }
   }
 
@@ -32,7 +32,7 @@
       height: 100%;
       top: 0;
       left: 0;
-      color: var(--red);
+      color: var(--orange);
     }
   }
 
@@ -44,7 +44,7 @@
   }
 
   &:hover {
-    border-color: var(--red);
+    border-color: var(--green);
     cursor: pointer;
   }
 }

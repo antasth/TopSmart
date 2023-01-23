@@ -4,9 +4,9 @@
   -moz-appearance: none;
   appearance: none;
   background-color: transparent;
-  border: 1px solid var(--red);
+  border: 1px solid var(--green);
   border-radius: 0.6em;
-  color: var(--red);
+  color: var(--green);
   cursor: pointer;
   display: -webkit-box;
   display: -webkit-flex;
@@ -31,14 +31,13 @@
   &:hover {
     color: var(--white);
     outline: 0;
-    box-shadow: 0 0 40px 40px var(--red) inset;
+    box-shadow: 0 0 40px 40px var(--green) inset;
     opacity: 1;
   }
   &__ActiveCard {
     color: var(--white);
     outline: 0;
-    box-shadow: 0 0 40px 40px var(--red) inset;
+    box-shadow: 0 0 40px 40px var(--green) inset;
     opacity: 1;
   }
 }
-

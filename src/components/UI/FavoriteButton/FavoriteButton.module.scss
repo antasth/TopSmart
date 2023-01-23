@@ -12,12 +12,12 @@
 }
 
 .usedFavButton {
-  border-color: var(--red);
-  color: var(--red);
+  border-color: var(--green);
+  color: var(--green);
   opacity: 1;
   &:hover {
-    border-color: var(--red);
-    color: var(--red);
+    border-color: var(--green);
+    color: var(--green);
     background-color: var(--light-red);
     opacity: 1;
   }

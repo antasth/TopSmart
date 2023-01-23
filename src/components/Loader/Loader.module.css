@@ -35,7 +35,7 @@ body {
   animation-delay: -1.5s;
 }
 .load :nth-child(2) {
-  background: var(--red);
+  background: var(--green);
   animation-delay: -1s;
 }
 .load :nth-child(3) {
