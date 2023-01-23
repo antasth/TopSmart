@@ -6,12 +6,16 @@
   border: 1px solid var(--gray);
   border-radius: 0.4em;
   &:hover {
-    color: var(--gray);
-    background-color: var(--light-gray);
+    color: var(--green);
+    background-color: var(--light-green);
+    border: 1px solid var(--green);
+    transform: scale(1.1);
+    transition: var(--transition);
   }
 }
 
 .usedFavButton {
+  background-color: var(--light-green);
   border-color: var(--green);
   color: var(--green);
   opacity: 1;

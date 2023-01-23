@@ -54,7 +54,7 @@ const Pagination = ({ totalPages, page, changePage }) => {
                   href="/#"
                   className={`${
                     p === page && styles.active
-                  } relative inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-orange-400 focus:z-20`}
+                  } relative inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-500 hover:bg-green-100 hover:text-orange-400 focus:z-20`}
                 >
                   {p}
                 </a>

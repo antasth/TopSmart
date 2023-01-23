@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import styles from './Card.module.scss'
-import {BuyButton} from '../UI/BuyButton/BuyButton'
-import {FavoriteButton} from '../UI/FavoriteButton/FavoriteButton'
-import {MoreButton} from '../UI/MoreButton/MoreButton'
-import {Gallery} from '../Gallery/Gallery'
-import {ProductRating} from '../UI/ProductRating/ProductRating'
+import { BuyButton } from '../UI/BuyButton/BuyButton'
+import { FavoriteButton } from '../UI/FavoriteButton/FavoriteButton'
+import { MoreButton } from '../UI/MoreButton/MoreButton'
+import { Gallery } from '../Gallery/Gallery'
+import { ProductRating } from '../UI/ProductRating/ProductRating'
+import { slicePrice } from '../../Utils/PageFunctions'
 
 const Card = ({
   device_name,
@@ -58,7 +59,7 @@ const Card = ({
         </h5>
         <ProductRating rating={rating} rateCount={rateCount} />
         <div className="flex justify-between items-center mt-7">
-          <b> {prices} ₽</b>
+          <b> {slicePrice(prices)} ₽</b>
           <div className="flex">
             <FavoriteButton />
             <BuyButton
@@ -83,4 +84,4 @@ const Card = ({
   )
 }
 
-export {Card}
+export { Card }

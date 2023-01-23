@@ -19,12 +19,12 @@
   transition: var(--transition);
   &:hover {
     color: var(--white);
-    background-color: var(--green);
+    background-color: var(--light-blue);
     outline: 0;
     opacity: 1;
   }
   &_Used {
     color: var(--white);
-    background-color: var(--light-blue);
+    background-color: var(--green);
   }
 }

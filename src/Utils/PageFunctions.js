@@ -29,12 +29,16 @@ export const useCards = (cards, query) => {
 }
 
 export const randomPrice = () => {
-  const result =
-    Math.round(Math.floor(Math.random() * (1000 - 100) + 100) / 20) * 9 + '99'
-  return `${result.slice(0, result.length - 3)} ${result.slice(-3)}`
+  return (
+    Math.round(Math.floor(Math.random() * (1000 - 100) + 100) / 20) * 1000 - 1
+  )
+}
+
+export const slicePrice = (price) => {
+  const stringPrice = price.toString()
+  return `${stringPrice.slice(0, stringPrice.length - 3)} ${stringPrice.slice(-3)}`
 }
 
 export const randomMinMax = (min, max, tofixed) => {
   return (Math.random() * (max - min) + min).toFixed(tofixed)
 }
-
