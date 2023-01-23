@@ -1,24 +1,24 @@
 .favButton {
-   font-size: 20px;
-   padding: 0.4em;
-   opacity: 0.5;
-   color: gray;
-   border: 1px solid gray;
-   border-radius: 0.4em;
-   &:hover {
-     color: gray;
-     background-color: #e8e9e9;
-   }
- }
+  font-size: 20px;
+  padding: 0.4em;
+  opacity: 0.5;
+  color: var(--gray);
+  border: 1px solid var(--gray);
+  border-radius: 0.4em;
+  &:hover {
+    color: var(--gray);
+    background-color: var(--light-gray);
+  }
+}
 
- .usedFavButton {
-  border-color: #e74c3c;
-  color: #e74c3c;
+.usedFavButton {
+  border-color: var(--red);
+  color: var(--red);
   opacity: 1;
   &:hover {
-    border-color: #e74c3c;
-    color: #e74c3c;
-    background-color: #fad3d3;
+    border-color: var(--red);
+    color: var(--red);
+    background-color: var(--light-red);
     opacity: 1;
   }
 }

@@ -3,7 +3,7 @@
   align-self: end;
   align-items: center;
   margin-top: 20px;
-  border: 1px solid #eee;
+  border: 1px solid var(--light-gray);
   border-radius: 8px;
   font-size: 20px;
   line-height: 0.75;
@@ -32,7 +32,7 @@
       height: 100%;
       top: 0;
       left: 0;
-      color: #e74c3c;
+      color: var(--red);
     }
   }
 
@@ -44,7 +44,7 @@
   }
 
   &:hover {
-    border-color: #e74c3c;
+    border-color: var(--red);
     cursor: pointer;
   }
 }

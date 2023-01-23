@@ -1,20 +1,20 @@
 .footer {
-   background-color: #2c3450;
-   color: #fff;
- 
-   ul {
-     li {
-       display: flex;
-       list-style-type: none;
-       margin: 20px;
- 
-       span {
-         margin: 0 10px;
-       }
-       :hover {
-         color: #66aed4;
-         cursor: pointer;
-       }
-     }
-   }
- }
+  background-color: var(--dark-blue);
+  color: var(--white);
+
+  ul {
+    li {
+      display: flex;
+      list-style-type: none;
+      margin: 20px;
+
+      span {
+        margin: 0 10px;
+      }
+      :hover {
+        color: var(--light-blue);
+        cursor: pointer;
+      }
+    }
+  }
+}

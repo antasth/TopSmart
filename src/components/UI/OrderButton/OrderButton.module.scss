@@ -1,5 +1,5 @@
 .orderbutton {
-  border: 1px solid #e74c3c;
+  border: 1px solid var(--red);
   border-radius: 0.6em;
   cursor: pointer;
   display: flex;
@@ -12,10 +12,10 @@
   font-family: 'Montserrat', sans-serif;
   height: 3rem;
   width: 100%;
-  color: #fff;
-  background-color: #e74c3c;
-  transition: box-shadow 200ms ease-in-out, color 200ms ease-in-out;
+  color: var(--white);
+  background-color: var(--red);
+  transition: var(--transition);
   &:hover {
-    background-color: #fd5341;
+    background-color: var(--bright-red);
   }
 }

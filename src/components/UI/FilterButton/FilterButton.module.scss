@@ -3,9 +3,9 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background-color: #f7f7f7;
+  background-color: var(--background);
   border-radius: 0.6em;
-  color: #383838;
+  color: var(--dark-blue);
   cursor: pointer;
   font-size: 0.8rem;
   font-weight: 400;
@@ -16,16 +16,15 @@
   text-align: center;
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
-  -webkit-transition: box-shadow 200ms ease-in-out, color 200ms ease-in-out;
-  transition: box-shadow 200ms ease-in-out, color 200ms ease-in-out;
+  transition: var(--transition);
   &:hover {
-    color: #fff;
-    background-color: #e74c3c;
+    color: var(--white);
+    background-color: var(--red);
     outline: 0;
     opacity: 1;
   }
   &_Used {
-    color: #fff;
-    background-color: #66aed4;
+    color: var(--white);
+    background-color: var(--light-blue);
   }
 }

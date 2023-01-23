@@ -2,14 +2,14 @@
   display: flex;
   flex: 1 20%;
   flex-direction: column;
-  background-color: #fff;
+  background-color: var(--white);
   border-radius: 15px;
   max-width: 280px;
   min-width: 220px;
   padding: 12px;
   margin: 10px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
-  transition: all 0.2s;
+  transition: var(--transition);
   img {
     margin: 0 auto;
     max-width: 200px;
@@ -28,7 +28,7 @@
     font-size: 18px;
     font-weight: 700;
     line-height: 26px;
-    color: #e74c3c;
+    color: var(--red);
   }
   &:hover {
     box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 15px;

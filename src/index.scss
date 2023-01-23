@@ -14,8 +14,8 @@ body {
     Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #e0e2e3;
-  color: #2c3450;
+  background-color: var(--background);
+  color: var(--dark-blue);
 }
 
 .locked {
@@ -29,7 +29,7 @@ body {
 }
 
 .wrapper {
-  background: #f5f8f9;
+  background: var(--background);
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04);
   border-radius: 20px;
   margin: 0 auto;
@@ -54,4 +54,19 @@ h2 {
 .content {
   margin: 0 auto;
   max-width: 1200px;
+}
+
+:root {
+  --red: #e74c3c;
+  --bright-red: #fd5341;
+  --light-red: #fad3d3;
+  --white: #ffffff;
+  --orange: #fb923c;
+  --light-blue: #66aed4;
+  --gray: #808080;
+  --light-gray: #e8e9e9;
+  --dark-blue: #2c3450;
+  --background: #f5f8f9;
+
+  --transition: all 0.2s ease-in-out;
 }

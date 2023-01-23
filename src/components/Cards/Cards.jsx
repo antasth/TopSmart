@@ -12,7 +12,7 @@ import { Loader } from '../Loader/Loader'
 import { Pagination } from '../Pagination/Pagination'
 import { Receipts } from '../Receipts/Receipts'
 
-const Cards = ({ toggleModal, toggleCart, onAddToCart, cartItems }) => {
+const Cards = ({ toggleCart, onAddToCart, cartItems }) => {
   const [error, setError] = useState('')
   const [isLoading, setIsLoading] = useState(true)
   const [allBrands, setAllBrands] = useState([])
