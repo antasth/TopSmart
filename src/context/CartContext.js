@@ -25,16 +25,21 @@ const CartContextProvider = (props) => {
   }
 
   const getFromLocalStorage = () => {
-   if (localStorage.getItem('cartItems')) {
-     const items = JSON.parse(localStorage.getItem('cartItems'))
-     setCartItems(items)
-   }
- }
+    if (localStorage.getItem('cartItems')) {
+      const items = JSON.parse(localStorage.getItem('cartItems'))
+      setCartItems(items)
+    }
+  }
+
+  const getFullPrice = () => {
+    setFullPrice(cartItems.reduce((acc, curr) => acc + Number(curr.prices), 0))
+  }
 
   const value = {
-   cartItems: cartItems,
+    cartItems: cartItems,
     activeCart: activeCart,
     fullPrice: fullPrice,
+    getFullPrice: getFullPrice,
     toggleCart: toggleCart,
     onAddToCart: onAddToCart,
     deleteItem: deleteItem,
