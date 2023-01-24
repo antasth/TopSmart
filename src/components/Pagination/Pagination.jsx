@@ -36,7 +36,7 @@ const Pagination = ({ totalPages, page, changePage }) => {
           >
             <a
               href="/#"
-              className="relative inline-flex items-center rounded-l-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-200  focus:z-20"
+              className="relative inline-flex items-center rounded-l-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-gray-500 hover:bg-green-100  focus:z-20"
             >
               <span className="sr-only">Previous</span>
               <ChevronLeftIcon
@@ -62,7 +62,7 @@ const Pagination = ({ totalPages, page, changePage }) => {
             )}
             <a
               href="/#"
-              className="relative inline-flex items-center rounded-r-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-200 focus:z-20"
+              className="relative inline-flex items-center rounded-r-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-gray-500 hover:bg-green-100 focus:z-20"
             >
               <span className="sr-only">Next</span>
               <ChevronRightIcon

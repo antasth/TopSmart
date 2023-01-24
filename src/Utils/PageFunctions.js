@@ -35,8 +35,12 @@ export const randomPrice = () => {
 }
 
 export const slicePrice = (price) => {
-  const stringPrice = price.toString()
-  return `${stringPrice.slice(0, stringPrice.length - 3)} ${stringPrice.slice(-3)}`
+  if (price) {
+    const stringPrice = price.toString()
+    return `${stringPrice.slice(0, stringPrice.length - 3)} ${stringPrice.slice(
+      -3
+    )}`
+  }
 }
 
 export const randomMinMax = (min, max, tofixed) => {

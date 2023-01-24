@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useContext } from 'react'
 import {
   getPagesCount,
   shuffleArray,
@@ -11,8 +11,10 @@ import { Search } from '../Search/Search'
 import { Loader } from '../Loader/Loader'
 import { Pagination } from '../Pagination/Pagination'
 import { Receipts } from '../Receipts/Receipts'
+import { CartContext } from '../../context/CartContext'
 
-const Cards = ({ toggleCart, onAddToCart, cartItems }) => {
+const Cards = () => {
+  const cart = useContext(CartContext)
   const [error, setError] = useState('')
   const [isLoading, setIsLoading] = useState(true)
   const [allBrands, setAllBrands] = useState([])
@@ -171,9 +173,9 @@ const Cards = ({ toggleCart, onAddToCart, cartItems }) => {
                 <Card
                   key={device.key}
                   {...device}
-                  showCart={toggleCart}
-                  onAddToCart={() => onAddToCart(device)}
-                  isActive={cartItems.includes(device) ? true : false}
+                  showCart={cart.toggleCart}
+                  onAddToCart={() => cart.onAddToCart(device)}
+                  isActive={cart.cartItems.includes(device) ? true : false}
                 />
               )
           )
