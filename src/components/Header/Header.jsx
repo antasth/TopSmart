@@ -20,8 +20,9 @@ const Header = () => {
         <li>
           <BsSearch className="icon" />
         </li>
-        <li onClick={cart.toggleCart}>
-          <BsCartPlus className="icon" />
+        <li onClick={cart.toggleCart} className="relative">
+          <BsCartPlus className="icon " />
+          <span className={styles.counter}>{cart.cartItems.length}</span>
           <span> {slicePrice(cart.fullPrice)} ₽.</span>
         </li>
         <li>

@@ -17,7 +17,6 @@ const CartContextProvider = (props) => {
 
   const deleteItem = (item) => {
     setCartItems(cartItems.filter((cartItem) => cartItem.key !== item.key))
-    saveToLocalStorage()
   }
 
   const saveToLocalStorage = () => {

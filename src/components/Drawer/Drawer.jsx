@@ -40,6 +40,7 @@ const Drawer = () => {
                   <BsTrash
                     onClick={() => {
                       cart.deleteItem(item)
+                      cart.saveToLocalStorage()
                     }}
                   />
                 </button>

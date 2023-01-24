@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import styles from './Card.module.scss'
 import { BuyButton } from '../UI/BuyButton/BuyButton'
 import { FavoriteButton } from '../UI/FavoriteButton/FavoriteButton'
 import { MoreButton } from '../UI/MoreButton/MoreButton'
 import { Gallery } from '../Gallery/Gallery'
 import { ProductRating } from '../UI/ProductRating/ProductRating'
 import { slicePrice } from '../../Utils/PageFunctions'
+import styles from './Card.module.scss'
 
 const Card = ({
   device_name,
