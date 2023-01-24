@@ -6,6 +6,7 @@ import {
   useCards,
   randomMinMax,
 } from '../../Utils/PageFunctions'
+import { API_URL_ALL, API_URL_ITEM, itemsOnPage } from '../../config'
 import { Card } from '../Card/Card'
 import { Search } from '../Search/Search'
 import { Loader } from '../Loader/Loader'
@@ -24,7 +25,6 @@ const Cards = () => {
   const [totalPages, setTotalPages] = useState(0)
   const [allDeviceList, setAllDeviceList] = useState([])
   const foundCards = useCards(allDeviceList, filter.query)
-  const itemsOnPage = 12
 
   const changePage = (page) => {
     if (page > 0 && page <= totalPages) {
@@ -63,10 +63,7 @@ const Cards = () => {
           method: 'GET',
           redirect: 'follow',
         }
-        const res = await fetch(
-          'https://script.google.com/macros/s/AKfycbxNu27V2Y2LuKUIQMK8lX1y0joB6YmG6hUwB1fNeVbgzEh22TcDGrOak03Fk3uBHmz-/exec?route=device-list',
-          requestOptions
-        )
+        const res = await fetch(API_URL_ALL, requestOptions)
         const json = await res.json()
         setAllBrands(json.data)
       } catch (error) {
@@ -104,16 +101,13 @@ const Cards = () => {
   // Функция делает запрос по деталям устройства, если плохой ответ, то делает повторный запрос
   const fetchDeviceDetails = async (key, tryCount) => {
     let raw = `{\n    "route": "device-detail",\n    "key": "${key}"\n}`
-    let url =
-      'https://script.google.com/macros/s/AKfycbxNu27V2Y2LuKUIQMK8lX1y0joB6YmG6hUwB1fNeVbgzEh22TcDGrOak03Fk3uBHmz-/exec'
     let options = {
       method: 'POST',
       body: raw,
       redirect: 'follow',
     }
-
     try {
-      const response = await fetch(url, options)
+      const response = await fetch(API_URL_ITEM, options)
       const json = await response.json()
       if (json.status !== 200) {
         if (tryCount <= 1) throw Error
