@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import { BsCartPlus, BsSearch } from 'react-icons/bs'
 import { BiUser, BiHeart } from 'react-icons/bi'
 import { Logo } from '../UI/Logo/Logo'
+import Counter from '../UI/Counter/Counter'
 import { slicePrice } from '../../Utils/PageFunctions'
 import { CartContext } from '../../context/CartContext'
 import styles from './Header.module.scss'
@@ -22,7 +23,7 @@ const Header = () => {
         </li>
         <li onClick={cart.toggleCart} className="relative">
           <BsCartPlus className="icon " />
-          <span className={styles.counter}>{cart.cartItems.length}</span>
+          <Counter>{cart.cartItems.length}</Counter>
           <span> {slicePrice(cart.fullPrice)} ₽.</span>
         </li>
         <li>
