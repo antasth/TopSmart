@@ -1,14 +1,10 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
+import { CartContext } from '../../../context/CartContext'
 import styles from './Button.module.scss'
 
-const BuyButton = ({
-  children,
-  isCardHover,
-  onAddToCart,
-  showCart,
-  isActive,
-}) => {
+const BuyButton = ({ children, isCardHover, onAddToCart, isActive }) => {
   const [isUsed, setIsUsed] = useState(false)
+  const cart = useContext(CartContext)
 
   const changeIsUsedState = () => {
     setIsUsed(!isUsed)
@@ -26,7 +22,7 @@ const BuyButton = ({
       onClick={() => {
         !isUsed && onAddToCart()
         !isUsed && changeIsUsedState()
-        isUsed && showCart()
+        isUsed && cart.toggleCart()
       }}
     >
       {isUsed && isActive ? 'В корзине' : `${children}`}

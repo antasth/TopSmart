@@ -173,7 +173,6 @@ const Cards = () => {
                 <Card
                   key={device.key}
                   {...device}
-                  showCart={cart.toggleCart}
                   onAddToCart={() => cart.onAddToCart(device)}
                   isActive={cart.cartItems.includes(device) ? true : false}
                 />

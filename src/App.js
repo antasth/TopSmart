@@ -1,8 +1,8 @@
+import { CartContextProvider } from './context/CartContext'
 import { BrowserRouter } from 'react-router-dom'
 import { AppRouter } from './components/UI/AppRouter'
-import { Footer } from './components/Footer/Footer'
-import { CartContextProvider } from './context/CartContext'
 import { Header } from './components/Header/Header'
+import { Footer } from './components/Footer/Footer'
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
         <AppRouter />
         <Footer />
       </BrowserRouter>
-     </CartContextProvider>
+    </CartContextProvider>
   )
 }
 

@@ -21,7 +21,6 @@ const Card = ({
   rating,
   pictures,
   onAddToCart,
-  showCart,
   isActive,
 }) => {
   const [isCardHover, setIsCardHover] = useState(false)
@@ -65,7 +64,6 @@ const Card = ({
             <BuyButton
               isCardHover={isCardHover}
               onAddToCart={onAddToCart}
-              showCart={showCart}
               isActive={isActive}
             >
               Купить

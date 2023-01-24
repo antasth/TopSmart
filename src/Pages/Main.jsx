@@ -18,9 +18,7 @@ const Main = () => {
   }, [cart.cartItems])
 
   return (
-    // <></>
     <div className="wrapper relative flex flex-col min-h-screen">
-      Main Page
       <div className="content flex-1 ">
         <Cards />
       </div>

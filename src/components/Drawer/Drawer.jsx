@@ -28,12 +28,7 @@ const Drawer = () => {
                 key={item.key}
                 className="cartItem flex justify-between items-center mb-3 text-sm"
               >
-                <img
-                  width={70}
-                  // src={require('../../assets/img/' + item.img + '/1.jpg')}
-                  src={item.device_image}
-                  alt="phone"
-                />
+                <img width={70} src={item.device_image} alt="phone" />
                 <div className="mx-3">
                   <p>
                     {item.display_size} {item.device_name} {item.storage}{' '}
@@ -79,7 +74,6 @@ const Drawer = () => {
               </div>
             </div>
           </div>
-
           <OrderButton />
         </div>
       </div>

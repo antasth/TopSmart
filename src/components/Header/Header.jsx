@@ -1,10 +1,10 @@
+import { useContext } from 'react'
 import { BsCartPlus, BsSearch } from 'react-icons/bs'
 import { BiUser, BiHeart } from 'react-icons/bi'
-import styles from './Header.module.scss'
-import { useContext } from 'react'
 import { Logo } from '../UI/Logo/Logo'
 import { slicePrice } from '../../Utils/PageFunctions'
 import { CartContext } from '../../context/CartContext'
+import styles from './Header.module.scss'
 
 const Header = () => {
   const cart = useContext(CartContext)
