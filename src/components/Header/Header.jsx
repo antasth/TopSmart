@@ -1,4 +1,5 @@
 import { useContext } from 'react'
+import { Link } from 'react-router-dom'
 import { BsCartPlus, BsSearch } from 'react-icons/bs'
 import { BiUser, BiHeart } from 'react-icons/bi'
 import { Logo } from '../UI/Logo/Logo'
@@ -14,7 +15,9 @@ const Header = () => {
       className={`${styles.header} flex justify-between py-1.5 h-50 mb-7 sticky top-0 z-10`}
     >
       <div className="flex items-center">
-        <Logo />
+        <Link to="/">
+          <Logo />
+        </Link>
       </div>
 
       <ul className="flex justify-between items-center mr-5">
@@ -27,7 +30,9 @@ const Header = () => {
           <span> {slicePrice(cart.fullPrice)} ₽.</span>
         </li>
         <li>
-          <BiHeart className="icon" />
+          <Link to="/favorites">
+            <BiHeart className="icon" />
+          </Link>
         </li>
         <li>
           <BiUser className="icon" />

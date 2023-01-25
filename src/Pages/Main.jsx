@@ -1,6 +1,5 @@
 import { useEffect, useContext } from 'react'
 import { Cards } from '../components/Cards/Cards'
-import { Drawer } from '../components/Drawer/Drawer'
 import { CartContext } from '../context/CartContext'
 
 const Main = () => {
@@ -20,7 +19,6 @@ const Main = () => {
   return (
     <>
       <Cards />
-      {cart.activeCart && <Drawer />}
     </>
   )
 }
