@@ -1,11 +1,23 @@
 import { Route, Routes } from 'react-router-dom'
 import { publicRoutes } from '../../Routes/routes'
 import { CartContext } from '../../context/CartContext'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { Drawer } from '../Drawer/Drawer'
 
 const AppRouter = () => {
   const cart = useContext(CartContext)
+
+  useEffect(() => {
+    cart.getFromLocalStorage()
+  }, [])
+
+  useEffect(() => {
+    if (cart.cartItems) {
+      cart.getFullPrice()
+      cart.saveToLocalStorage()
+    }
+  }, [cart.cartItems])
+  
   return (
     <>
       <div className="wrapper relative flex grow">
