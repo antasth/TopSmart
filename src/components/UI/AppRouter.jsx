@@ -17,7 +17,7 @@ const AppRouter = () => {
       cart.saveToLocalStorage()
     }
   }, [cart.cartItems])
-  
+
   return (
     <>
       <div className="wrapper relative flex grow">
