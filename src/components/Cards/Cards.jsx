@@ -13,9 +13,11 @@ import { Loader } from '../Loader/Loader'
 import { Pagination } from '../Pagination/Pagination'
 import { Receipts } from '../Receipts/Receipts'
 import { CartContext } from '../../context/CartContext'
+import { FavContext } from '../../context/FavContext'
 
 const Cards = () => {
   const cart = useContext(CartContext)
+  const fav = useContext(FavContext)
   const [error, setError] = useState('')
   const [isLoading, setIsLoading] = useState(true)
   const [allBrands, setAllBrands] = useState([])
@@ -168,6 +170,7 @@ const Cards = () => {
                   key={device.key}
                   {...device}
                   onAddToCart={() => cart.onAddToCart(device)}
+                  onAddToFav={() => fav.addToFavorites(device)}
                   isActive={cart.cartItems.includes(device) ? true : false}
                 />
               )
