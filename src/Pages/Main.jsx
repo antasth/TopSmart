@@ -18,12 +18,10 @@ const Main = () => {
   }, [cart.cartItems])
 
   return (
-    <div className="wrapper relative flex flex-col min-h-screen">
-      <div className="content flex-1 ">
-        <Cards />
-      </div>
+    <>
+      <Cards />
       {cart.activeCart && <Drawer />}
-    </div>
+    </>
   )
 }
 
