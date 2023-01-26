@@ -5,6 +5,7 @@ import {
   randomPrice,
   useCards,
   randomMinMax,
+  saveToLocalStorage,
 } from '../../Utils/PageFunctions'
 import { API_URL_ALL, API_URL_ITEM, itemsOnPage } from '../../config'
 import { Card } from '../Card/Card'

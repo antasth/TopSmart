@@ -1,7 +1,7 @@
 import { BsTrash } from 'react-icons/bs'
 import { BiExit } from 'react-icons/bi'
 import { OrderButton } from '../UI/OrderButton/OrderButton'
-import { slicePrice } from '../../Utils/PageFunctions'
+import { slicePrice, saveToLocalStorage } from '../../Utils/PageFunctions'
 import { useContext } from 'react'
 import { CartContext } from '../../context/CartContext'
 import styles from './Drawer.module.scss'
@@ -40,7 +40,7 @@ const Drawer = () => {
                   <BsTrash
                     onClick={() => {
                       cart.deleteItem(item)
-                      cart.saveToLocalStorage()
+                      saveToLocalStorage('cartItems', cart.cartItems)
                     }}
                   />
                 </button>

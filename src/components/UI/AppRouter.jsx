@@ -1,11 +1,14 @@
+import { useContext, useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
+import { saveToLocalStorage } from '../../Utils/PageFunctions'
 import { publicRoutes } from '../../Routes/routes'
 import { CartContext } from '../../context/CartContext'
-import { useContext, useEffect } from 'react'
+import { FavContext } from '../../context/FavContext'
 import { Drawer } from '../Drawer/Drawer'
 
 const AppRouter = () => {
   const cart = useContext(CartContext)
+  const fav = useContext(FavContext)
 
   useEffect(() => {
     cart.getFromLocalStorage()
@@ -14,9 +17,17 @@ const AppRouter = () => {
   useEffect(() => {
     if (cart.cartItems) {
       cart.getFullPrice()
-      cart.saveToLocalStorage()
+      saveToLocalStorage('cartItems', cart.cartItems)
     }
   }, [cart.cartItems])
+
+  useEffect(() => {
+    if (fav.favItems) {
+      saveToLocalStorage('favItems', fav.favItems)
+    }
+  }, [fav.favItems])
+
+
 
   return (
     <>

@@ -10,4 +10,4 @@ const FavCard = ({ device_image, device_name, display_size }) => {
   )
 }
 
-export {FavCard}
+export { FavCard }

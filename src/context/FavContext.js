@@ -3,14 +3,14 @@ import { useState, createContext } from 'react'
 const FavContext = createContext()
 
 const FavContextProvider = (props) => {
-  const [favorites, setFavorites] = useState([])
+  const [favItems, setFavItems] = useState([])
 
   const addToFavorites = (item) => {
-    setFavorites((prev) => [...prev, item])
+    setFavItems((prev) => [...prev, item])
   }
 
   const value = {
-    favorites: favorites,
+    favItems: favItems,
     addToFavorites: addToFavorites,
   }
   return (

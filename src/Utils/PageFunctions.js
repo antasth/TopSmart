@@ -46,3 +46,17 @@ export const slicePrice = (price) => {
 export const randomMinMax = (min, max, tofixed) => {
   return (Math.random() * (max - min) + min).toFixed(tofixed)
 }
+
+// export const saveToLocalStorage = () => {
+//   localStorage.setItem('cartItems', JSON.stringify(cartItems))
+// }
+export const saveToLocalStorage = (name, items) => {
+  localStorage.setItem(name, JSON.stringify(items))
+}
+
+// export const getFromLocalStorage = () => {
+//   if (localStorage.getItem('cartItems')) {
+//     const items = JSON.parse(localStorage.getItem('cartItems'))
+//     setCartItems(items)
+//   }
+// }

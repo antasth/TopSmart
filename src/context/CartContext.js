@@ -19,9 +19,9 @@ const CartContextProvider = (props) => {
     setCartItems(cartItems.filter((cartItem) => cartItem.key !== item.key))
   }
 
-  const saveToLocalStorage = () => {
-    localStorage.setItem('cartItems', JSON.stringify(cartItems))
-  }
+  // const saveToLocalStorage = () => {
+  //   localStorage.setItem('cartItems', JSON.stringify(cartItems))
+  // }
 
   const getFromLocalStorage = () => {
     if (localStorage.getItem('cartItems')) {
@@ -42,7 +42,7 @@ const CartContextProvider = (props) => {
     toggleCart: toggleCart,
     onAddToCart: onAddToCart,
     deleteItem: deleteItem,
-    saveToLocalStorage: saveToLocalStorage,
+    // saveToLocalStorage: saveToLocalStorage,
     getFromLocalStorage: getFromLocalStorage,
   }
   return (

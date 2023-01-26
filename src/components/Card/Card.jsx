@@ -21,6 +21,7 @@ const Card = ({
   rating,
   pictures,
   onAddToCart,
+  saveToLocalStorage,
   onAddToFav,
   isActive,
 }) => {
@@ -61,7 +62,9 @@ const Card = ({
         <div className="flex justify-between items-center mt-7">
           <b> {slicePrice(prices)} ₽</b>
           <div className="flex">
-            <FavoriteButton onAddToFav={onAddToFav} />
+            <FavoriteButton
+              onAddToFav={onAddToFav}
+            />
             <BuyButton
               isCardHover={isCardHover}
               onAddToCart={onAddToCart}

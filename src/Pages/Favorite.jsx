@@ -12,8 +12,8 @@ const Favorite = () => {
         <button>Купить</button>
       </div>
       <div className="favitems">
-        {fav.favorites.map((item) => (
-          <FavCard key={fav.favorites.key} {...item} />
+        {fav.favItems.map((item) => (
+          <FavCard key={fav.favItems.key} {...item} />
         ))}
       </div>
     </div>
