@@ -42,6 +42,7 @@ const CartContextProvider = (props) => {
     toggleCart: toggleCart,
     onAddToCart: onAddToCart,
     deleteItem: deleteItem,
+    setCartItems: setCartItems,
     // saveToLocalStorage: saveToLocalStorage,
     getFromLocalStorage: getFromLocalStorage,
   }

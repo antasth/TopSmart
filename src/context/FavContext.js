@@ -12,6 +12,7 @@ const FavContextProvider = (props) => {
   const value = {
     favItems: favItems,
     addToFavorites: addToFavorites,
+    setFavItems: setFavItems,
   }
   return (
     <FavContext.Provider value={value}>{props.children}</FavContext.Provider>
