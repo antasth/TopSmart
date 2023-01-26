@@ -3,13 +3,16 @@ import { Link } from 'react-router-dom'
 import { BsCartPlus, BsSearch } from 'react-icons/bs'
 import { BiUser, BiHeart } from 'react-icons/bi'
 import { Logo } from '../UI/Logo/Logo'
-import Counter from '../UI/Counter/Counter'
+import { Counter } from '../UI/Counter/Counter'
 import { slicePrice } from '../../Utils/PageFunctions'
 import { CartContext } from '../../context/CartContext'
+import { FavContext } from '../../context/FavContext'
 import styles from './Header.module.scss'
 
 const Header = () => {
   const cart = useContext(CartContext)
+  const fav = useContext(FavContext)
+
   return (
     <header
       className={`${styles.header} flex justify-between py-1.5 h-50 mb-7 sticky top-0 z-10`}
@@ -29,9 +32,10 @@ const Header = () => {
           <Counter>{cart.cartItems.length}</Counter>
           <span> {slicePrice(cart.fullPrice)} ₽.</span>
         </li>
-        <li>
+        <li className="relative">
           <Link to="/favorites">
             <BiHeart className="icon" />
+            <Counter>{fav.favItems.length}</Counter>
           </Link>
         </li>
         <li>
