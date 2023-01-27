@@ -82,3 +82,9 @@ console.log(result);
 
 const testObject = { a: 'b', c: 'd' };
 Object.keys(testObject).map(key => console.log(key, testObject[key]));
+
+
+const str = 'someSymbols🚸'
+const arr = [...'someSymbols🚸']
+console.log(str[0]); // 13
+console.log(arr[0]); // 12
