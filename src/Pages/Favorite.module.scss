@@ -1,0 +1,14 @@
+.favorite {
+  flex-grow: 1;
+  margin-bottom: 2rem;
+}
+
+.favheader {
+  padding: 0.5rem;
+  margin: 1.5rem auto;
+  background-color: var(--light-green);
+  border-radius: 15px;
+  p {
+    font-weight: 700;
+  }
+}

@@ -19,10 +19,15 @@ const FavCard = ({
   return (
     <div className={styles.card}>
       <img src={device_image} alt="favoriteimg" />
-      {display_size} {display_res} {device_name} {storage.split('/')[0]}{' '}
-      {ram.split('/')[1]} {camera} {os_type.split(',')[0]} {battery} {chipset}{' '}
-      {release_date}
-      <BuyButton>Купить</BuyButton>
+
+      <div className={styles.description}>
+        {display_size} {display_res} {device_name} {storage.split('/')[0]}{' '}
+        {ram.split('/')[1]} {camera} {os_type.split(',')[0]} {battery} {chipset}{' '}
+        {release_date}
+      </div>
+      <div className={styles.controls}>
+        <BuyButton>Купить</BuyButton>
+      </div>
     </div>
   )
 }

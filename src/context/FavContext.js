@@ -11,13 +11,17 @@ const FavContextProvider = (props) => {
 
   const delFromFavorites = (item) => {
     setFavItems(favItems.filter((favItem) => favItem.key !== item.key))
+  }
 
+  const getFullPrice = () => {
+    return favItems.reduce((acc, curr) => acc + Number(curr.prices), 0)
   }
 
   const value = {
     favItems: favItems,
     addToFavorites: addToFavorites,
     delFromFavorites: delFromFavorites,
+    getFullPrice: getFullPrice,
     setFavItems: setFavItems,
   }
   return (
