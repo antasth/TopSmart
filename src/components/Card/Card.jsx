@@ -66,6 +66,7 @@ const Card = ({
               onAddToFav={onAddToFav}
               onDelFromFav={onDelFromFav}
             />
+
             <BuyButton
               isCardHover={isCardHover}
               onAddToCart={onAddToCart}
