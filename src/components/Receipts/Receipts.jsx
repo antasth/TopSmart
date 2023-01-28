@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Tooltip, Box } from '@chakra-ui/react'
 import { FiDelete } from 'react-icons/fi'
 import { FilterButton } from '../UI/FilterButton/FilterButton'
 import styles from './Receipts.module.scss'
@@ -38,11 +39,20 @@ const Receipts = () => {
           {receipts[key]}
         </FilterButton>
       ))}
-      <FiDelete
-        className={styles.delete}
-        onClick={clearFilters}
-        title="Очистить фильтры"
-      ></FiDelete>
+      <Tooltip
+        label="Очистить фильтры"
+        aria-label="A tooltip"
+        bg="var(--dark-blue)"
+        color="var(--white)"
+        padding={12}
+        borderRadius={10}
+        placement="bottom"
+        openDelay={200}
+      >
+        <Box>
+          <FiDelete className={styles.delete} onClick={clearFilters}></FiDelete>
+        </Box>
+      </Tooltip>
     </div>
   )
 }
