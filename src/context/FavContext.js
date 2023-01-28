@@ -9,9 +9,15 @@ const FavContextProvider = (props) => {
     setFavItems((prev) => [...prev, item])
   }
 
+  const delFromFavorites = (item) => {
+    setFavItems(favItems.filter((favItem) => favItem.key !== item.key))
+
+  }
+
   const value = {
     favItems: favItems,
     addToFavorites: addToFavorites,
+    delFromFavorites: delFromFavorites,
     setFavItems: setFavItems,
   }
   return (

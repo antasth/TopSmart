@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './FavCard.module.scss'
+import { BuyButton } from '../UI/BuyButton/BuyButton'
 
 const FavCard = ({
   device_image,
@@ -13,6 +14,7 @@ const FavCard = ({
   ram,
   chipset,
   release_date,
+  delFromFav,
 }) => {
   return (
     <div className={styles.card}>
@@ -20,6 +22,7 @@ const FavCard = ({
       {display_size} {display_res} {device_name} {storage.split('/')[0]}{' '}
       {ram.split('/')[1]} {camera} {os_type.split(',')[0]} {battery} {chipset}{' '}
       {release_date}
+      <BuyButton>Купить</BuyButton>
     </div>
   )
 }

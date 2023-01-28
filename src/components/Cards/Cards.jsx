@@ -5,7 +5,6 @@ import {
   randomPrice,
   useCards,
   randomMinMax,
-  saveToLocalStorage,
 } from '../../Utils/PageFunctions'
 import { API_URL_ALL, API_URL_ITEM, itemsOnPage } from '../../config'
 import { Card } from '../Card/Card'
@@ -172,6 +171,7 @@ const Cards = () => {
                   {...device}
                   onAddToCart={() => cart.onAddToCart(device)}
                   onAddToFav={() => fav.addToFavorites(device)}
+                  onDelFromFav={() => fav.delFromFavorites(device)}
                   isActive={cart.cartItems.includes(device) ? true : false}
                 />
               )

@@ -22,6 +22,7 @@ const Card = ({
   pictures,
   onAddToCart,
   onAddToFav,
+  onDelFromFav,
   isActive,
 }) => {
   const [isCardHover, setIsCardHover] = useState(false)
@@ -61,7 +62,10 @@ const Card = ({
         <div className="flex justify-between items-center mt-7">
           <b> {slicePrice(prices)} ₽</b>
           <div className="flex">
-            <FavoriteButton onAddToFav={onAddToFav} />
+            <FavoriteButton
+              onAddToFav={onAddToFav}
+              onDelFromFav={onDelFromFav}
+            />
             <BuyButton
               isCardHover={isCardHover}
               onAddToCart={onAddToCart}
