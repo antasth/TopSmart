@@ -12,7 +12,8 @@ const CartContextProvider = (props) => {
   }
 
   const onAddToCart = (item) => {
-    setCartItems((prevState) => [...prevState, item])
+    !cartItems.includes(item) &&
+      setCartItems((prevState) => [...prevState, item])
   }
 
   const deleteItem = (item) => {

@@ -19,6 +19,7 @@ const FavCard = ({
   prices,
   more_specification,
   delFromFavorites,
+  onAddToCart,
 }) => {
   return (
     <div className={styles.whishlist}>
@@ -41,7 +42,9 @@ const FavCard = ({
       </div>
       <div className={styles.controls}>
         <b id="price">{slicePrice(prices)} ₽</b>
-        <OrderButton>Купить</OrderButton>
+        <div onClick={onAddToCart}>
+          <OrderButton>Купить</OrderButton>
+        </div>
       </div>
     </div>
   )

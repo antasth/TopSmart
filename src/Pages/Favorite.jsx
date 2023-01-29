@@ -1,11 +1,13 @@
 import { useContext } from 'react'
 import { FavContext } from '../context/FavContext'
+import { CartContext } from '../context/CartContext'
 import { FavCard } from '../components/FavCard/FavCard'
 import { slicePrice } from '../Utils/PageFunctions'
 import styles from './Favorite.module.scss'
 
 const Favorite = () => {
   const fav = useContext(FavContext)
+  const cart = useContext(CartContext)
   return (
     <div className={styles.favorite}>
       <h1>Избранное</h1>
@@ -33,6 +35,7 @@ const Favorite = () => {
             key={fav.favItems.key}
             {...item}
             delFromFavorites={() => fav.delFromFavorites(item)}
+            onAddToCart={() => cart.onAddToCart(item)}
           />
         ))}
       </div>
