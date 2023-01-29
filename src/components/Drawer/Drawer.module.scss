@@ -10,11 +10,12 @@
 
 .drawer {
   position: sticky;
-  top: 55px;
   left: 100%;
-  width: 450px;
-  padding: 30px;
   right: 0;
+  width: 450px;
+  max-height: 100%;
+  overflow: scroll;
+  padding: 75px 30px 20px;
   background: var(--background);
   box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.01);
 
