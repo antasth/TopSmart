@@ -1,6 +1,7 @@
-import React from 'react'
+import { BsTrash, BsBarChart } from 'react-icons/bs'
+import { OrderButton } from '../UI/OrderButton/OrderButton'
+import { slicePrice } from '../../Utils/PageFunctions'
 import styles from './FavCard.module.scss'
-import { BuyButton } from '../UI/BuyButton/BuyButton'
 
 const FavCard = ({
   device_image,
@@ -14,19 +15,33 @@ const FavCard = ({
   ram,
   chipset,
   release_date,
+  body,
+  prices,
+  more_specification,
   delFromFav,
 }) => {
   return (
-    <div className={styles.card}>
+    <div className={styles.whishlist}>
       <img src={device_image} alt="favoriteimg" />
 
       <div className={styles.description}>
-        {display_size} {display_res} {device_name} {storage.split('/')[0]}{' '}
-        {ram.split('/')[1]} {camera} {os_type.split(',')[0]} {battery} {chipset}{' '}
-        {release_date}
+        {display_size} {display_res} {device_name}{' '}
+        {more_specification[4].data[2].data[0]} {storage} {ram.split('/')[1]}{' '}
+        {camera} {os_type} {battery} {chipset} {body} {release_date}
+        <div className={styles.actions}>
+          <div className={styles.action}>
+            <BsBarChart className={styles.icon} />
+            <p>Сравнить</p>
+          </div>
+          <div className={styles.action}>
+            <BsTrash className={styles.icon} />
+            <p>Удалить</p>
+          </div>
+        </div>
       </div>
       <div className={styles.controls}>
-        <BuyButton>Купить</BuyButton>
+        <b id="price">{slicePrice(prices)} ₽</b>
+        <OrderButton>Купить</OrderButton>
       </div>
     </div>
   )

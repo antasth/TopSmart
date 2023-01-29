@@ -41,28 +41,28 @@ const Test = () => {
     }
   ];
   
-  setAllBrands(brands) 
+  // setAllBrands(brands) 
 
-  allBrands.map(
-    (brand) =>
-      (setAllDeviceList ([
-        ...allDeviceList,
-        ...brand.devices
-      ]))
-  )
+  // allBrands.map(
+  //   (brand) =>
+  //     (setAllDeviceList ([
+  //       ...allDeviceList,
+  //       ...brand.devices
+  //     ]))
+  // )
 
-  console.log(allDeviceList);
+  // console.log(allDeviceList);
 
-  // const devices = brands.reduce((acc, brand) => {
-  //   const devices = brand.devices.map((device) => ({
-  //     ...device,
-  //     name: `${brand.name} ${device.name}`
-  //   }));
+  const devices = brands.reduce((acc, brand) => {
+    const devices = brand.devices.map((device) => ({
+      ...device,
+      name: `${brand.name} ${device.name}`
+    }));
   
-  //   return acc.concat(devices);
-  // }, []);
+    return acc.concat(devices);
+  }, []);
   
-  // console.log(devices);
+  console.log(devices);
   
   return (
     <div>

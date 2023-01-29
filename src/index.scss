@@ -31,8 +31,12 @@ body {
   background: var(--background);
 }
 
-.content {
-  // background-color: #c5e0ee;
+#price {
+  font-family: 'PT Sans', sans-serif;    
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 26px;
+  color: var(--black);
 }
 
 h1 {

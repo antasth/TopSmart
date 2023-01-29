@@ -75,7 +75,7 @@ const Drawer = () => {
               </div>
             </div>
           </div>
-          <OrderButton />
+          <OrderButton> Оформить заказ </OrderButton>
         </div>
       </div>
     </div>

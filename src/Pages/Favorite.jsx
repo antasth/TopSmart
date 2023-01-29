@@ -9,6 +9,10 @@ const Favorite = () => {
   return (
     <div className={styles.favorite}>
       <h1>Избранное</h1>
+      <h3>
+        Авторизуйтесь, чтобы сохранить список избранного для просмотра на этом и
+        других устройствах или в мобильном приложении
+      </h3>
       <div className={styles.favheader}>
         <p>
           {`${fav.favItems.length} ${

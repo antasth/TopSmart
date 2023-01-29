@@ -60,7 +60,7 @@ const Card = ({
         </h5>
         <ProductRating rating={rating} rateCount={rateCount} />
         <div className="flex justify-between items-center mt-7">
-          <b> {slicePrice(prices)} ₽</b>
+          <b id='price'> {slicePrice(prices)} ₽</b>
           <div className="flex">
             <FavoriteButton
               onAddToFav={onAddToFav}
