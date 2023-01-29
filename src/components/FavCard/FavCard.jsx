@@ -18,7 +18,7 @@ const FavCard = ({
   body,
   prices,
   more_specification,
-  delFromFav,
+  delFromFavorites,
 }) => {
   return (
     <div className={styles.whishlist}>
@@ -33,7 +33,7 @@ const FavCard = ({
             <BsBarChart className={styles.icon} />
             <p>Сравнить</p>
           </div>
-          <div className={styles.action}>
+          <div className={styles.action} onClick={delFromFavorites}>
             <BsTrash className={styles.icon} />
             <p>Удалить</p>
           </div>
