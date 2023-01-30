@@ -1,15 +1,16 @@
 import { useContext } from 'react'
 import { CartContext } from '../../context/CartContext'
 import { CartCard } from '../../components/CartCard/CartCard'
+import { slicePrice } from '../../Utils/PageFunctions'
 import styles from './Cart.module.scss'
 
 const Cart = () => {
   const cart = useContext(CartContext)
   return (
     <div className={styles.cart}>
-      <div className={styles.favheader}>
         <h1>Корзина</h1>
-        <h4>
+      <div className={styles.cartheader}>
+        <p>
           {`${cart.cartItems.length} ${
             cart.cartItems.length === 0
               ? ' товаров '
@@ -19,8 +20,8 @@ const Cart = () => {
               ? ' товара '
               : ' товаров '
           }`}
-          {/* на сумму {slicePrice(cart.getFullPrice())} ₽ */}
-        </h4>
+          на сумму {slicePrice(cart.fullPrice)} ₽
+        </p>
       </div>
       <div className="cartItems">
         {cart.cartItems.map((item) => (
