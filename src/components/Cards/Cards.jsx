@@ -15,7 +15,7 @@ import { Receipts } from '../Receipts/Receipts'
 import { CartContext } from '../../context/CartContext'
 import { FavContext } from '../../context/FavContext'
 
-const Cards = () => {
+const Cards = ({ getTotalCount }) => {
   const cart = useContext(CartContext)
   const fav = useContext(FavContext)
   const [error, setError] = useState('')
@@ -55,6 +55,7 @@ const Cards = () => {
     }, [])
     shuffleArray(allDevices)
     setAllDeviceList(allDevices)
+    getTotalCount(allDevices.length)
     callback(allDevices.length)
   }
 

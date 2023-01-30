@@ -51,9 +51,9 @@ export const saveToLocalStorage = (name, items) => {
   localStorage.setItem(name, JSON.stringify(items))
 }
 
-export const getFromLocalStorage = (name, func) => {
+export const getFromLocalStorage = (name, action) => {
   if (localStorage.getItem(name)) {
     const items = JSON.parse(localStorage.getItem(name))
-    func(items)
+    action(items)
   }
 }
