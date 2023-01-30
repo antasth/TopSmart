@@ -1,5 +1,6 @@
 import { BsTrash } from 'react-icons/bs'
 import { BiExit } from 'react-icons/bi'
+import { Link } from 'react-router-dom'
 import { OrderButton } from '../UI/OrderButton/OrderButton'
 import { slicePrice, saveToLocalStorage } from '../../Utils/PageFunctions'
 import { useContext } from 'react'
@@ -75,7 +76,9 @@ const Drawer = () => {
               </div>
             </div>
           </div>
-          <OrderButton> Оформить заказ </OrderButton>
+          <Link to="/cart">
+            <OrderButton> Оформить заказ </OrderButton>
+          </Link>
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { CartContext } from '../../context/CartContext'
-import { FavCard } from '../../components/FavCard/FavCard'
+import { CartCard } from '../../components/CartCard/CartCard'
 import styles from './Cart.module.scss'
 
 const Cart = () => {
@@ -19,12 +19,12 @@ const Cart = () => {
               ? ' товара '
               : ' товаров '
           }`}
-          {/* на сумму {cart.getFullPrice()} ₽ */}
+          {/* на сумму {slicePrice(cart.getFullPrice())} ₽ */}
         </h4>
       </div>
       <div className="cartItems">
         {cart.cartItems.map((item) => (
-          <FavCard
+          <CartCard
             key={cart.cartItems.key}
             {...item}
             delFromFavorites={() => cart.delFromFavorites(item)}
