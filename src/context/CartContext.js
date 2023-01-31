@@ -8,7 +8,9 @@ const CartContextProvider = (props) => {
   const [fullPrice, setFullPrice] = useState()
 
   const toggleCart = () => {
-    setActiveCart(!activeCart)
+    if (cartItems.length) {
+      setActiveCart(!activeCart)
+    }
   }
 
   const onAddToCart = (item) => {
@@ -28,6 +30,7 @@ const CartContextProvider = (props) => {
     cartItems: cartItems,
     activeCart: activeCart,
     fullPrice: fullPrice,
+    setActiveCart: setActiveCart,
     getFullPrice: getFullPrice,
     toggleCart: toggleCart,
     onAddToCart: onAddToCart,

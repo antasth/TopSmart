@@ -23,6 +23,9 @@ const AppRouter = () => {
       cart.getFullPrice()
       saveToLocalStorage('cartItems', cart.cartItems)
     }
+    if (cart.cartItems.length === 0) {
+      cart.setActiveCart(false)
+    }
     if (fav.favItems) {
       saveToLocalStorage('favItems', fav.favItems)
     }
