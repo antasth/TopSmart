@@ -1,7 +1,6 @@
 import { useContext } from 'react'
 import { CartContext } from '../../context/CartContext'
 import { CartCard } from '../../components/CartCard/CartCard'
-
 import { slicePrice } from '../../Utils/PageFunctions'
 import styles from './Cart.module.scss'
 import CartDetails from '../../components/CartDetails/CartDetails'
@@ -26,7 +25,7 @@ const Cart = () => {
         </p>
       </div>
       <div className={styles.cartcontent}>
-        <div className="cartItems">
+        <div className={styles.cartItems}>
           {cart.cartItems.map((item) => (
             <CartCard
               key={cart.cartItems.key}

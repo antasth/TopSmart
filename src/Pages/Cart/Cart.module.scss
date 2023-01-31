@@ -1,19 +1,23 @@
 .cart {
-   flex-grow: 1;
-   margin-bottom: 2rem;
- }
- 
- .cartheader {
-   padding: 0.5rem;
-   margin: 1.5rem auto;
-   background-color: var(--light-green);
-   border-radius: 15px;
-   p {
-     font-weight: 700;
-   }
- }
- 
- .cartcontent {
+  flex-grow: 1;
+  margin-bottom: 2rem;
+}
+
+.cartheader {
+  padding: 0.5rem;
+  margin: 1.5rem auto;
+  background-color: var(--light-green);
+  border-radius: 15px;
+  p {
+    font-weight: 700;
+  }
+}
+
+.cartcontent {
   display: flex;
   justify-content: space-between;
- }
+
+  .cartItems {
+    flex-grow: 1;
+  }
+}
