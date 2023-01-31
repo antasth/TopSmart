@@ -77,9 +77,9 @@ const Drawer = () => {
             </div>
           </div>
           <div onClick={cart.toggleCart}>
-          <Link to="/cart">
-            <OrderButton >Оформить заказ</OrderButton>
-          </Link>
+            <Link to="/cart">
+              <OrderButton>Оформить заказ</OrderButton>
+            </Link>
           </div>
         </div>
       </div>
