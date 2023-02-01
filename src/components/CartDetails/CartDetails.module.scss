@@ -5,9 +5,11 @@
   max-width: 33%;
   background-color: var(--white);
   border-radius: 15px;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 10px;
   display: flex;
   flex-direction: column;
+  position: sticky;
+  top: 100px;
 
   .cartcontent {
     padding: 0 30px;
