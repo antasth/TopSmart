@@ -4,6 +4,7 @@ import { CartCard } from '../../components/CartCard/CartCard'
 import { slicePrice } from '../../Utils/PageFunctions'
 import styles from './Cart.module.scss'
 import CartDetails from '../../components/CartDetails/CartDetails'
+import MassSelect from '../../components/UI/MassSelect/MassSelect'
 
 const Cart = () => {
   const cart = useContext(CartContext)
@@ -24,8 +25,10 @@ const Cart = () => {
           на сумму {slicePrice(cart.fullPrice)} ₽
         </p>
       </div>
+
       <div className={styles.cartcontent}>
         <div className={styles.cartItems}>
+          <MassSelect />
           {cart.cartItems.map((item) => (
             <CartCard
               key={cart.cartItems.key}
