@@ -28,13 +28,24 @@
 }
 
 .counter {
+  align-self: start;
   display: flex;
   text-align: center;
+  padding: 8px;
   white-space: nowrap;
+  border: 1px solid var(--light-gray);
+  border-radius: 10px;
+  .count {
+    padding: 0 5px;
+  }
 }
 
 .icon {
   height: 24px;
   width: 24px;
+  border-radius: 5px;
   cursor: pointer;
+  &:hover {
+    background-color: var(--light-green);
+  }
 }

@@ -14,8 +14,12 @@ const CartContextProvider = (props) => {
   }
 
   const onAddToCart = (item) => {
-    !cartItems.includes(item) &&
+    let device = cartItems.find((cartitem) => cartitem.key === item.key)
+    if (!device) {
+      item.count = 1
       setCartItems((prevState) => [...prevState, item])
+    }
+    
   }
 
   const deleteItem = (item) => {
