@@ -1,7 +1,8 @@
 import { useContext } from 'react'
-import { slicePrice } from '../../Utils/PageFunctions'
-import { BsPlus, BsDash } from 'react-icons/bs'
 import { CartContext } from '../../context/CartContext'
+import { BsPlus, BsDash } from 'react-icons/bs'
+import { Checkbox } from '@chakra-ui/react'
+import { slicePrice } from '../../Utils/PageFunctions'
 import styles from './CartCard.module.scss'
 
 const CartCard = ({
@@ -30,6 +31,7 @@ const CartCard = ({
 
   return (
     <div className={styles.cartcard}>
+      <Checkbox size="lg" colorScheme="orange" className={styles.check} />
       <img src={device_image} alt="favoriteimg" />
 
       <div className={styles.description}>

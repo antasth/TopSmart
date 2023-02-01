@@ -15,7 +15,7 @@ const Header = () => {
 
   return (
     <header
-      className={`${styles.header} flex justify-between py-1.5 h-50 mb-7 sticky top-0 z-10`}
+      className={`${styles.header} flex justify-between py-1.5 h-50  sticky top-0 z-10`}
     >
       <div className="flex items-center">
         <Link to="/">

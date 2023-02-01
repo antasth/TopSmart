@@ -26,19 +26,17 @@ const CartContextProvider = (props) => {
   }
 
   const getFullPrice = () => {
-    setFullPrice(cartItems.reduce((acc, curr) => acc + Number(curr.prices * curr.device_count), 0))
+    setFullPrice(
+      cartItems.reduce(
+        (acc, curr) => acc + Number(curr.prices * curr.device_count),
+        0
+      )
+    )
   }
 
   const onChangeCount = (key, count) => {
-    setCartItems(
-      cartItems.map((obj) => {
-        if (obj.key === key) {
-          return { ...obj, device_count: count }
-        } else {
-          return obj
-        }
-      })
-    )
+    setCartItems(cartItems.map(obj => 
+      obj.key === key ? { ...obj, device_count: count } : obj))
   }
 
   const value = {
