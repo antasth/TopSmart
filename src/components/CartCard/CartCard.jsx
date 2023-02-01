@@ -1,9 +1,11 @@
-import { useState } from 'react'
+import { useContext } from 'react'
 import { slicePrice } from '../../Utils/PageFunctions'
 import { BsPlus, BsDash } from 'react-icons/bs'
+import { CartContext } from '../../context/CartContext'
 import styles from './CartCard.module.scss'
 
 const CartCard = ({
+  device_key,
   device_image,
   device_name,
   storage,
@@ -12,15 +14,17 @@ const CartCard = ({
   battery,
   ram,
   prices,
+  device_count,
 }) => {
-  const [count, setCount] = useState(1)
+  const cart = useContext(CartContext)
+  let count = device_count
 
   const increment = () => {
-    setCount(count + 1)
+    cart.onChangeCount(device_key, count + 1)
   }
   const decrement = () => {
     if (count > 1) {
-      setCount(count - 1)
+      cart.onChangeCount(device_key, count - 1)
     }
   }
 
@@ -34,7 +38,7 @@ const CartCard = ({
       </div>
       <div className={styles.counter}>
         <BsDash className={styles.icon} onClick={decrement} />
-        <div className={styles.count}>{count}</div>
+        <div className={styles.count}>{device_count}</div>
         <BsPlus className={styles.icon} onClick={increment} />
       </div>
       <div className={styles.controls}>

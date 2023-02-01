@@ -16,10 +16,9 @@ const CartContextProvider = (props) => {
   const onAddToCart = (item) => {
     let device = cartItems.find((cartitem) => cartitem.key === item.key)
     if (!device) {
-      item.count = 1
+      item.device_count = 1
       setCartItems((prevState) => [...prevState, item])
     }
-    
   }
 
   const deleteItem = (item) => {
@@ -27,7 +26,19 @@ const CartContextProvider = (props) => {
   }
 
   const getFullPrice = () => {
-    setFullPrice(cartItems.reduce((acc, curr) => acc + Number(curr.prices), 0))
+    setFullPrice(cartItems.reduce((acc, curr) => acc + Number(curr.prices * curr.device_count), 0))
+  }
+
+  const onChangeCount = (key, count) => {
+    setCartItems(
+      cartItems.map((obj) => {
+        if (obj.key === key) {
+          return { ...obj, device_count: count }
+        } else {
+          return obj
+        }
+      })
+    )
   }
 
   const value = {
@@ -40,6 +51,7 @@ const CartContextProvider = (props) => {
     onAddToCart: onAddToCart,
     deleteItem: deleteItem,
     setCartItems: setCartItems,
+    onChangeCount: onChangeCount,
   }
   return (
     <CartContext.Provider value={value}>{props.children}</CartContext.Provider>
