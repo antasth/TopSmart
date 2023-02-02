@@ -44,7 +44,7 @@ const Receipts = () => {
         aria-label="A tooltip"
         bg="var(--dark-blue)"
         color="var(--white)"
-        padding={12}
+        padding={4}
         borderRadius={10}
         placement="bottom"
         openDelay={200}

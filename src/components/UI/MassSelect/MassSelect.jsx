@@ -1,19 +1,18 @@
 import { Checkbox } from '@chakra-ui/react'
 import styles from './MassSelect.module.scss'
 
-const MassSelect = () => {
-  const selectAll = () => {
-    const allCheckboxes = document.querySelectorAll('#checkbox')
-    console.log(allCheckboxes)
-   //  allCheckboxes.forEach((checkbox) => {
-   //    checkbox.isChecked = true
-   //    checkbox.checked = true
-   //  })
-  }
+const MassSelect = ({allChecked, onChange}) => {
+
   return (
     <div className={styles.select}>
-      <div className={styles.checkbox} onClick={selectAll}>
-        <Checkbox colorScheme="orange">Выбрать все</Checkbox>
+      <div className={styles.checkbox}>
+        <Checkbox
+          colorScheme='orange'
+          isChecked={allChecked}
+          onChange={onChange}
+        >
+          Выбрать все
+        </Checkbox>
       </div>
       <div className={styles.delete}>Удалить выбранные</div>
     </div>

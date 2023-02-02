@@ -1,8 +1,13 @@
 import { useState } from 'react'
+import { Checkbox, Stack } from '@chakra-ui/react'
 
 const Test = () => {
   const [allBrands, setAllBrands] = useState([])
   const [allDeviceList, setAllDeviceList] = useState([])
+
+  const [checkedItems, setCheckedItems] = useState([false])
+  const allChecked = checkedItems.every(Boolean)
+  // const isIndeterminate = checkedItems.some(Boolean) && !allChecked
 
   const brands = [
     {
@@ -61,23 +66,64 @@ const Test = () => {
     return acc.concat(devices)
   }, [])
 
-  console.log(devices)
-
-  return <div></div>
+  return (
+    <>
+      <Checkbox
+        isChecked={allChecked}
+        // isIndeterminate={isIndeterminate}
+        onChange={(e) =>
+          setCheckedItems([
+            e.target.checked,
+            e.target.checked,
+            e.target.checked,
+          ])
+        }
+      >
+        Parent Checkbox
+      </Checkbox>
+      <Stack pl={6} mt={1} spacing={1}>
+        <Checkbox
+          isChecked={checkedItems[0]}
+          onChange={(e) => setCheckedItems([e.target.checked, checkedItems[1]])}
+        >
+          Child Checkbox 1
+        </Checkbox>
+        <Checkbox
+          isChecked={checkedItems[1]}
+          onChange={(e) => setCheckedItems([checkedItems[0], e.target.checked])}
+        >
+          Child Checkbox 2
+        </Checkbox>
+        <Checkbox
+          isChecked={checkedItems[2]}
+          onChange={(e) =>
+            setCheckedItems([
+              checkedItems[0],
+              checkedItems[1],
+              e.target.checked,
+            ])
+          }
+        >
+          Child Checkbox 3
+        </Checkbox>
+      </Stack>
+    </>
+  )
 }
 
-export default Test
+export { Test }
 
-const allPhones = [1, 5, 6, 7, 3, 4, 8]
-const blackList = [6, 3, 8, 12]
+// const allPhones = [1, 5, 6, 7, 3, 4, 8]
+// const blackList = [6, 3, 8, 12]
 
-const result = allPhones.filter((element) => !blackList.includes(element))
+// const result = allPhones.filter((element) => !blackList.includes(element))
 
-console.log(result)
+// console.log(result)
 
-const testObject = { a: 'b', c: 'd' }
-Object.keys(testObject).map((key) => console.log(key, testObject[key]))
+// const testObject = { a: 'b', c: 'd' }
+// Object.keys(testObject).map((key) => console.log(key, testObject[key]))
 
-// cartItems.includes(item)
-const arr = [1, 5, 6, 8, 4, 3, 9]
-console.log(arr.findIndex(item => item === 8));
+// // cartItems.includes(item)
+// const arr = [1, 5, 6, 8, 4, 3, 9]
+// console.log(arr.findIndex(item => item === 8));
+
