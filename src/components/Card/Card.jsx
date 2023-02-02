@@ -26,6 +26,7 @@ const Card = ({
   onAddToFav,
   onDelFromFav,
   isActive,
+  device,
 }) => {
   const [isCardHover, setIsCardHover] = useState(false)
   const [gallery, setGallery] = useState(false)
@@ -56,7 +57,7 @@ const Card = ({
           <MoreButton isCardHover={isCardHover} />
         </div>
 
-        <Link to={`/product/${device_key}`}>
+        <Link to={`/product/${device_key}`} state={device}>
           <h5 className="mt-4">
             {display_size} {device_name} {storage.split('/')[0]}{' '}
             {ram.split('/')[1]} {camera} {os_type.split(',')[0]} {battery}

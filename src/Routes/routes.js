@@ -11,5 +11,5 @@ export const publicRoutes = [
   { id: 3, path: '/', component: <Main />, exact: true },
   { id: 4, path: '/favorites', component: <Favorite />, exact: true },
   { id: 5, path: '/cart', component: <Cart />, exact: true },
-  { id: 6, path: '/product/:id', component: <ProductPage />, exact: true },
+  { id: 6, path: '/product/:id', component: <ProductPage />},
 ]
