@@ -30,12 +30,14 @@
 .counter {
   align-self: start;
   display: flex;
+  align-items: center;
   text-align: center;
   padding: 8px;
   white-space: nowrap;
   border: 1px solid var(--light-gray);
   border-radius: 10px;
   .count {
+    width: 28px;
     padding: 0 5px;
   }
 }

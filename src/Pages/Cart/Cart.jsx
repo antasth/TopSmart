@@ -13,12 +13,12 @@ const Cart = () => {
       <h1>Корзина</h1>
       <div className={styles.cartheader}>
         <p>
-          {`${cart.cartItems.length} ${
-            cart.cartItems.length === 0
+          {`${cart.cartItemsCount} ${
+            cart.cartItemsCount === 0
               ? ' товаров '
-              : cart.cartItems.length === 1
+              : cart.cartItemsCount === 1
               ? ' товар '
-              : cart.cartItems.length < 5
+              : cart.cartItemsCount < 5
               ? ' товара '
               : ' товаров '
           }`}

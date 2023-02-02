@@ -6,6 +6,7 @@ const CartContextProvider = (props) => {
   const [activeCart, setActiveCart] = useState(false)
   const [cartItems, setCartItems] = useState([])
   const [fullPrice, setFullPrice] = useState()
+  const [cartItemsCount, setCartItemsCount] = useState(0)
 
   const toggleCart = () => {
     if (cartItems.length) {
@@ -33,23 +34,33 @@ const CartContextProvider = (props) => {
       )
     )
   }
+  const getCartItemsCount = () => {
+    setCartItemsCount(
+      cartItems.reduce((acc, curr) => acc + curr.device_count, 0)
+    )
+  }
 
   const onChangeCount = (key, count) => {
-    setCartItems(cartItems.map(obj => 
-      obj.key === key ? { ...obj, device_count: count } : obj))
+    setCartItems(
+      cartItems.map((obj) =>
+        obj.key === key ? { ...obj, device_count: count } : obj
+      )
+    )
   }
 
   const value = {
     cartItems: cartItems,
-    activeCart: activeCart,
     fullPrice: fullPrice,
-    setActiveCart: setActiveCart,
-    getFullPrice: getFullPrice,
+    activeCart: activeCart,
+    cartItemsCount: cartItemsCount,
     toggleCart: toggleCart,
-    onAddToCart: onAddToCart,
     deleteItem: deleteItem,
+    onAddToCart: onAddToCart,
+    getFullPrice: getFullPrice,
     setCartItems: setCartItems,
+    setActiveCart: setActiveCart,
     onChangeCount: onChangeCount,
+    getCartItemsCount: getCartItemsCount,
   }
   return (
     <CartContext.Provider value={value}>{props.children}</CartContext.Provider>

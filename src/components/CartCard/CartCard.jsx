@@ -31,7 +31,12 @@ const CartCard = ({
 
   return (
     <div className={styles.cartcard}>
-      <Checkbox size="lg" colorScheme="orange" className={styles.check} />
+      <Checkbox
+        id="checkbox"
+        size="lg"
+        colorScheme="orange"
+        className={styles.check}
+      />
       <img src={device_image} alt="favoriteimg" />
 
       <div className={styles.description}>
