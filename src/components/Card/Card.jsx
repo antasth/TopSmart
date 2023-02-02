@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { BuyButton } from '../UI/BuyButton/BuyButton'
 import { FavoriteButton } from '../UI/FavoriteButton/FavoriteButton'
 import { MoreButton } from '../UI/MoreButton/MoreButton'
@@ -8,6 +9,7 @@ import { slicePrice } from '../../Utils/PageFunctions'
 import styles from './Card.module.scss'
 
 const Card = ({
+  device_key,
   device_name,
   device_image,
   display_size,
@@ -54,13 +56,15 @@ const Card = ({
           <MoreButton isCardHover={isCardHover} />
         </div>
 
-        <h5 className="mt-4">
-          {display_size} {device_name} {storage.split('/')[0]}{' '}
-          {ram.split('/')[1]} {camera} {os_type.split(',')[0]} {battery}
-        </h5>
+        <Link to={`/product/${device_key}`}>
+          <h5 className="mt-4">
+            {display_size} {device_name} {storage.split('/')[0]}{' '}
+            {ram.split('/')[1]} {camera} {os_type.split(',')[0]} {battery}
+          </h5>
+        </Link>
         <ProductRating rating={rating} rateCount={rateCount} />
         <div className="flex justify-between items-center mt-7">
-          <b id='price'> {slicePrice(prices)} ₽</b>
+          <b id="price"> {slicePrice(prices)} ₽</b>
           <div className="flex">
             <FavoriteButton
               onAddToFav={onAddToFav}

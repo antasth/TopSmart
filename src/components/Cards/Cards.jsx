@@ -169,6 +169,7 @@ const Cards = ({ getTotalCount }) => {
               device && (
                 <Card
                   key={device.key}
+                  device_key={device.key}
                   {...device}
                   onAddToCart={() => cart.onAddToCart(device)}
                   onAddToFav={() => fav.addToFavorites(device)}

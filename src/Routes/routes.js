@@ -3,6 +3,7 @@ import { Error } from '../Pages/Error'
 import { Main } from '../Pages/Main'
 import { Favorite } from '../Pages/Favorite'
 import { Cart } from '../Pages/Cart/Cart'
+import { ProductPage } from '../Pages/ProductPage/ProductPage'
 
 export const publicRoutes = [
   { id: 1, path: '/about', component: <About />, exact: true },
@@ -10,4 +11,5 @@ export const publicRoutes = [
   { id: 3, path: '/', component: <Main />, exact: true },
   { id: 4, path: '/favorites', component: <Favorite />, exact: true },
   { id: 5, path: '/cart', component: <Cart />, exact: true },
+  { id: 6, path: '/product/:id', component: <ProductPage />, exact: true },
 ]
