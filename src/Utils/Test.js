@@ -127,3 +127,14 @@ export { Test }
 // const arr = [1, 5, 6, 8, 4, 3, 9]
 // console.log(arr.findIndex(item => item === 8));
 
+const str1 = '32GB/64GB storage'
+const str2 = '64GB storage'
+const str3 = '3-6GB RAM'
+
+const splitStr = (str) => {
+  return str.split(' ')[0].split('/')[0].split('-')[1]
+}
+
+console.log(splitStr(str1))
+console.log(splitStr(str2))
+console.log(splitStr(str3))

@@ -1,0 +1,14 @@
+.content {
+  display: flex;
+  justify-content: space-between;
+  .slider {
+    max-width: 50%;
+    margin-right: 30px;
+    img {
+      padding: 5px;
+    }
+  }
+  .productcard {
+    max-width: 50%;
+  }
+}

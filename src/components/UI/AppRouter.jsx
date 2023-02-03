@@ -35,7 +35,7 @@ const AppRouter = () => {
   return (
     <>
       <div className="wrapper relative flex grow py-7">
-        <div className="content flex flex-col grow my-0 mx-auto max-w-[1200px]">
+        <div className="content flex flex-col grow my-0 px-5 mx-auto max-w-[1200px]">
           <Routes>
             {publicRoutes.map((route) => (
               <Route

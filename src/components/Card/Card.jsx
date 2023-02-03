@@ -59,8 +59,8 @@ const Card = ({
 
         <Link to={`/product/${device_key}`} state={device}>
           <h5 className="mt-4">
-            {display_size} {device_name} {storage.split('/')[0]}{' '}
-            {ram.split('/')[1]} {camera} {os_type.split(',')[0]} {battery}
+            {display_size} {device_name} {storage}{' '}
+            {ram} {camera} {os_type.split(',')[0]} {battery}
           </h5>
         </Link>
         <ProductRating rating={rating} rateCount={rateCount} />
