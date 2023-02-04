@@ -30,11 +30,13 @@ const Drawer = () => {
                 className="cartItem flex justify-between items-center mb-3 text-sm"
               >
                 <img width={70} src={item.device_image} alt="phone" />
-                <div className="mx-3">
-                  <p>
-                    {item.display_size} {item.device_name} {item.storage}{' '}
-                    {item.battery}
-                  </p>
+                <div className={styles.link} onClick={cart.toggleCart}>
+                  <Link to={`/product/${item.key}`} state={item}>
+                    <p>
+                      {item.display_size} {item.device_name} {item.storage}{' '}
+                      {item.battery}
+                    </p>
+                  </Link>
                   <b>{slicePrice(item.prices)} ₽</b>
                 </div>
                 <button>

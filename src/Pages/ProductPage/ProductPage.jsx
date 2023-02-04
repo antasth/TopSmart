@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Mousewheel, Pagination, Navigation, FreeMode, Thumbs } from 'swiper'
+import { Mousewheel, Thumbs } from 'swiper'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
@@ -51,7 +51,7 @@ const ProductPage = () => {
                       direction: 'vertical',
                     },
                   }}
-                  modules={[Navigation, Thumbs, Mousewheel]}
+                  modules={[Thumbs, Mousewheel]}
                 >
                   {pictures.map((slide, index) => {
                     return (
@@ -83,7 +83,7 @@ const ProductPage = () => {
                   },
                 }}
                 className={styles.swiper_container2}
-                modules={[Navigation, Thumbs, Mousewheel]}
+                modules={[Thumbs, Mousewheel]}
               >
                 {pictures.map((slide, index) => {
                   return (

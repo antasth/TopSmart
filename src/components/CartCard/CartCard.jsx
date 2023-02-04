@@ -4,8 +4,10 @@ import { BsPlus, BsDash } from 'react-icons/bs'
 import { Checkbox } from '@chakra-ui/react'
 import { slicePrice } from '../../Utils/PageFunctions'
 import styles from './CartCard.module.scss'
+import { Link } from 'react-router-dom'
 
 const CartCard = ({
+  device,
   device_key,
   device_image,
   device_name,
@@ -40,8 +42,14 @@ const CartCard = ({
       <img src={device_image} alt="favoriteimg" />
 
       <div className={styles.description}>
-        {device_name} {storage.split('/')[0]} {ram.split('/')[1]} {camera}{' '}
-        {os_type} {battery}
+        <Link
+          className={styles.link}
+          to={`/product/${device.key}`}
+          state={device}
+        >
+          {device_name} {storage.split('/')[0]} {ram.split('/')[1]} {camera}{' '}
+          {os_type} {battery}
+        </Link>
       </div>
       <div className={styles.counter}>
         <BsDash className={styles.icon} onClick={decrement} />

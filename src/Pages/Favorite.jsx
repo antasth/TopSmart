@@ -33,6 +33,7 @@ const Favorite = () => {
         {fav.favItems.map((item) => (
           <FavCard
             key={fav.favItems.key}
+            device={item}
             {...item}
             delFromFavorites={() => fav.delFromFavorites(item)}
             onAddToCart={() => cart.onAddToCart(item)}

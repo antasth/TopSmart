@@ -33,6 +33,7 @@ const Cart = () => {
             <CartCard
               key={cart.cartItems.key}
               device_key={item.key}
+              device={item}
               {...item}
               delFromFavorites={() => cart.delFromFavorites(item)}
               onAddToCart={() => cart.onAddToCart(item)}

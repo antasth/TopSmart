@@ -2,8 +2,10 @@ import { BsTrash, BsBarChart } from 'react-icons/bs'
 import { OrderButton } from '../UI/OrderButton/OrderButton'
 import { slicePrice } from '../../Utils/PageFunctions'
 import styles from './FavCard.module.scss'
+import { Link } from 'react-router-dom'
 
 const FavCard = ({
+  device,
   device_image,
   device_name,
   display_size,
@@ -17,7 +19,6 @@ const FavCard = ({
   release_date,
   body,
   prices,
-  more_specification,
   delFromFavorites,
   onAddToCart,
 }) => {
@@ -26,9 +27,17 @@ const FavCard = ({
       <img src={device_image} alt="favoriteimg" />
 
       <div className={styles.description}>
-        {display_size} {display_res} {device_name}{' '}
-        {more_specification[4].data[2].data[0]} {storage} {ram.split('/')[1]}{' '}
-        {camera} {os_type} {battery} {chipset} {body} {release_date}
+        <div className={styles.deviceinfo}>
+          <Link
+            className={styles.link}
+            to={`/product/${device.key}`}
+            state={device}
+          >
+            {display_size} {display_res} {device_name} {storage}{' '}
+            {ram.split('/')[1]} {camera} {os_type} {battery} {chipset} {body}{' '}
+            {release_date}
+          </Link>
+        </div>
         <div className={styles.actions}>
           <div className={styles.action}>
             <BsBarChart className={styles.icon} />
