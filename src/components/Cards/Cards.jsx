@@ -121,7 +121,7 @@ const Cards = ({ getTotalCount }) => {
         json.data.rating = randomMinMax(2.5, 5, 1)
         json.data.rateCount = randomMinMax(1, 100, 0)
         json.data.storage = json.data.storage.split(' ')[0].split('/')[0]
-        json.data.ram = json.data.ram.split('/')[1]
+        // json.data.ram = json.data.ram.split('/')[1]
         setDevicesData((prevState) => [...prevState, json.data])
         setIsLoading(false)
       }

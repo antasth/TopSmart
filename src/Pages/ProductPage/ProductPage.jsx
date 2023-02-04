@@ -6,17 +6,31 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 import styles from './ProductPage.module.scss'
+import { ProductRating } from '../../components/UI/ProductRating/ProductRating'
 
 const ProductPage = () => {
   const [imagesNavSlider, setImagesNavSlider] = useState(null)
   const device = useLocation()
   console.log(device.state)
-  const { device_name, display_size, storage, ram, pictures } = device.state
+  const {
+    device_name,
+    display_size,
+    storage,
+    ram,
+    battery,
+    camera,
+    chipset,
+    pictures,
+    rating,
+    rateCount,
+  } = device.state
   return (
     <div>
-      <h1>
-        {display_size} {device_name} {storage} {ram}
-      </h1>
+      <div className={styles.header}>
+        <h1>
+          {display_size} {device_name} {storage} {ram}
+        </h1>
+      </div>
       <div className={styles.content}>
         <section className={styles.slider}>
           <div className={styles.slider__flex}>
@@ -59,6 +73,7 @@ const ProductPage = () => {
                 slidesPerView={1}
                 spaceBetween={32}
                 mousewheel={true}
+                loop={true}
                 breakpoints={{
                   0: {
                     direction: 'horizontal',
@@ -72,7 +87,7 @@ const ProductPage = () => {
               >
                 {pictures.map((slide, index) => {
                   return (
-                    <SwiperSlide key={index}>
+                    <SwiperSlide className={styles.swiper_slide} key={index}>
                       <div className={styles.slider__image}>
                         <img src={slide} alt="" />
                       </div>
@@ -84,7 +99,34 @@ const ProductPage = () => {
           </div>
         </section>
         <section className={styles.devicecard}>
-          {display_size} {device_name} {storage} {ram}
+          <ul className={styles.devicespecs}>
+            <h3>Основные характеристики</h3>
+            <li>
+              Экран
+              <span className={styles.value}>{display_size}</span>
+            </li>
+            <li>
+              Процессор
+              <span className={styles.value}>{chipset}</span>
+            </li>
+            <li>
+              Оперативная память
+              <span className={styles.value}>{ram}</span>
+            </li>
+            <li>
+              Встроенная память
+              <span className={styles.value}>{storage}</span>
+            </li>
+            <li>
+              Камера
+              <span className={styles.value}>{camera}</span>
+            </li>
+            <li>
+              Батарея
+              <span className={styles.value}>{battery}</span>
+            </li>
+          </ul>
+          <ProductRating rating={rating} rateCount={rateCount} />
         </section>
       </div>
     </div>
