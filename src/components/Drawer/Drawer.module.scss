@@ -28,6 +28,8 @@
 }
 
 .link {
+  flex-grow: 2;
+  padding: 0 15px;
   &:hover {
     color: var(--orange);
   }

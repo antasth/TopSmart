@@ -103,27 +103,27 @@ const ProductPage = () => {
             <h3>Основные характеристики</h3>
             <li>
               Экран
-              <span className={styles.value}>{display_size}</span>
+              <span>{display_size}</span>
             </li>
             <li>
               Процессор
-              <span className={styles.value}>{chipset}</span>
+              <span>{chipset}</span>
             </li>
             <li>
               Оперативная память
-              <span className={styles.value}>{ram}</span>
+              <span>{ram}</span>
             </li>
             <li>
               Встроенная память
-              <span className={styles.value}>{storage}</span>
+              <span>{storage}</span>
             </li>
             <li>
               Камера
-              <span className={styles.value}>{camera}</span>
+              <span>{camera}</span>
             </li>
             <li>
               Батарея
-              <span className={styles.value}>{battery}</span>
+              <span>{battery}</span>
             </li>
           </ul>
           <ProductRating rating={rating} rateCount={rateCount} />

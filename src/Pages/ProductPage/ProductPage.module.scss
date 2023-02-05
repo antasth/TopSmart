@@ -101,6 +101,7 @@
   }
   span {
     color: var(--black);
+    order: 3;
   }
   li {
     align-items: baseline;
@@ -113,8 +114,5 @@
     flex-grow: 1;
     order: 2;
     margin: 0 5px;
-  }
-  .value {
-    order: 3;
   }
 }
