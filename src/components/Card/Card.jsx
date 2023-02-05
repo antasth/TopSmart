@@ -52,33 +52,40 @@ const Card = ({
         onMouseEnter={hoverCardOn}
         onMouseLeave={hoverCardOff}
       >
-        <div className="relative cursor-zoom-in" onClick={toggleGallery}>
-          <img src={device_image} alt="phoneimg" />
-          <MoreButton isCardHover={isCardHover} />
+        <div className="cardtop">
+          <div className="relative cursor-zoom-in" onClick={toggleGallery}>
+            <img src={device_image} alt="phoneimg" />
+            <MoreButton isCardHover={isCardHover} />
+          </div>
+
+          <Link to={`/product/${device_key}`} state={device}>
+            <div className="mt-4">
+              <h5>
+                {display_size} {device_name} {storage} {ram} {camera}{' '}
+                {os_type.split(',')[0]} {battery}
+              </h5>
+            </div>
+          </Link>
         </div>
 
-        <Link to={`/product/${device_key}`} state={device}>
-          <h5 className="mt-4">
-            {display_size} {device_name} {storage}{' '}
-            {ram} {camera} {os_type.split(',')[0]} {battery}
-          </h5>
-        </Link>
-        <ProductRating rating={rating} rateCount={rateCount} />
-        <div className="flex justify-between items-center mt-7">
-          <b id="price"> {slicePrice(prices)} ₽</b>
-          <div className="flex">
-            <FavoriteButton
-              onAddToFav={onAddToFav}
-              onDelFromFav={onDelFromFav}
-            />
+        <div className="cardbottom mt-5">
+          <ProductRating rating={rating} rateCount={rateCount} />
+          <div className="flex justify-between items-center mt-7">
+            <b id="price"> {slicePrice(prices)} ₽</b>
+            <div className="flex">
+              <FavoriteButton
+                onAddToFav={onAddToFav}
+                onDelFromFav={onDelFromFav}
+              />
 
-            <BuyButton
-              isCardHover={isCardHover}
-              onAddToCart={onAddToCart}
-              isActive={isActive}
-            >
-              Купить
-            </BuyButton>
+              <BuyButton
+                isCardHover={isCardHover}
+                onAddToCart={onAddToCart}
+                isActive={isActive}
+              >
+                Купить
+              </BuyButton>
+            </div>
           </div>
         </div>
       </div>

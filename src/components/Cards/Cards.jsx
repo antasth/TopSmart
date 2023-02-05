@@ -76,7 +76,7 @@ const Cards = ({ getTotalCount }) => {
     fetchData()
   }, [])
 
-  // Функция собирает ключи от устройств на текущей странице и делает запросы на сервер по ключам
+  // Функция собирает ключи устройств на текущей странице и делает запросы на сервер по ключам
   const getDeviceDetails = async (data) => {
     const deviceKeysOnPage = await data
       .slice(page * itemsOnPage - itemsOnPage, page * itemsOnPage)
