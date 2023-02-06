@@ -138,3 +138,14 @@ const splitStr = (str) => {
 console.log(splitStr(str1))
 console.log(splitStr(str2))
 console.log(splitStr(str3))
+
+let count = 0
+const id = () => {
+  return count++
+}
+// let id = getId()
+
+console.log(id())
+console.log(id())
+console.log(id())
+console.log(id())

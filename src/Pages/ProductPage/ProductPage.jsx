@@ -2,11 +2,18 @@ import { useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Mousewheel, Thumbs } from 'swiper'
+import { ProductRating } from '../../components/UI/ProductRating/ProductRating'
+import { OrderButton } from '../../components/UI/OrderButton/OrderButton'
+import { slicePrice } from '../../Utils/PageFunctions'
+import {
+  IoStatsChartSharp,
+  IoHeartOutline,
+  IoShareSocialOutline,
+} from 'react-icons/io5'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 import styles from './ProductPage.module.scss'
-import { ProductRating } from '../../components/UI/ProductRating/ProductRating'
 
 const ProductPage = () => {
   const [imagesNavSlider, setImagesNavSlider] = useState(null)
@@ -23,6 +30,7 @@ const ProductPage = () => {
     pictures,
     rating,
     rateCount,
+    prices,
   } = device.state
   return (
     <div>
@@ -126,7 +134,22 @@ const ProductPage = () => {
               <span>{battery}</span>
             </li>
           </ul>
-          <ProductRating rating={rating} rateCount={rateCount} />
+          <div className={styles.review}>
+            <ProductRating rating={rating} rateCount={rateCount} />
+            <div className={styles.actions}>
+              <IoStatsChartSharp className={styles.icon} />
+              <IoHeartOutline className={styles.icon} />
+              <IoShareSocialOutline className={styles.icon} />
+            </div>
+          </div>
+        </section>
+        <section className={styles.controls}>
+          <div className={styles.price}>
+            <div className={styles.pricetext}>
+              <b>{slicePrice(prices)} ₽</b>
+            </div>
+            <OrderButton> Добавить в корзину </OrderButton>
+          </div>
         </section>
       </div>
     </div>
