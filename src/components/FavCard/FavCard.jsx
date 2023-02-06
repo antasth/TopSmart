@@ -51,9 +51,7 @@ const FavCard = ({
       </div>
       <div className={styles.controls}>
         <b id="price">{slicePrice(prices)} ₽</b>
-        <div onClick={onAddToCart}>
-          <OrderButton>Купить</OrderButton>
-        </div>
+        <OrderButton onClick={onAddToCart}>Купить</OrderButton>
       </div>
     </div>
   )

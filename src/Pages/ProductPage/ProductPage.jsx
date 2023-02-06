@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import { useLocation } from 'react-router-dom'
+import { useContext } from 'react'
+import { CartContext } from '../../context/CartContext'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Mousewheel, Thumbs } from 'swiper'
 import { ProductRating } from '../../components/UI/ProductRating/ProductRating'
-import { OrderButton } from '../../components/UI/OrderButton/OrderButton'
+import { BuyButton } from '../../components/UI/BuyButton/BuyButton'
 import { slicePrice } from '../../Utils/PageFunctions'
 import {
   IoStatsChartSharp,
@@ -18,6 +20,7 @@ import styles from './ProductPage.module.scss'
 const ProductPage = () => {
   const [imagesNavSlider, setImagesNavSlider] = useState(null)
   const device = useLocation()
+  const cart = useContext(CartContext)
   console.log(device.state)
   const {
     device_name,
@@ -148,7 +151,12 @@ const ProductPage = () => {
             <div className={styles.pricetext}>
               <b>{slicePrice(prices)} ₽</b>
             </div>
-            <OrderButton> Добавить в корзину </OrderButton>
+            <BuyButton
+              onAddToCart={() => cart.onAddToCart(device.state)}
+              isActive={cart.cartItems.includes(device.state) ? true : false}
+            >
+              Добавить в корзину
+            </BuyButton>
           </div>
         </section>
       </div>
