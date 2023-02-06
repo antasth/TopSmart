@@ -1,0 +1,64 @@
+.devicecard {
+  flex-grow: 1;
+  text-align: left;
+  padding: 15px;
+
+  .devicespecs {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 500;
+
+    color: var(--gray);
+    h3 {
+      color: var(--black);
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+    span {
+      color: var(--black);
+      order: 3;
+    }
+    li {
+      align-items: baseline;
+      display: flex;
+      margin-bottom: 0.8em;
+    }
+    li::before {
+      content: '';
+      border-bottom: 1px dashed rgb(141, 141, 141);
+      flex-grow: 1;
+      order: 2;
+      margin: 0 5px;
+    }
+  }
+}
+
+.review {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .actions {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    max-width: 100px;
+
+    .icon {
+      height: 28px;
+      width: 28px;
+      border: 1px solid var(--gray);
+      border-radius: 0.8em;
+      padding: 0.3em;
+      cursor: pointer;
+      opacity: 0.7;
+      &:hover {
+        opacity: 1;
+        scale: 1.1;
+        transition: var(--transition);
+        background-color: var(--bright-green);
+      }
+    }
+  }
+}

@@ -2,6 +2,9 @@ import { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Mousewheel, Thumbs } from 'swiper'
 import styles from './ProductSlider.module.scss'
+import 'swiper/css'
+import 'swiper/css/pagination'
+import 'swiper/css/navigation'
 
 const ProductSlider = ({ data }) => {
   const [imagesNavSlider, setImagesNavSlider] = useState(null)
