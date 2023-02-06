@@ -1,9 +1,7 @@
-import { useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useContext } from 'react'
 import { CartContext } from '../../context/CartContext'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Mousewheel, Thumbs } from 'swiper'
+import { ProductSlider } from '../../components/ProductSlider/ProductSlider'
 import { ProductRating } from '../../components/UI/ProductRating/ProductRating'
 import { BuyButton } from '../../components/UI/BuyButton/BuyButton'
 import { slicePrice } from '../../Utils/PageFunctions'
@@ -18,7 +16,6 @@ import 'swiper/css/navigation'
 import styles from './ProductPage.module.scss'
 
 const ProductPage = () => {
-  const [imagesNavSlider, setImagesNavSlider] = useState(null)
   const device = useLocation()
   const cart = useContext(CartContext)
   console.log(device.state)
@@ -43,72 +40,7 @@ const ProductPage = () => {
         </h1>
       </div>
       <div className={styles.content}>
-        <section className={styles.slider}>
-          <div className={styles.slider__flex}>
-            <div className={styles.slider__col}>
-              <div className={styles.slider__thumbs}>
-                <Swiper
-                  onSwiper={setImagesNavSlider}
-                  direction="vertical"
-                  spaceBetween={15}
-                  slidesPerView={8}
-                  mousewheel={true}
-                  className={styles.swiper_container1}
-                  breakpoints={{
-                    0: {
-                      direction: 'horizontal',
-                    },
-                    768: {
-                      direction: 'vertical',
-                    },
-                  }}
-                  modules={[Thumbs, Mousewheel]}
-                >
-                  {pictures.map((slide, index) => {
-                    return (
-                      <SwiperSlide key={index}>
-                        <div className={styles.slider__image}>
-                          <img src={slide} alt="" />
-                        </div>
-                      </SwiperSlide>
-                    )
-                  })}
-                </Swiper>
-              </div>
-            </div>
-
-            <div className={styles.slider__images}>
-              <Swiper
-                thumbs={{ swiper: imagesNavSlider }}
-                direction="horizontal"
-                slidesPerView={1}
-                spaceBetween={32}
-                mousewheel={true}
-                loop={true}
-                breakpoints={{
-                  0: {
-                    direction: 'horizontal',
-                  },
-                  768: {
-                    direction: 'horizontal',
-                  },
-                }}
-                className={styles.swiper_container2}
-                modules={[Thumbs, Mousewheel]}
-              >
-                {pictures.map((slide, index) => {
-                  return (
-                    <SwiperSlide className={styles.swiper_slide} key={index}>
-                      <div className={styles.slider__image}>
-                        <img src={slide} alt="" />
-                      </div>
-                    </SwiperSlide>
-                  )
-                })}
-              </Swiper>
-            </div>
-          </div>
-        </section>
+        <ProductSlider data={pictures}/>
         <section className={styles.devicecard}>
           <ul className={styles.devicespecs}>
             <h3>Основные характеристики</h3>
@@ -150,14 +82,18 @@ const ProductPage = () => {
           <div className={styles.price}>
             <div className={styles.pricetext}>
               <b>{slicePrice(prices)} ₽</b>
+              <div className={styles.pricedefault}>
+                {slicePrice(prices + 2500)}
+              </div>
             </div>
             <BuyButton
               onAddToCart={() => cart.onAddToCart(device.state)}
               isActive={cart.cartItems.includes(device.state) ? true : false}
             >
-              Добавить в корзину
+              Купить
             </BuyButton>
           </div>
+          <div className={styles.controls}>123</div>
         </section>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from 'react'
 import { CartContext } from '../../../context/CartContext'
-import styles from './Button.module.scss'
+import styles from './BuyButton.module.scss'
 
 const BuyButton = ({ children, isCardHover, onAddToCart, isActive }) => {
   const [isUsed, setIsUsed] = useState(false)
