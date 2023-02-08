@@ -1,22 +1,25 @@
-import React from 'react'
-import styles from './ProductSpecs.module.scss'
+import { useContext } from 'react'
+import { FavContext } from '../../context/FavContext'
 import { ProductRating } from '../UI/ProductRating/ProductRating'
 import {
   IoStatsChartSharp,
   IoHeartOutline,
   IoShareSocialOutline,
 } from 'react-icons/io5'
+import styles from './ProductSpecs.module.scss'
 
-const ProductSpecs = ({
-  display_size,
-  storage,
-  ram,
-  battery,
-  camera,
-  chipset,
-  rating,
-  rateCount,
-}) => {
+const ProductSpecs = ({ device }) => {
+  const fav = useContext(FavContext)
+  const {
+    display_size,
+    storage,
+    ram,
+    battery,
+    camera,
+    chipset,
+    rating,
+    rateCount,
+  } = device
   return (
     <section className={styles.devicecard}>
       <ul className={styles.devicespecs}>
@@ -50,7 +53,10 @@ const ProductSpecs = ({
         <ProductRating rating={rating} rateCount={rateCount} />
         <div className={styles.actions}>
           <IoStatsChartSharp className={styles.icon} />
-          <IoHeartOutline className={styles.icon} />
+          <IoHeartOutline
+            className={styles.icon}
+            onClick={() => fav.addToFavorites(device)}
+          />
           <IoShareSocialOutline className={styles.icon} />
         </div>
       </div>

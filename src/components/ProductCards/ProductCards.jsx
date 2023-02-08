@@ -61,7 +61,7 @@ const ProductCards = ({ device }) => {
           </div>
           <div className={styles.option}>
             <GiPostOffice className={styles.bonusicon} />
-            <p>Забрать на Почте России с 09.02, бесплатно</p>
+            <p>Отправим Почтой России, бесплатно</p>
           </div>
           <div className={styles.option}>
             <TbTruckDelivery className={styles.bonusicon} />

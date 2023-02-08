@@ -14,7 +14,7 @@ const ProductPage = () => {
       </h1>
       <div className={styles.content}>
         <ProductSlider data={pictures} />
-        <ProductSpecs {...device.state} />
+        <ProductSpecs device={device.state} />
         <ProductCards device={device.state} />
       </div>
     </div>
