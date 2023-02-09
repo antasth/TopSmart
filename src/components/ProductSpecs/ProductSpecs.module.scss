@@ -1,7 +1,8 @@
 .devicecard {
   flex-grow: 1;
   text-align: left;
-  padding: 15px;
+  padding-top: 15px;
+  max-width: 30%;
 
   .devicespecs {
     font-size: 14px;
@@ -9,11 +10,8 @@
     font-weight: 500;
     margin-bottom: 1.7em;
     color: var(--gray);
-    h3 {
-      color: var(--black);
-      font-size: 16px;
-      font-weight: 700;
-      margin-bottom: 15px;
+    .specsheader {
+      margin-bottom: 1em;
     }
     span {
       color: var(--black);
@@ -26,10 +24,18 @@
     }
     li::before {
       content: '';
-      border-bottom: 1px dashed rgb(141, 141, 141);
+      border-bottom: 1px dashed var(--gray);
       flex-grow: 1;
       order: 2;
       margin: 0 5px;
+    }
+  }
+
+  .services {
+    margin-top: 1.2em;
+    p {
+      font-size: 14px;
+      margin: 15px 0;
     }
   }
 }
