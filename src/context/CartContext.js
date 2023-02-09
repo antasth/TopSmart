@@ -15,8 +15,7 @@ const CartContextProvider = (props) => {
   }
 
   const onAddToCart = (item) => {
-    let device = cartItems.find((cartitem) => cartitem.key === item.key)
-    if (!device) {
+    if (!checkDeviceInCart(item)) {
       item.device_count = 1
       setCartItems((prevState) => [...prevState, item])
     }
@@ -24,6 +23,10 @@ const CartContextProvider = (props) => {
 
   const deleteItem = (item) => {
     setCartItems(cartItems.filter((cartItem) => cartItem.key !== item.key))
+  }
+
+  const checkDeviceInCart = (device) => {
+    return !!cartItems.find((item) => item.key === device.key)
   }
 
   const getFullPrice = () => {
@@ -61,6 +64,7 @@ const CartContextProvider = (props) => {
     setActiveCart: setActiveCart,
     onChangeCount: onChangeCount,
     getCartItemsCount: getCartItemsCount,
+    checkDeviceInCart: checkDeviceInCart,
   }
   return (
     <CartContext.Provider value={value}>{props.children}</CartContext.Provider>

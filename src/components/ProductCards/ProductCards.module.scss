@@ -48,6 +48,17 @@
       font-size: 14px;
       padding: 0 10px;
     }
+    &:hover {
+      cursor: pointer;
+      .bonusarrow {
+        scale: 1.05;
+      }
+      .bonusicon {
+        scale: 1.2;
+        color: var(--orange);
+        transition: var(--transition);
+      }
+    }
   }
 
   .receive {
@@ -73,6 +84,16 @@
         margin-bottom: 12px;
         p {
           max-width: 200px;
+        }
+        &:hover {
+          .bonusarrow {
+            scale: 1.05;
+          }
+          .bonusicon {
+            scale: 1.2;
+            color: var(--orange);
+            transition: var(--transition);
+          }
         }
       }
     }

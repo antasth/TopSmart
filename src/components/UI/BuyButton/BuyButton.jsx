@@ -11,6 +11,7 @@ const BuyButton = ({ children, isCardHover, onAddToCart, isActive }) => {
   }
 
   useEffect(() => {
+    isActive && setIsUsed(true)
     isUsed && !isActive && changeIsUsedState()
   }, [isActive])
 

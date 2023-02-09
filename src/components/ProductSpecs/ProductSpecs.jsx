@@ -14,6 +14,7 @@ const ProductSpecs = ({ device }) => {
     display_size,
     storage,
     ram,
+    os_type,
     battery,
     camera,
     chipset,
@@ -45,9 +46,18 @@ const ProductSpecs = ({ device }) => {
           <span>{camera}</span>
         </li>
         <li>
+          OS
+          <span>{os_type.split(' ')[0]}</span>
+        </li>
+        <li>
           Батарея
           <span>{battery}</span>
         </li>
+        <h3>
+          <a id="link" href="#">
+            Все характеристики
+          </a>
+        </h3>
       </ul>
       <div className={styles.review}>
         <ProductRating rating={rating} rateCount={rateCount} />

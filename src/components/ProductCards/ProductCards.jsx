@@ -26,7 +26,7 @@ const ProductCards = ({ device }) => {
         </div>
         <BuyButton
           onAddToCart={() => cart.onAddToCart(device)}
-          isActive={cart.cartItems.includes(device) ? true : false}
+          isActive={cart.checkDeviceInCart(device)}
         >
           Купить
         </BuyButton>
@@ -57,19 +57,40 @@ const ProductCards = ({ device }) => {
         <div className={styles.options}>
           <div className={styles.option}>
             <IoWalk className={styles.bonusicon} />
-            <p>Самовывоз из магазинов TopSmart Сегодня, бесплатно</p>
+            <p>
+              <a id="link" href="#">
+                Самовывоз
+              </a>{' '}
+              из магазинов TopSmart Сегодня, бесплатно
+            </p>
           </div>
           <div className={styles.option}>
             <GiPostOffice className={styles.bonusicon} />
-            <p>Отправим Почтой России, бесплатно</p>
+            <p>
+              {' '}
+              <a id="link" href="#">
+                Отправим Почтой
+              </a>{' '}
+              России, бесплатно
+            </p>
           </div>
           <div className={styles.option}>
             <TbTruckDelivery className={styles.bonusicon} />
-            <p>Курьерская доставка Завтра, бесплатно</p>
+            <p>
+              <a id="link" href="#">
+                Курьерская доставка
+              </a>{' '}
+              Завтра, бесплатно
+            </p>
           </div>
           <div className={styles.option}>
             <RiPoliceCarFill className={styles.bonusicon} />
-            <p>Экспресс-доставка от 2 часов сегодня</p>
+            <p>
+              <a id="link" href="#">
+                Экспресс-доставка{' '}
+              </a>{' '}
+              от 2 часов сегодня (при оплате онлайн)
+            </p>
           </div>
         </div>
       </div>
