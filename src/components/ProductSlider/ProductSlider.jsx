@@ -1,13 +1,23 @@
 import { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Mousewheel, Thumbs } from 'swiper'
+import { Gallery } from '../Gallery/Gallery'
 import styles from './ProductSlider.module.scss'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 
-const ProductSlider = ({ data }) => {
+const ProductSlider = ({ pictures, name }) => {
   const [imagesNavSlider, setImagesNavSlider] = useState(null)
+  const [gallery, setGallery] = useState(false)
+
+  const toggleGallery = () => {
+    setGallery(!gallery)
+    !gallery
+      ? document.body.classList.add('locked')
+      : document.body.classList.remove('locked')
+  }
+
   return (
     <section className={styles.slider}>
       <div className={styles.slider__flex}>
@@ -30,7 +40,7 @@ const ProductSlider = ({ data }) => {
               }}
               modules={[Thumbs, Mousewheel]}
             >
-              {data.map((slide, index) => {
+              {pictures.map((slide, index) => {
                 return (
                   <SwiperSlide key={index}>
                     <div className={styles.slider__image}>
@@ -62,10 +72,10 @@ const ProductSlider = ({ data }) => {
             className={styles.swiper_container2}
             modules={[Thumbs, Mousewheel]}
           >
-            {data.map((slide, index) => {
+            {pictures.map((slide, index) => {
               return (
                 <SwiperSlide className={styles.swiper_slide} key={index}>
-                  <div className={styles.slider__image}>
+                  <div className={styles.slider__image} onClick={toggleGallery}>
                     <img src={slide} alt="" />
                   </div>
                 </SwiperSlide>
@@ -74,6 +84,13 @@ const ProductSlider = ({ data }) => {
           </Swiper>
         </div>
       </div>
+      {gallery && (
+        <Gallery
+          pictures={pictures}
+          device_name={name}
+          toggleGallery={toggleGallery}
+        />
+      )}
     </section>
   )
 }

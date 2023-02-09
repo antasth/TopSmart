@@ -13,7 +13,7 @@ const ProductPage = () => {
         {display_size} {device_name} {storage} {ram}
       </h1>
       <div className={styles.content}>
-        <ProductSlider data={pictures} />
+        <ProductSlider pictures={pictures} name={device_name} />
         <ProductSpecs device={device.state} />
         <ProductCards device={device.state} />
       </div>

@@ -53,7 +53,10 @@ const Card = ({
         onMouseLeave={hoverCardOff}
       >
         <div className="cardtop">
-          <div className="relative cursor-zoom-in" onClick={toggleGallery}>
+          <div
+            className="relative cursor-zoom-in"
+            onClick={toggleGallery}
+          >
             <img src={device_image} alt="phoneimg" />
             <MoreButton isCardHover={isCardHover} />
           </div>

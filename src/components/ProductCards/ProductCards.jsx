@@ -86,7 +86,7 @@ const ProductCards = ({ device }) => {
           <div className={styles.option}>
             <RiPoliceCarFill className={styles.bonusicon} />
             <p>
-              <a id="link" href="#">
+              <a className={styles.link} id="link" href="#">
                 Экспресс-доставка{' '}
               </a>{' '}
               от 2 часов сегодня (при оплате онлайн)
