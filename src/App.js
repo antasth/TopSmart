@@ -8,12 +8,13 @@ import { Header } from './components/Header/Header'
 import { Footer } from './components/Footer/Footer'
 
 function App() {
+
   return (
     <ChakraProvider resetCSS={false}>
       <CartContextProvider>
         <FavContextProvider>
           <Router>
-            <ScrollToTop/>
+            <ScrollToTop />
             <Header />
             <AppRouter />
             <Footer />
@@ -21,7 +22,6 @@ function App() {
         </FavContextProvider>
       </CartContextProvider>
     </ChakraProvider>
-
   )
 }
 

@@ -6,10 +6,14 @@ const FavContextProvider = (props) => {
   const [favItems, setFavItems] = useState([])
 
   const addToFavorites = (item) => {
-    let device = favItems.find((favitem) => favitem.key === item.key)
-    if (!device) {
+    // let device = favItems.find((favitem) => favitem.key === item.key)
+    if (!checkDeviceInFav(item)) {
       setFavItems((prev) => [...prev, item])
     }
+  }
+
+  const checkDeviceInFav = (device) => {
+    return !!favItems.find((item) => item.key === device.key)
   }
 
   const delFromFavorites = (item) => {
@@ -24,6 +28,7 @@ const FavContextProvider = (props) => {
     favItems: favItems,
     addToFavorites: addToFavorites,
     delFromFavorites: delFromFavorites,
+    checkDeviceInFav: checkDeviceInFav,
     getFullPrice: getFullPrice,
     setFavItems: setFavItems,
   }

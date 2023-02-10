@@ -67,6 +67,11 @@
         color: var(--black);
         background-color: var(--bright-green);
       }
+      &_active {
+        color: var(--black);
+        background-color: var(--bright-green);
+        opacity: 1;
+      }
     }
   }
 }
