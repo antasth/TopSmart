@@ -1,7 +1,16 @@
 import { useContext } from 'react'
 import { FavContext } from '../../context/FavContext'
 import { ProductRating } from '../UI/ProductRating/ProductRating'
-import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
+import {
+  Tabs,
+  TabList,
+  TabPanels,
+  Tab,
+  TabPanel,
+  Checkbox,
+  CheckboxGroup,
+  Stack,
+} from '@chakra-ui/react'
 
 import {
   IoStatsChartSharp,
@@ -22,6 +31,7 @@ const ProductSpecs = ({ device }) => {
     chipset,
     rating,
     rateCount,
+    prices,
   } = device
   return (
     <section className={styles.devicecard}>
@@ -87,25 +97,73 @@ const ProductSpecs = ({ device }) => {
           </TabList>
           <TabPanels>
             <TabPanel>
-              <p>Защита Экрана 12 мес.</p>
-              <p>Изготовление+наклейка пленки на 1 сторону смартфона </p>
-              <p>Наклейка стекла на смартфон </p>
-              <p>Комплект приложений "Базовый" </p>
+              <CheckboxGroup colorScheme="green">
+                <Stack spacing={[4]} direction={['column']}>
+                  <Checkbox value="screen">
+                    <p>Защита Экрана 12 мес.</p>
+                  </Checkbox>
+                  <Checkbox value="sticker">
+                    <p>Изготовление+наклейка пленки на 1 сторону смартфона </p>
+                  </Checkbox>
+                  <Checkbox value="defaultapps">
+                    <p>Комплект приложений "Базовый" </p>
+                  </Checkbox>
+                  <Checkbox value="officeapps">
+                    <p>Комплект приложений "Офисный" </p>
+                  </Checkbox>
+                  <Checkbox value="sim">
+                    <p>Обрезка Sim-карты (только при самовывозе товара)</p>
+                  </Checkbox>
+                  <Checkbox value="data">
+                    <p>Перенос данных на новое устройство</p>
+                  </Checkbox>
+                </Stack>
+              </CheckboxGroup>
             </TabPanel>
             <TabPanel>
-              <p>Гарантия от производителя12 мес. 0 ₽</p>
-              <p>Доп. гарантия+ 12 мес. 6 630 ₽ </p>
-              <p>
-                Страховка для техники 2 года. Отремонтируем за 24 часа или
-                обменяем на новую.
-              </p>
+              <CheckboxGroup colorScheme="green" defaultValue={['guarantee']}>
+                <Stack spacing={[4]} direction={['column']}>
+                  <Checkbox value="guarantee">
+                    <p>Гарантия от производителя 12 мес. 0 ₽</p>
+                  </Checkbox>
+                  <Checkbox value="dopguarantee">
+                    <p>Доп. гарантия+ 12 мес. 6 630 ₽ </p>
+                  </Checkbox>
+                  <Checkbox value="insurance">
+                    <p>
+                      Страховка для техники 2 года. Отремонтируем за 24 часа или
+                      обменяем на новую.
+                    </p>{' '}
+                  </Checkbox>
+                </Stack>
+              </CheckboxGroup>
             </TabPanel>
             <TabPanel>
-              <p>
-                Чехол-накладка для смартфона в подарок (при покупке смартфона от
-                15 000 ₽)
-              </p>
-              <p>Защитное стекло для экрана</p>
+              <CheckboxGroup
+                colorScheme="green"
+                defaultValue={prices > 20000 && ['case']}
+              >
+                <Stack spacing={[4]} direction={['column']}>
+                  <Checkbox value="case">
+                    <p>
+                      Чехол-накладка для смартфона (в подарок при покупке от 20
+                      000 ₽)
+                    </p>{' '}
+                  </Checkbox>
+                  <Checkbox value="glass">
+                    <p>Защитное стекло для экрана</p>
+                  </Checkbox>
+                  <Checkbox value="sdcard">
+                    <p>Карта памяти 64 ГБ</p>{' '}
+                  </Checkbox>
+                  <Checkbox value="simcard">
+                    <p>SIM-карта МТС С саморегистрацией</p>{' '}
+                  </Checkbox>
+                  <Checkbox value="carcharger">
+                    <p>Автомобильное ЗУ Xiaomi Mi 37W </p>{' '}
+                  </Checkbox>
+                </Stack>
+              </CheckboxGroup>
             </TabPanel>
           </TabPanels>
         </Tabs>
