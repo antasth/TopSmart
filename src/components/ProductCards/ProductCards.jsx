@@ -1,6 +1,7 @@
-import { useContext } from 'react'
+import { useState, useContext } from 'react'
 import { CartContext } from '../../context/CartContext'
 import { BuyButton } from '../../components/UI/BuyButton/BuyButton'
+import { ModalCard } from '../ModalCard/ModalCard'
 import { GiReceiveMoney } from 'react-icons/gi'
 import { TbReportMoney } from 'react-icons/tb'
 import { FiPercent } from 'react-icons/fi'
@@ -14,7 +15,11 @@ import styles from './ProductCards.module.scss'
 
 const ProductCards = ({ device }) => {
   const cart = useContext(CartContext)
+  const [showModal, setShowModal] = useState(false)
 
+  const toggleModal = () => {
+    setShowModal(!showModal)
+  }
   return (
     <section className={styles.controls}>
       <div className={styles.price}>
@@ -32,7 +37,7 @@ const ProductCards = ({ device }) => {
         </BuyButton>
       </div>
 
-      <div className={styles.bonuscard}>
+      <div className={styles.bonuscard} onClick={toggleModal}>
         <GiReceiveMoney className={styles.bonusicon} />
         <p>Кэшбэк +{Math.round(device.prices / 100)} бонусов</p>
         <IoChevronForward className={styles.bonusarrow} />
@@ -94,6 +99,7 @@ const ProductCards = ({ device }) => {
           </div>
         </div>
       </div>
+      {showModal && <ModalCard toggleModal={toggleModal} />}
     </section>
   )
 }

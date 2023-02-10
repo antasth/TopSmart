@@ -14,6 +14,7 @@ import { Pagination } from '../Pagination/Pagination'
 import { Receipts } from '../Receipts/Receipts'
 import { CartContext } from '../../context/CartContext'
 import { FavContext } from '../../context/FavContext'
+import { CardLoader } from '../UI/CardLoader/CardLoader'
 
 const Cards = ({ getTotalCount }) => {
   const cart = useContext(CartContext)
@@ -182,7 +183,21 @@ const Cards = ({ getTotalCount }) => {
               )
           )
         ) : (
-          <Loader />
+          // <Loader />
+          <>
+            <CardLoader />
+            <CardLoader />
+            <CardLoader />
+            <CardLoader />
+            <CardLoader />
+            <CardLoader />
+            <CardLoader />
+            <CardLoader />
+            <CardLoader />
+            <CardLoader />
+            <CardLoader />
+            <CardLoader />
+          </>
         )}
       </div>
       {!isLoading ? (

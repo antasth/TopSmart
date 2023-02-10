@@ -122,9 +122,6 @@ const ProductSpecs = ({ device }) => {
                         Изготовление+наклейка пленки на 1 сторону смартфона{' '}
                       </p>
                     </Checkbox>
-                    <Checkbox value="defaultapps">
-                      <p>Комплект приложений "Базовый" </p>
-                    </Checkbox>
                     <Checkbox value="officeapps">
                       <p>Комплект приложений "Офисный" </p>
                     </Checkbox>
@@ -177,7 +174,7 @@ const ProductSpecs = ({ device }) => {
                       <p>SIM-карта МТС С саморегистрацией</p>{' '}
                     </Checkbox>
                     <Checkbox value="carcharger">
-                      <p>Автомобильное ЗУ Xiaomi Mi 37W </p>{' '}
+                      <p>Автомобильное зарядное устройство 37W </p>{' '}
                     </Checkbox>
                   </Stack>
                 </CheckboxGroup>
