@@ -35,7 +35,7 @@ const ProductSpecs = ({ device }) => {
     prices,
   } = device
 
-  const toggleActive = () => {
+  const toggleFavorites = () => {
     setIsInFavorites(!isInFavorites)
     if (!isInFavorites) {
       fav.addToFavorites(device)
@@ -92,8 +92,7 @@ const ProductSpecs = ({ device }) => {
               className={`${styles.icon} ${
                 fav.checkDeviceInFav(device) && styles.icon_active
               }`}
-              // onClick={() => fav.addToFavorites(device)}
-              onClick={toggleActive}
+              onClick={toggleFavorites}
             />
             <IoShareSocialOutline className={styles.icon} />
           </div>
