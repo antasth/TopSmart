@@ -1,0 +1,20 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  overflow: hidden;
+  h2 {
+    margin-bottom: 1.2em;
+  }
+  img {
+   margin: 0 auto;
+   display: block;
+    max-width: 300px;
+    max-height: 300px;
+   //  -o-object-fit: cover;
+   //  object-fit: cover;
+  }
+  .description {
+  }
+}

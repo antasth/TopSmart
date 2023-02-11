@@ -1,7 +1,8 @@
-import { useState, useContext } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { CartContext } from '../../context/CartContext'
 import { BuyButton } from '../../components/UI/BuyButton/BuyButton'
 import { ModalCard } from '../ModalCard/ModalCard'
+import { ModalContent } from '../ModalContent/ModalContent'
 import { GiReceiveMoney } from 'react-icons/gi'
 import { TbReportMoney } from 'react-icons/tb'
 import { FiPercent } from 'react-icons/fi'
@@ -16,10 +17,38 @@ import styles from './ProductCards.module.scss'
 const ProductCards = ({ device }) => {
   const cart = useContext(CartContext)
   const [showModal, setShowModal] = useState(false)
+  const [modal, setModal] = useState('')
+  const [modalText, setModalText] = useState('')
 
   const toggleModal = () => {
     setShowModal(!showModal)
   }
+
+  useEffect(() => {
+    const getModalText = () => {
+      switch (modal) {
+        case 'cashback':
+          return (
+            <ModalContent
+              header={'Получайте бонусы при покупке'}
+              icon={<GiReceiveMoney />}
+              description={`Вернём часть стоимости покупок на персональный бонусный счет. Количество бонусов, начисляемых за товар, Вы можете увидеть рядом с ценой каждого товара. При покупке данного товара вы получите ${Math.round(
+                device.prices / 100
+              )} бонусов!`}
+              img={'cash_back'}
+            />
+          )
+        case 'installment':
+          return <h1>installment modal</h1>
+        case 'cheaper':
+          return <h1>cheaper modal</h1>
+        default:
+          return <h1>default modal</h1>
+      }
+    }
+    setModalText(() => getModalText())
+  }, [modal])
+
   return (
     <section className={styles.controls}>
       <div className={styles.price}>
@@ -37,19 +66,37 @@ const ProductCards = ({ device }) => {
         </BuyButton>
       </div>
 
-      <div className={styles.bonuscard} onClick={toggleModal}>
+      <div
+        className={styles.bonuscard}
+        onClick={() => {
+          setModal('cashback')
+          toggleModal()
+        }}
+      >
         <GiReceiveMoney className={styles.bonusicon} />
         <p>Кэшбэк +{Math.round(device.prices / 100)} бонусов</p>
         <IoChevronForward className={styles.bonusarrow} />
       </div>
 
-      <div className={styles.bonuscard}>
+      <div
+        className={styles.bonuscard}
+        onClick={() => {
+          setModal('installment')
+          toggleModal()
+        }}
+      >
         <FiPercent className={styles.bonusicon} />
         <p>Рассрочка от {Math.round(device.prices / 20)} ₽/мес</p>
         <IoChevronForward className={styles.bonusarrow} />
       </div>
 
-      <div className={styles.bonuscard}>
+      <div
+        className={styles.bonuscard}
+        onClick={() => {
+          setModal('cheaper')
+          toggleModal()
+        }}
+      >
         <TbReportMoney className={styles.bonusicon} />
         <p>Нашли дешевле ?</p>
         <IoChevronForward className={styles.bonusarrow} />
@@ -99,7 +146,9 @@ const ProductCards = ({ device }) => {
           </div>
         </div>
       </div>
-      {showModal && <ModalCard toggleModal={toggleModal} />}
+      {showModal && (
+        <ModalCard toggleModal={toggleModal}>{modalText}</ModalCard>
+      )}
     </section>
   )
 }
