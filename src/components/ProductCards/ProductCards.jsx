@@ -18,35 +18,50 @@ const ProductCards = ({ device }) => {
   const cart = useContext(CartContext)
   const [showModal, setShowModal] = useState(false)
   const [modal, setModal] = useState('')
-  const [modalText, setModalText] = useState('')
+  const [modalContent, setModalContent] = useState('')
 
   const toggleModal = () => {
     setShowModal(!showModal)
   }
 
   useEffect(() => {
-    const getModalText = () => {
+    const getModalContent = () => {
       switch (modal) {
         case 'cashback':
           return (
             <ModalContent
-              header={'Получайте бонусы при покупке'}
-              icon={<GiReceiveMoney />}
+              header={'Получайте бонусы при покупке!'}
               description={`Вернём часть стоимости покупок на персональный бонусный счет. Количество бонусов, начисляемых за товар, Вы можете увидеть рядом с ценой каждого товара. При покупке данного товара вы получите ${Math.round(
                 device.prices / 100
               )} бонусов!`}
-              img={'cash_back'}
+              img={'cashback'}
             />
           )
         case 'installment':
-          return <h1>installment modal</h1>
+          return (
+            <ModalContent
+              header={'Покупайте товары в рассрочку!'}
+              description={`У нас вы можете купить товар в рассрочку до 20 месяцев! Вы можете купить данный товар всего за ${Math.round(
+                device.prices / 20
+              )} рублей в месяц без процентов !`}
+              img={'installment'}
+            />
+          )
         case 'cheaper':
-          return <h1>cheaper modal</h1>
+          return (
+            <ModalContent
+              header={'Нашли дешевле ? Сделаем скидку !'}
+              description={
+                'Если Вы нашли такой же товар дешевле в другом магазине, мы предложим цену ниже ! При оформлении заказа укажите ссылку на товар в магазине конкурента и наш менеджер свяжется с Вами!'
+              }
+              img={'cheaper'}
+            />
+          )
         default:
           return <h1>default modal</h1>
       }
     }
-    setModalText(() => getModalText())
+    setModalContent(() => getModalContent())
   }, [modal])
 
   return (
@@ -147,7 +162,7 @@ const ProductCards = ({ device }) => {
         </div>
       </div>
       {showModal && (
-        <ModalCard toggleModal={toggleModal}>{modalText}</ModalCard>
+        <ModalCard toggleModal={toggleModal}>{modalContent}</ModalCard>
       )}
     </section>
   )

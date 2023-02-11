@@ -6,7 +6,6 @@ const FavContextProvider = (props) => {
   const [favItems, setFavItems] = useState([])
 
   const addToFavorites = (item) => {
-    // let device = favItems.find((favitem) => favitem.key === item.key)
     if (!checkDeviceInFav(item)) {
       setFavItems((prev) => [...prev, item])
     }
