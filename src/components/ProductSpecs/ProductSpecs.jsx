@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { FavContext } from '../../context/FavContext'
 import { ProductRating } from '../UI/ProductRating/ProductRating'
 import {
@@ -45,6 +45,11 @@ const ProductSpecs = ({ device }) => {
       setIsInFavorites(false)
     }
   }
+
+  useEffect(() => {
+    setIsInFavorites(fav.checkDeviceInFav(device))
+  }, [])
+
   return (
     <>
       <section className={styles.devicecard}>
