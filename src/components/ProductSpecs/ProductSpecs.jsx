@@ -48,7 +48,7 @@ const ProductSpecs = ({ device }) => {
 
   useEffect(() => {
     setIsInFavorites(fav.checkDeviceInFav(device))
-  }, [])
+  }, [device])
 
   return (
     <>
