@@ -1,25 +1,20 @@
-import { useState, useEffect, useContext } from 'react'
-import { FavContext } from '../../context/FavContext'
-import { ProductRating } from '../UI/ProductRating/ProductRating'
 import {
-  Tabs,
-  TabList,
-  TabPanels,
-  Tab,
-  TabPanel,
   Checkbox,
   CheckboxGroup,
-  Stack,
+  Stack, Tab, TabList, TabPanel, TabPanels, Tabs
 } from '@chakra-ui/react'
+import { useContext, useEffect, useState } from 'react'
+import { FavContext } from '../../context/FavContext'
+import { ProductRating } from '../UI/ProductRating/ProductRating'
 
 import {
-  IoStatsChartSharp,
   IoHeartOutline,
-  IoShareSocialOutline,
+  IoShareSocialOutline
 } from 'react-icons/io5'
+import { RiBarChartFill } from 'react-icons/ri'
 import styles from './ProductSpecs.module.scss'
 
-const ProductSpecs = ({ device }) => {
+const ProductSpecs = ({ device, scrollTo }) => {
   const fav = useContext(FavContext)
   const [isInFavorites, setIsInFavorites] = useState(false)
   const {
@@ -83,16 +78,16 @@ const ProductSpecs = ({ device }) => {
             Батарея
             <span>{battery}</span>
           </li>
-          <h3>
-            <a id="link" href="#">
+          <h3 onClick={scrollTo}>
+            {/* <a id="link" href="#" > */}
               Все характеристики
-            </a>
+            {/* </a> */}
           </h3>
         </ul>
         <div className={styles.review}>
           <ProductRating rating={rating} rateCount={rateCount} />
           <div className={styles.actions}>
-            <IoStatsChartSharp className={styles.icon} />
+            <RiBarChartFill className={styles.icon} />
             <IoHeartOutline
               className={`${styles.icon} ${
                 fav.checkDeviceInFav(device) && styles.icon_active
@@ -193,3 +188,4 @@ const ProductSpecs = ({ device }) => {
 }
 
 export { ProductSpecs }
+

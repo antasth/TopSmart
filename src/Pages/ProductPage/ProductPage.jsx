@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import { useLocation } from 'react-router-dom'
 import { ProductCards } from '../../components/ProductCards/ProductCards'
 import { ProductDescription } from '../../components/ProductDescription/ProductDescription'
@@ -6,6 +7,8 @@ import { ProductSpecs } from '../../components/ProductSpecs/ProductSpecs'
 import styles from './ProductPage.module.scss'
 
 const ProductPage = () => {
+  const scrollRef = useRef(null)
+  const scrollTo = () => scrollRef.current.scrollIntoView()
   const device = useLocation()
   const { device_name, display_size, storage, ram, pictures } = device.state
   return (
@@ -16,11 +19,11 @@ const ProductPage = () => {
       <div className={styles.content}>
         <div className={styles.procuct_card_top}>
           <ProductSlider pictures={pictures} name={device_name} />
-          <ProductSpecs device={device.state} />
+          <ProductSpecs device={device.state} scrollTo={scrollTo}/>
           <ProductCards device={device.state} />
         </div>
         <div className={styles.procuct_description}>
-          <ProductDescription device={device.state} />
+          <ProductDescription scrollRef={scrollRef} device={device.state} />
         </div>
       </div>
     </div>
@@ -28,3 +31,4 @@ const ProductPage = () => {
 }
 
 export { ProductPage }
+

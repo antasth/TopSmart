@@ -11,8 +11,9 @@
         margin: 0 10px;
       }
       &:hover {
-        color: var(--light-blue);
         cursor: pointer;
+        color: var(--orange);
+        transition: var(--transition);
       }
     }
   }

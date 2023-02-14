@@ -4,35 +4,34 @@
   .header {
     margin-bottom: 1rem;
   }
-}
+  .devicespecs {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 500;
+    margin-bottom: 1.7em;
+    color: var(--gray);
+    .specsheader {
+      margin-bottom: 1em;
+    }
+    span {
+      color: var(--black);
+      order: 3;
+    }
 
-.devicespecs {
-  font-size: 14px;
-  line-height: 20px;
-  font-weight: 500;
-  margin-bottom: 1.7em;
-  color: var(--gray);
-  .specsheader {
-    margin-bottom: 1em;
-  }
-  span {
-    color: var(--black);
-    order: 3;
-  }
-
-  h3 {
-    padding: 1rem 0;
-  }
-  li {
-    align-items: baseline;
-    display: flex;
-    margin-bottom: 1.5em;
-  }
-  li::before {
-    content: '';
-    border-bottom: 1px dashed var(--gray);
-    flex-grow: 1;
-    order: 2;
-    margin: 0 5px;
+    h3 {
+      padding: 1rem 0;
+    }
+    li {
+      align-items: baseline;
+      display: flex;
+      margin-bottom: 1.5em;
+    }
+    li::before {
+      content: '';
+      border-bottom: 1px dashed var(--gray);
+      flex-grow: 1;
+      order: 2;
+      margin: 0 5px;
+    }
   }
 }

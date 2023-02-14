@@ -1,12 +1,13 @@
 import { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { BiHeart, BiUser } from 'react-icons/bi'
 import { BsCartPlus, BsSearch } from 'react-icons/bs'
-import { BiUser, BiHeart } from 'react-icons/bi'
-import { Logo } from '../UI/Logo/Logo'
-import { Counter } from '../UI/Counter/Counter'
-import { slicePrice } from '../../Utils/PageFunctions'
+import { RiBarChartFill } from 'react-icons/ri'
+import { Link } from 'react-router-dom'
 import { CartContext } from '../../context/CartContext'
 import { FavContext } from '../../context/FavContext'
+import { slicePrice } from '../../Utils/PageFunctions'
+import { Counter } from '../UI/Counter/Counter'
+import { Logo } from '../UI/Logo/Logo'
 import styles from './Header.module.scss'
 
 const Header = () => {
@@ -26,6 +27,9 @@ const Header = () => {
       <ul className="flex justify-between items-center mr-5">
         <li>
           <BsSearch className="icon" />
+        </li>
+        <li>
+          <RiBarChartFill className="icon" />
         </li>
         <li onClick={cart.toggleCart} className="relative">
           <BsCartPlus className="icon " />
@@ -47,3 +51,4 @@ const Header = () => {
 }
 
 export { Header }
+
