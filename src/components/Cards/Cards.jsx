@@ -1,19 +1,19 @@
-import { useState, useEffect, useRef, useContext } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
+import { API_URL_ALL, API_URL_ITEM, itemsOnPage } from '../../config'
+import { CartContext } from '../../context/CartContext'
+import { FavContext } from '../../context/FavContext'
 import {
   getPagesCount,
-  shuffleArray,
-  randomPrice,
-  useCards,
   randomMinMax,
+  randomPrice,
+  shuffleArray,
+  useCards,
 } from '../../Utils/PageFunctions'
-import { API_URL_ALL, API_URL_ITEM, itemsOnPage } from '../../config'
 import { Card } from '../Card/Card'
-import { Search } from '../Search/Search'
 import { Loader } from '../Loader/Loader'
 import { Pagination } from '../Pagination/Pagination'
 import { Receipts } from '../Receipts/Receipts'
-import { CartContext } from '../../context/CartContext'
-import { FavContext } from '../../context/FavContext'
+import { Search } from '../Search/Search'
 import { CardLoader } from '../UI/CardLoader/CardLoader'
 
 const Cards = ({ getTotalCount }) => {

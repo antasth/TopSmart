@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { slicePrice } from '../../Utils/PageFunctions'
+import { Gallery } from '../Gallery/Gallery'
 import { BuyButton } from '../UI/BuyButton/BuyButton'
 import { FavoriteButton } from '../UI/FavoriteButton/FavoriteButton'
 import { MoreButton } from '../UI/MoreButton/MoreButton'
-import { Gallery } from '../Gallery/Gallery'
 import { ProductRating } from '../UI/ProductRating/ProductRating'
-import { slicePrice } from '../../Utils/PageFunctions'
 import styles from './Card.module.scss'
 
 const Card = ({
@@ -53,10 +53,7 @@ const Card = ({
         onMouseLeave={hoverCardOff}
       >
         <div className="cardtop">
-          <div
-            className="relative cursor-zoom-in"
-            onClick={toggleGallery}
-          >
+          <div className="relative cursor-zoom-in" onClick={toggleGallery}>
             <img src={device_image} alt="phoneimg" />
             <MoreButton isCardHover={isCardHover} />
           </div>
@@ -74,8 +71,11 @@ const Card = ({
         <div className="cardbottom mt-5">
           <ProductRating rating={rating} rateCount={rateCount} />
           <div className="flex justify-between items-center mt-7">
-            <b id="price"> {slicePrice(prices)} ₽</b>
-            <div className="flex">
+            <b id="price" className="whitespace-nowrap mr-4">
+              {' '}
+              {slicePrice(prices)} ₽
+            </b>
+            <div className="flex w-full">
               <FavoriteButton
                 onAddToFav={onAddToFav}
                 onDelFromFav={onDelFromFav}
