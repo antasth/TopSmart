@@ -1,7 +1,8 @@
 import { useLocation } from 'react-router-dom'
+import { ProductCards } from '../../components/ProductCards/ProductCards'
+import { ProductDescription } from '../../components/ProductDescription/ProductDescription'
 import { ProductSlider } from '../../components/ProductSlider/ProductSlider'
 import { ProductSpecs } from '../../components/ProductSpecs/ProductSpecs'
-import { ProductCards } from '../../components/ProductCards/ProductCards'
 import styles from './ProductPage.module.scss'
 
 const ProductPage = () => {
@@ -13,9 +14,14 @@ const ProductPage = () => {
         {display_size} {device_name} {storage} {ram}
       </h1>
       <div className={styles.content}>
-        <ProductSlider pictures={pictures} name={device_name} />
-        <ProductSpecs device={device.state} />
-        <ProductCards device={device.state} />
+        <div className={styles.procuct_card_top}>
+          <ProductSlider pictures={pictures} name={device_name} />
+          <ProductSpecs device={device.state} />
+          <ProductCards device={device.state} />
+        </div>
+        <div className={styles.procuct_description}>
+          <ProductDescription device={device.state} />
+        </div>
       </div>
     </div>
   )

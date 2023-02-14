@@ -1,9 +1,14 @@
 .content {
   display: flex;
+  flex-direction: column;
   background-color: var(--white);
   border-radius: 5px;
   color: var(--light-black);
   box-shadow: #0000001a 0px 5px 5px;
   overflow: hidden;
   margin-top: 1em;
+}
+
+.procuct_card_top {
+  display: flex;
 }
