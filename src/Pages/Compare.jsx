@@ -1,28 +1,24 @@
-import useFetching from '../hooks/useFetching'
+import { useEffect, useState } from 'react'
+import { PostService } from '../API/PostService'
+import { useFetching } from '../hooks/useFetching'
 
 const Compare = () => {
-  const [devices] = useFetching(async () => {
-    let formdata = new FormData()
-
-    formdata.append('route', 'compare')
-    formdata.append('device_id', '11089,10237')
-
-    var requestOptions = {
-      method: 'POST',
-      body: formdata,
-      redirect: 'follow',
-    }
-
-    fetch(
-      'https://script.google.com/macros/s/AKfycbxNu27V2Y2LuKUIQMK8lX1y0joB6YmG6hUwB1fNeVbgzEh22TcDGrOak03Fk3uBHmz-/exec',
-      requestOptions
-    )
-      .then((response) => response.text())
-      .then((result) => console.log(result))
-      .catch((error) => console.log('error', error))
+  const [devices, setDevices] = useState([])
+  const [fetchDevices] = useFetching(async () => {
+    const response = await PostService.getCompare()
+    setDevices(response.data)
   })
-  console.log('devices', devices)
-  return <div></div>
+
+  useEffect(() => {
+    fetchDevices()
+  }, [])
+
+  console.log(devices)
+  return (
+    <div>
+      <h1>Страница сравнения</h1>
+    </div>
+  )
 }
 
 export { Compare }

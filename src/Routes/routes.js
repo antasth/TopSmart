@@ -1,8 +1,9 @@
 import { About } from '../Pages/About'
-import { Error } from '../Pages/Error'
-import { Main } from '../Pages/Main'
-import { Favorite } from '../Pages/Favorite'
 import { Cart } from '../Pages/Cart/Cart'
+import { Compare } from '../Pages/Compare'
+import { Error } from '../Pages/Error'
+import { Favorite } from '../Pages/Favorite'
+import { Main } from '../Pages/Main'
 import { ProductPage } from '../Pages/ProductPage/ProductPage'
 
 export const publicRoutes = [
@@ -11,5 +12,6 @@ export const publicRoutes = [
   { id: 3, path: '/', component: <Main />, exact: true },
   { id: 4, path: '/favorites', component: <Favorite />, exact: true },
   { id: 5, path: '/cart', component: <Cart />, exact: true },
-  { id: 6, path: '/product/:id', component: <ProductPage />},
+  { id: 6, path: '/product/:id', component: <ProductPage /> },
+  { id: 7, path: '/compare', component: <Compare /> },
 ]

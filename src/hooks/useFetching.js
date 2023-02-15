@@ -16,5 +16,3 @@ export const useFetching = (callback) => {
   }
   return [fetching]
 }
-
-export default useFetching
