@@ -1,17 +1,18 @@
 import {
   Checkbox,
   CheckboxGroup,
-  Stack, Tab, TabList, TabPanel, TabPanels, Tabs
+  Stack,
+  Tab,
+  TabList,
+  TabPanel,
+  TabPanels,
+  Tabs,
 } from '@chakra-ui/react'
 import { useContext, useEffect, useState } from 'react'
+import { IoHeartOutline, IoShareSocialOutline } from 'react-icons/io5'
+import { RiBarChartFill } from 'react-icons/ri'
 import { FavContext } from '../../context/FavContext'
 import { ProductRating } from '../UI/ProductRating/ProductRating'
-
-import {
-  IoHeartOutline,
-  IoShareSocialOutline
-} from 'react-icons/io5'
-import { RiBarChartFill } from 'react-icons/ri'
 import styles from './ProductSpecs.module.scss'
 
 const ProductSpecs = ({ device, scrollTo }) => {
@@ -78,10 +79,8 @@ const ProductSpecs = ({ device, scrollTo }) => {
             Батарея
             <span>{battery}</span>
           </li>
-          <h3 onClick={scrollTo}>
-            {/* <a id="link" href="#" > */}
-              Все характеристики
-            {/* </a> */}
+          <h3 id="link" onClick={scrollTo}>
+            Все характеристики
           </h3>
         </ul>
         <div className={styles.review}>
@@ -188,4 +187,3 @@ const ProductSpecs = ({ device, scrollTo }) => {
 }
 
 export { ProductSpecs }
-

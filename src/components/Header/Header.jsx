@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { BiHeart, BiUser } from 'react-icons/bi'
+import { BiHeart } from 'react-icons/bi'
 import { BsCartPlus, BsSearch } from 'react-icons/bs'
 import { RiBarChartFill } from 'react-icons/ri'
 import { Link } from 'react-router-dom'
@@ -42,13 +42,9 @@ const Header = () => {
             <Counter>{fav.favItems.length}</Counter>
           </Link>
         </li>
-        <li>
-          <BiUser className="icon" />
-        </li>
       </ul>
     </header>
   )
 }
 
 export { Header }
-

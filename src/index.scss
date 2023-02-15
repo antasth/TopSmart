@@ -58,6 +58,7 @@ h3 {
 }
 
 #link {
+  cursor: pointer;
   color: var(--link);
   &:hover {
     color: var(--orange);
@@ -67,7 +68,6 @@ h3 {
 .icon {
   height: 1.6rem;
   width: 1.6rem;
-  color: var(--gray);
 }
 
 #root {

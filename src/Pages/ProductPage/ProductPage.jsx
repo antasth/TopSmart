@@ -19,16 +19,13 @@ const ProductPage = () => {
       <div className={styles.content}>
         <div className={styles.procuct_card_top}>
           <ProductSlider pictures={pictures} name={device_name} />
-          <ProductSpecs device={device.state} scrollTo={scrollTo}/>
+          <ProductSpecs device={device.state} scrollTo={scrollTo} />
           <ProductCards device={device.state} />
         </div>
-        <div className={styles.procuct_description}>
-          <ProductDescription scrollRef={scrollRef} device={device.state} />
-        </div>
+        <ProductDescription scrollRef={scrollRef} device={device.state} />
       </div>
     </div>
   )
 }
 
 export { ProductPage }
-
