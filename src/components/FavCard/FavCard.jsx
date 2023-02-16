@@ -1,8 +1,8 @@
-import { BsTrash, BsBarChart } from 'react-icons/bs'
-import { OrderButton } from '../UI/OrderButton/OrderButton'
-import { slicePrice } from '../../Utils/PageFunctions'
-import styles from './FavCard.module.scss'
+import { BsBarChart, BsTrash } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
+import { slicePrice } from '../../Utils/PageFunctions'
+import { OrderButton } from '../UI/OrderButton/OrderButton'
+import styles from './FavCard.module.scss'
 
 const FavCard = ({
   device,
@@ -21,6 +21,7 @@ const FavCard = ({
   prices,
   delFromFavorites,
   onAddToCart,
+  onAddToCompare,
 }) => {
   return (
     <div className={styles.whishlist}>
@@ -39,7 +40,7 @@ const FavCard = ({
           </Link>
         </div>
         <div className={styles.actions}>
-          <div className={styles.action}>
+          <div className={styles.action} onClick={onAddToCompare}>
             <BsBarChart className={styles.icon} />
             <p>Сравнить</p>
           </div>

@@ -5,15 +5,15 @@ const CompareContext = createContext()
 const CompareContextProvider = (props) => {
   const [compare, setCompare] = useState([])
 
-  const onAddToCompare = (device) => {
-    if (checkDeviceInCompare(device)) {
-      const deviceId = device.key.split('-')[1]
+  const onAddToCompare = (key) => {
+    const deviceId = key.split('-')[1]
+    if (!checkDeviceInCompare(deviceId)) {
       setCompare((prev) => [...prev, deviceId])
     }
   }
 
-  const checkDeviceInCompare = (device) => {
-    return !!compare.find((item) => item.key === device.key)
+  const checkDeviceInCompare = (key) => {
+    return !!compare.find((item) => item === key)
   }
 
   const value = {
@@ -28,4 +28,4 @@ const CompareContextProvider = (props) => {
   )
 }
 
-export { CompareContextProvider }
+export { CompareContext, CompareContextProvider }

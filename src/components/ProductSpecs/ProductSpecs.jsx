@@ -11,12 +11,14 @@ import {
 import { useContext, useEffect, useState } from 'react'
 import { IoHeartOutline, IoShareSocialOutline } from 'react-icons/io5'
 import { RiBarChartFill } from 'react-icons/ri'
+import { CompareContext } from '../../context/CompareContext'
 import { FavContext } from '../../context/FavContext'
 import { ProductRating } from '../UI/ProductRating/ProductRating'
 import styles from './ProductSpecs.module.scss'
 
 const ProductSpecs = ({ device, scrollTo }) => {
   const fav = useContext(FavContext)
+  const compare = useContext(CompareContext)
   const [isInFavorites, setIsInFavorites] = useState(false)
   const {
     display_size,
@@ -86,7 +88,10 @@ const ProductSpecs = ({ device, scrollTo }) => {
         <div className={styles.review}>
           <ProductRating rating={rating} rateCount={rateCount} />
           <div className={styles.actions}>
-            <RiBarChartFill className={styles.icon} />
+            <RiBarChartFill
+              className={styles.icon}
+              onClick={() => compare.onAddToCompare(device.key)}
+            />
             <IoHeartOutline
               className={`${styles.icon} ${
                 fav.checkDeviceInFav(device) && styles.icon_active

@@ -1,13 +1,15 @@
 import { useContext } from 'react'
-import { FavContext } from '../context/FavContext'
-import { CartContext } from '../context/CartContext'
 import { FavCard } from '../components/FavCard/FavCard'
+import { CartContext } from '../context/CartContext'
+import { CompareContext } from '../context/CompareContext'
+import { FavContext } from '../context/FavContext'
 import { slicePrice } from '../Utils/PageFunctions'
 import styles from './Favorite.module.scss'
 
 const Favorite = () => {
   const fav = useContext(FavContext)
   const cart = useContext(CartContext)
+  const compare = useContext(CompareContext)
   return (
     <div className={styles.favorite}>
       <h1>Избранное</h1>
@@ -37,6 +39,7 @@ const Favorite = () => {
             {...item}
             delFromFavorites={() => fav.delFromFavorites(item)}
             onAddToCart={() => cart.onAddToCart(item)}
+            onAddToCompare={() => compare.onAddToCompare(item.key)}
           />
         ))}
       </div>
