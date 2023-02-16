@@ -1,4 +1,5 @@
 import axios from 'axios'
+import axiosRetry from 'axios-retry'
 import { API_URL_ITEM } from '../config'
 
 export class PostService {
@@ -11,8 +12,8 @@ export class PostService {
       data: raw,
     }
 
+    axiosRetry(axios, { retryDelay: axiosRetry.exponentialDelay })
     const response = await axios(requestOptions)
-    // console.log(response)
     return response
   }
-} 
+}
