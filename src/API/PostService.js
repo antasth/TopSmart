@@ -2,10 +2,10 @@ import axios from 'axios'
 import { API_URL_COMPARE } from '../config'
 
 export class PostService {
-  static async getCompare() {
+  static async getCompare(str) {
     let formdata = new FormData()
     formdata.append('route', 'compare')
-    formdata.append('device_id', '11089,10237,11253')
+    formdata.append('device_id', str)
 
     var requestOptions = {
       url: API_URL_COMPARE,

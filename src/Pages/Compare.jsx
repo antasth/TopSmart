@@ -5,7 +5,7 @@ import { useFetching } from '../hooks/useFetching'
 const Compare = () => {
   const [devices, setDevices] = useState([])
   const [fetchDevices] = useFetching(async () => {
-    const response = await PostService.getCompare()
+    const response = await PostService.getCompare('11089,10237,11253')
     setDevices(response.data)
   })
 
