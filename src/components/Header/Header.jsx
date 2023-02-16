@@ -29,7 +29,9 @@ const Header = () => {
           <BsSearch className="icon" />
         </li>
         <li>
-          <RiBarChartFill className="icon" />
+          <Link to="/compare">
+            <RiBarChartFill className="icon" />
+          </Link>
         </li>
         <li onClick={cart.toggleCart} className="relative">
           <BsCartPlus className="icon " />

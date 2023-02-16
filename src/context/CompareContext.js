@@ -3,21 +3,20 @@ import { createContext, useState } from 'react'
 const CompareContext = createContext()
 
 const CompareContextProvider = (props) => {
-  const [compare, setCompare] = useState([])
+  const [compareKeys, setCompareKeys] = useState([])
 
   const onAddToCompare = (key) => {
-    const deviceId = key.split('-')[1]
-    if (!checkDeviceInCompare(deviceId)) {
-      setCompare((prev) => [...prev, deviceId])
+    if (!checkDeviceInCompare(key)) {
+      setCompareKeys((prev) => [...prev, key])
     }
   }
 
   const checkDeviceInCompare = (key) => {
-    return !!compare.find((item) => item === key)
+    return !!compareKeys.find((item) => item === key)
   }
 
   const value = {
-    compare: compare,
+    compareKeys: compareKeys,
     onAddToCompare: onAddToCompare,
   }
 
@@ -29,3 +28,4 @@ const CompareContextProvider = (props) => {
 }
 
 export { CompareContext, CompareContextProvider }
+

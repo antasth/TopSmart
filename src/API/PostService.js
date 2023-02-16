@@ -1,18 +1,18 @@
 import axios from 'axios'
-import { API_URL_COMPARE } from '../config'
+import { API_URL_ITEM } from '../config'
 
 export class PostService {
-  static async getCompare(str) {
-    let formdata = new FormData()
-    formdata.append('route', 'compare')
-    formdata.append('device_id', str)
+  static async getDevice(key) {
+    let raw = `{\n    "route": "device-detail",\n    "key": "${key}"\n}`
 
-    var requestOptions = {
-      url: API_URL_COMPARE,
+    let requestOptions = {
+      url: API_URL_ITEM,
       method: 'POST',
-      data: formdata,
+      data: raw,
     }
+
     const response = await axios(requestOptions)
+    // console.log(response)
     return response
   }
-}
+} 

@@ -1,12 +1,18 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { PostService } from '../API/PostService'
+import { CompareContext } from '../context/CompareContext'
 import { useFetching } from '../hooks/useFetching'
 
 const Compare = () => {
+  const comp = useContext(CompareContext)
   const [devices, setDevices] = useState([])
   const [fetchDevices] = useFetching(async () => {
-    const response = await PostService.getCompare('11089,10237,11253')
-    setDevices(response.data)
+    setDevices([])
+    comp.compareKeys.map((key) =>
+      PostService.getDevice(key).then((response) =>
+        setDevices((prev) => [...prev, response.data.data])
+      )
+    )
   })
 
   useEffect(() => {
