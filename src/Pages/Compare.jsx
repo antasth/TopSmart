@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { Card } from '../components/Card/Card'
+import { CompareCard } from '../components/CompareCard/CompareCard'
 import { CartContext } from '../context/CartContext'
 import { CompareContext } from '../context/CompareContext'
 import { FavContext } from '../context/FavContext'
@@ -16,7 +16,7 @@ const Compare = () => {
         {comp.compareItems.map(
           (device) =>
             device && (
-              <Card
+              <CompareCard
                 key={device.key}
                 device_key={device.key}
                 {...device}
