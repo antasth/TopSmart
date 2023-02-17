@@ -39,7 +39,7 @@ const Favorite = () => {
             {...item}
             delFromFavorites={() => fav.delFromFavorites(item)}
             onAddToCart={() => cart.onAddToCart(item)}
-            onAddToCompare={() => compare.onAddToCompare(item.key)}
+            onAddToCompare={() => compare.addToCompare(item)}
           />
         ))}
       </div>

@@ -3,21 +3,36 @@ import { createContext, useState } from 'react'
 const CompareContext = createContext()
 
 const CompareContextProvider = (props) => {
-  const [compareKeys, setCompareKeys] = useState([])
+  const [compareItems, setCompareItems] = useState([])
 
-  const onAddToCompare = (key) => {
-    if (!checkDeviceInCompare(key)) {
-      setCompareKeys((prev) => [...prev, key])
+  const addToCompare = (item) => {
+    if (!checkDeviceInCompare(item)) {
+      setCompareItems((prev) => [...prev, item])
     }
   }
 
-  const checkDeviceInCompare = (key) => {
-    return !!compareKeys.find((item) => item === key)
+  const checkDeviceInCompare = (device) => {
+    return !!compareItems.find((item) => item.key === device.key)
   }
 
+  const delFromCompareItems = (item) => {
+    setCompareItems(compareItems.filter((favItem) => favItem.key !== item.key))
+  }
+
+  // const onAddToCompare = (key) => {
+  //   if (!checkDeviceInCompare(key)) {
+  //     setCompareKeys((prev) => [...prev, key])
+  //   }
+  // }
+
+  // const checkDeviceInCompare = (key) => {
+  //   return !!compareKeys.find((item) => item === key)
+  // }
+
   const value = {
-    compareKeys: compareKeys,
-    onAddToCompare: onAddToCompare,
+    compareItems: compareItems,
+    addToCompare: addToCompare,
+    delFromCompareItems: delFromCompareItems,
   }
 
   return (
@@ -28,4 +43,3 @@ const CompareContextProvider = (props) => {
 }
 
 export { CompareContext, CompareContextProvider }
-

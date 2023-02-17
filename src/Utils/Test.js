@@ -149,3 +149,20 @@ console.log(id())
 console.log(id())
 console.log(id())
 console.log(id())
+
+
+  // const [devices, setDevices] = useState([])
+  // const [fetchDevices, isLoading] = useFetching(async () => {
+  //   setDevices([])
+  //   comp.compareKeys.map((key) =>
+  //     PostService.getDevice(key).then((response) => {
+  //       response.data.data.prices = randomPrice()
+  //       response.data.data.rating = randomMinMax(2.5, 5, 1)
+  //       setDevices((prev) => [...prev, response.data.data])
+  //     })
+  //   )
+  // })
+
+  // useEffect(() => {
+  //   fetchDevices()
+  // }, [])

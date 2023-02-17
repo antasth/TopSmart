@@ -11,8 +11,7 @@ export class PostService {
       method: 'POST',
       data: raw,
     }
-
-    axiosRetry(axios, { retryDelay: axiosRetry.exponentialDelay })
+    axiosRetry(axios, { retries: 3 })
     const response = await axios(requestOptions)
     return response
   }

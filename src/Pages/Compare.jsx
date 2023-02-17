@@ -1,28 +1,34 @@
-import { useContext, useEffect, useState } from 'react'
-import { PostService } from '../API/PostService'
+import { useContext } from 'react'
+import { Card } from '../components/Card/Card'
+import { CartContext } from '../context/CartContext'
 import { CompareContext } from '../context/CompareContext'
-import { useFetching } from '../hooks/useFetching'
+import { FavContext } from '../context/FavContext'
 
 const Compare = () => {
+  const cart = useContext(CartContext)
+  const fav = useContext(FavContext)
   const comp = useContext(CompareContext)
-  const [devices, setDevices] = useState([])
-  const [fetchDevices] = useFetching(async () => {
-    setDevices([])
-    comp.compareKeys.map((key) =>
-      PostService.getDevice(key).then((response) =>
-        setDevices((prev) => [...prev, response.data.data])
-      )
-    )
-  })
 
-  useEffect(() => {
-    fetchDevices()
-  }, [])
-
-  console.log(devices)
   return (
     <div>
       <h1>Страница сравнения</h1>
+      <div className="flex">
+        {comp.compareItems.map(
+          (device) =>
+            device && (
+              <Card
+                key={device.key}
+                device_key={device.key}
+                {...device}
+                device={device}
+                onAddToCart={() => cart.onAddToCart(device)}
+                onAddToFav={() => fav.addToFavorites(device)}
+                onDelFromFav={() => fav.delFromFavorites(device)}
+                isActive={cart.cartItems.includes(device) ? true : false}
+              />
+            )
+        )}
+      </div>
     </div>
   )
 }
