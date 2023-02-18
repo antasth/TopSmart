@@ -6,6 +6,7 @@ import { BuyButton } from '../UI/BuyButton/BuyButton'
 import { FavoriteButton } from '../UI/FavoriteButton/FavoriteButton'
 import { MoreButton } from '../UI/MoreButton/MoreButton'
 import { ProductRating } from '../UI/ProductRating/ProductRating'
+import { TrashButton } from '../UI/TrashButton/TrashButton'
 import styles from './CompareCard.module.scss'
 
 const CompareCard = ({
@@ -19,6 +20,7 @@ const CompareCard = ({
   onAddToCart,
   onAddToFav,
   onDelFromFav,
+  onDelFromCompare,
   isActive,
   device,
 }) => {
@@ -67,11 +69,11 @@ const CompareCard = ({
               {slicePrice(prices)} ₽
             </b>
             <div className="flex w-full">
+              <TrashButton onClick={onDelFromCompare} />
               <FavoriteButton
                 onAddToFav={onAddToFav}
                 onDelFromFav={onDelFromFav}
               />
-
               <BuyButton
                 isCardHover={isCardHover}
                 onAddToCart={onAddToCart}

@@ -1,0 +1,16 @@
+.trashButton {
+  margin: 0 5px;
+  font-size: 20px;
+  padding: 0.4em;
+  opacity: 0.5;
+  color: var(--gray);
+  border: 1px solid var(--gray);
+  border-radius: 0.4em;
+  &:hover {
+    color: var(--green);
+    background-color: var(--light-green);
+    border: 1px solid var(--green);
+    transform: scale(1.1);
+    transition: var(--transition);
+  }
+}
