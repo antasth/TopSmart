@@ -25,7 +25,7 @@ const Compare = () => {
                 onAddToCart={() => cart.onAddToCart(device)}
                 onAddToFav={() => fav.addToFavorites(device)}
                 onDelFromFav={() => fav.delFromFavorites(device)}
-                onDelFromCompare={() => comp.delFromCompareItems(device)}
+                onDelFromCompare={() => comp.delFromCompare(device)}
                 isInCart={cart.checkDeviceInCart(device) ? true : false}
                 isInFav={fav.checkDeviceInFav(device) ? true : false}
               />

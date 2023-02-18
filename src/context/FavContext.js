@@ -23,11 +23,16 @@ const FavContextProvider = (props) => {
     return favItems.reduce((acc, curr) => acc + Number(curr.prices), 0)
   }
 
+  const toggleFavorites = (device) => {
+    checkDeviceInFav(device) ? delFromFavorites(device) : addToFavorites(device)
+  }
+
   const value = {
     favItems: favItems,
     addToFavorites: addToFavorites,
     delFromFavorites: delFromFavorites,
     checkDeviceInFav: checkDeviceInFav,
+    toggleFavorites: toggleFavorites,
     getFullPrice: getFullPrice,
     setFavItems: setFavItems,
   }

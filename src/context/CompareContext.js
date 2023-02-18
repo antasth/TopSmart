@@ -15,16 +15,21 @@ const CompareContextProvider = (props) => {
     return !!compareItems.find((item) => item.key === device.key)
   }
 
-  const delFromCompareItems = (device) => {
+  const delFromCompare = (device) => {
     setCompareItems(
       compareItems.filter((favItem) => favItem.key !== device.key)
     )
   }
 
+  const toggleCompare = (device) => {
+    checkDeviceInCompare(device) ? delFromCompare(device) : addToCompare(device)
+  }
+
   const value = {
     compareItems: compareItems,
     addToCompare: addToCompare,
-    delFromCompareItems: delFromCompareItems,
+    toggleCompare: toggleCompare,
+    delFromCompare: delFromCompare,
     checkDeviceInCompare: checkDeviceInCompare,
   }
 

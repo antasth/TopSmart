@@ -1,5 +1,7 @@
+import { useContext } from 'react'
 import { BsBarChart, BsTrash } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
+import { CartContext } from '../../context/CartContext'
 import { slicePrice } from '../../Utils/PageFunctions'
 import { OrderButton } from '../UI/OrderButton/OrderButton'
 import styles from './FavCard.module.scss'
@@ -23,6 +25,7 @@ const FavCard = ({
   onAddToCart,
   onAddToCompare,
 }) => {
+  const cart = useContext(CartContext)
   return (
     <div className={styles.whishlist}>
       <img src={device_image} alt="favoriteimg" />
@@ -52,7 +55,9 @@ const FavCard = ({
       </div>
       <div className={styles.controls}>
         <b id="price">{slicePrice(prices)} ₽</b>
-        <OrderButton onClick={onAddToCart}>Купить</OrderButton>
+        <OrderButton onClick={onAddToCart}>
+          {cart.checkDeviceInCart(device) ? 'В корзине' : 'Купить'}
+        </OrderButton>
       </div>
     </div>
   )

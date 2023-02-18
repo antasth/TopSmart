@@ -42,13 +42,14 @@
   margin-right: 50px;
   display: flex;
   align-items: center;
+  transition: var(--transition);
   p {
     margin-left: 0.5rem;
     font-weight: 600;
     font-size: 15px;
   }
   &:hover {
-    opacity: 0.8;
+    color: var(--orange);
     cursor: pointer;
   }
 }

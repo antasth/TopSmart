@@ -8,7 +8,7 @@ import {
   TabPanels,
   Tabs,
 } from '@chakra-ui/react'
-import { useContext, useEffect, useState } from 'react'
+import { useContext } from 'react'
 import { IoHeartOutline, IoShareSocialOutline } from 'react-icons/io5'
 import { RiBarChartFill } from 'react-icons/ri'
 import { CompareContext } from '../../context/CompareContext'
@@ -19,7 +19,6 @@ import styles from './ProductSpecs.module.scss'
 const ProductSpecs = ({ device, scrollTo }) => {
   const fav = useContext(FavContext)
   const comp = useContext(CompareContext)
-  const [isInFavorites, setIsInFavorites] = useState(false)
   const {
     display_size,
     storage,
@@ -32,21 +31,6 @@ const ProductSpecs = ({ device, scrollTo }) => {
     rateCount,
     prices,
   } = device
-
-  const toggleFavorites = () => {
-    setIsInFavorites(!isInFavorites)
-    if (!isInFavorites) {
-      fav.addToFavorites(device)
-      setIsInFavorites(true)
-    } else {
-      fav.delFromFavorites(device)
-      setIsInFavorites(false)
-    }
-  }
-
-  useEffect(() => {
-    setIsInFavorites(fav.checkDeviceInFav(device))
-  }, [device])
 
   return (
     <>
@@ -92,13 +76,13 @@ const ProductSpecs = ({ device, scrollTo }) => {
               className={`${styles.icon} ${
                 comp.checkDeviceInCompare(device) && styles.icon_active
               }`}
-              onClick={() => comp.addToCompare(device)}
+              onClick={() => comp.toggleCompare(device)}
             />
             <IoHeartOutline
               className={`${styles.icon} ${
                 fav.checkDeviceInFav(device) && styles.icon_active
               }`}
-              onClick={toggleFavorites}
+              onClick={() => fav.toggleFavorites(device)}
             />
             <IoShareSocialOutline className={styles.icon} />
           </div>
