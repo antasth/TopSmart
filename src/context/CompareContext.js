@@ -19,16 +19,6 @@ const CompareContextProvider = (props) => {
     setCompareItems(compareItems.filter((favItem) => favItem.key !== item.key))
   }
 
-  // const onAddToCompare = (key) => {
-  //   if (!checkDeviceInCompare(key)) {
-  //     setCompareKeys((prev) => [...prev, key])
-  //   }
-  // }
-
-  // const checkDeviceInCompare = (key) => {
-  //   return !!compareKeys.find((item) => item === key)
-  // }
-
   const value = {
     compareItems: compareItems,
     addToCompare: addToCompare,

@@ -12,12 +12,6 @@ const CompareCard = ({
   device_key,
   device_name,
   device_image,
-  display_size,
-  ram,
-  battery,
-  storage,
-  os_type,
-  camera,
   prices,
   rateCount,
   rating,
@@ -60,7 +54,7 @@ const CompareCard = ({
 
           <Link to={`/product/${device_key}`} state={device}>
             <div className="mt-4">
-              <h2>{device_name}</h2>
+              <h2 id="link">{device_name}</h2>
             </div>
           </Link>
         </div>
