@@ -4,6 +4,7 @@ import { BsCartPlus, BsSearch } from 'react-icons/bs'
 import { RiBarChartFill } from 'react-icons/ri'
 import { Link } from 'react-router-dom'
 import { CartContext } from '../../context/CartContext'
+import { CompareContext } from '../../context/CompareContext'
 import { FavContext } from '../../context/FavContext'
 import { slicePrice } from '../../Utils/PageFunctions'
 import { Counter } from '../UI/Counter/Counter'
@@ -13,6 +14,7 @@ import styles from './Header.module.scss'
 const Header = () => {
   const cart = useContext(CartContext)
   const fav = useContext(FavContext)
+  const comp = useContext(CompareContext)
 
   return (
     <header
@@ -28,9 +30,10 @@ const Header = () => {
         <li>
           <BsSearch className="icon" />
         </li>
-        <li>
+        <li className="relative">
           <Link to="/compare">
             <RiBarChartFill className="icon" />
+            <Counter>{comp.compareItems.length}</Counter>
           </Link>
         </li>
         <li onClick={cart.toggleCart} className="relative">

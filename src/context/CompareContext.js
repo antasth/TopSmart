@@ -6,7 +6,7 @@ const CompareContextProvider = (props) => {
   const [compareItems, setCompareItems] = useState([])
 
   const addToCompare = (item) => {
-    if (!checkDeviceInCompare(item)) {
+    if (!checkDeviceInCompare(item) && compareItems.length < 3) {
       setCompareItems((prev) => [...prev, item])
     }
   }
