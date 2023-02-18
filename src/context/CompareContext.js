@@ -5,9 +5,9 @@ const CompareContext = createContext()
 const CompareContextProvider = (props) => {
   const [compareItems, setCompareItems] = useState([])
 
-  const addToCompare = (item) => {
-    if (!checkDeviceInCompare(item) && compareItems.length < 3) {
-      setCompareItems((prev) => [...prev, item])
+  const addToCompare = (device) => {
+    if (!checkDeviceInCompare(device) && compareItems.length < 3) {
+      setCompareItems((prev) => [...prev, device])
     }
   }
 
@@ -15,14 +15,17 @@ const CompareContextProvider = (props) => {
     return !!compareItems.find((item) => item.key === device.key)
   }
 
-  const delFromCompareItems = (item) => {
-    setCompareItems(compareItems.filter((favItem) => favItem.key !== item.key))
+  const delFromCompareItems = (device) => {
+    setCompareItems(
+      compareItems.filter((favItem) => favItem.key !== device.key)
+    )
   }
 
   const value = {
     compareItems: compareItems,
     addToCompare: addToCompare,
     delFromCompareItems: delFromCompareItems,
+    checkDeviceInCompare: checkDeviceInCompare,
   }
 
   return (

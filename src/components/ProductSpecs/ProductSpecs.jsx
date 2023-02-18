@@ -18,7 +18,7 @@ import styles from './ProductSpecs.module.scss'
 
 const ProductSpecs = ({ device, scrollTo }) => {
   const fav = useContext(FavContext)
-  const compare = useContext(CompareContext)
+  const comp = useContext(CompareContext)
   const [isInFavorites, setIsInFavorites] = useState(false)
   const {
     display_size,
@@ -89,8 +89,10 @@ const ProductSpecs = ({ device, scrollTo }) => {
           <ProductRating rating={rating} rateCount={rateCount} />
           <div className={styles.actions}>
             <RiBarChartFill
-              className={styles.icon}
-              onClick={() => compare.onAddToCompare(device.key)}
+              className={`${styles.icon} ${
+                comp.checkDeviceInCompare(device) && styles.icon_active
+              }`}
+              onClick={() => comp.addToCompare(device)}
             />
             <IoHeartOutline
               className={`${styles.icon} ${
