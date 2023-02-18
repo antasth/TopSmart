@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import { CompareCard } from '../components/CompareCard/CompareCard'
+import { EmptyCard } from '../components/UI/EmptyCard/EmptyCard'
 import { CartContext } from '../context/CartContext'
 import { CompareContext } from '../context/CompareContext'
 import { FavContext } from '../context/FavContext'
@@ -29,9 +30,11 @@ const Compare = () => {
               />
             )
         )}
+        {!comp.compareItems.length && <EmptyCard page={'compare'} />}
       </div>
     </div>
   )
 }
 
 export { Compare }
+

@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import { FavCard } from '../components/FavCard/FavCard'
+import { EmptyCard } from '../components/UI/EmptyCard/EmptyCard'
 import { CartContext } from '../context/CartContext'
 import { CompareContext } from '../context/CompareContext'
 import { FavContext } from '../context/FavContext'
@@ -9,14 +10,10 @@ import styles from './Favorite.module.scss'
 const Favorite = () => {
   const fav = useContext(FavContext)
   const cart = useContext(CartContext)
-  const compare = useContext(CompareContext)
+  const comp = useContext(CompareContext)
   return (
     <div className={styles.favorite}>
       <h1>Избранное</h1>
-      <h3>
-        Авторизуйтесь, чтобы сохранить список избранного для просмотра на этом и
-        других устройствах или в мобильном приложении
-      </h3>
       <div className={styles.favheader}>
         <p>
           {`${fav.favItems.length} ${
@@ -39,9 +36,10 @@ const Favorite = () => {
             {...item}
             delFromFavorites={() => fav.delFromFavorites(item)}
             onAddToCart={() => cart.onAddToCart(item)}
-            onAddToCompare={() => compare.addToCompare(item)}
+            onAddToCompare={() => comp.addToCompare(item)}
           />
         ))}
+        {!fav.favItems.length && <EmptyCard page={'favorite'} />}
       </div>
     </div>
   )
