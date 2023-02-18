@@ -12,7 +12,7 @@ const Compare = () => {
 
   return (
     <div>
-      <h1>Страница сравнения</h1>
+      <h1>Сравнение</h1>
       <div className="flex">
         {comp.compareItems.map(
           (device) =>
@@ -26,7 +26,8 @@ const Compare = () => {
                 onAddToFav={() => fav.addToFavorites(device)}
                 onDelFromFav={() => fav.delFromFavorites(device)}
                 onDelFromCompare={() => comp.delFromCompareItems(device)}
-                isActive={cart.cartItems.includes(device) ? true : false}
+                isInCart={cart.checkDeviceInCart(device) ? true : false}
+                isInFav={fav.checkDeviceInFav(device) ? true : false}
               />
             )
         )}
@@ -37,4 +38,3 @@ const Compare = () => {
 }
 
 export { Compare }
-

@@ -1,15 +1,19 @@
-import { useState } from 'react'
-import { BiHeart } from 'react-icons/bi'
 import { Tooltip } from '@chakra-ui/react'
+import { useEffect, useState } from 'react'
+import { BiHeart } from 'react-icons/bi'
 import styles from './FavoriteButton.module.scss'
 
-const FavoriteButton = ({ onAddToFav, onDelFromFav }) => {
+const FavoriteButton = ({ onAddToFav, onDelFromFav, isActive }) => {
   const [isUsed, setIsUsed] = useState(false)
   const message = isUsed ? 'Удалить из избранного' : 'Добавить в избранное'
 
   const toggleIsUsedState = () => {
     setIsUsed(!isUsed)
   }
+
+  useEffect(() => {
+    isActive && setIsUsed(true)
+  }, [isActive])
 
   return (
     <>

@@ -21,7 +21,8 @@ const CompareCard = ({
   onAddToFav,
   onDelFromFav,
   onDelFromCompare,
-  isActive,
+  isInFav,
+  isInCart,
   device,
 }) => {
   const [isCardHover, setIsCardHover] = useState(false)
@@ -73,11 +74,12 @@ const CompareCard = ({
               <FavoriteButton
                 onAddToFav={onAddToFav}
                 onDelFromFav={onDelFromFav}
+                isActive={isInFav}
               />
               <BuyButton
                 isCardHover={isCardHover}
                 onAddToCart={onAddToCart}
-                isActive={isActive}
+                isActive={isInCart}
               >
                 Купить
               </BuyButton>
