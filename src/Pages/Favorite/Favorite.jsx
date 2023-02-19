@@ -1,10 +1,10 @@
 import { useContext } from 'react'
-import { FavCard } from '../components/FavCard/FavCard'
-import { EmptyCard } from '../components/UI/EmptyCard/EmptyCard'
-import { CartContext } from '../context/CartContext'
-import { CompareContext } from '../context/CompareContext'
-import { FavContext } from '../context/FavContext'
-import { slicePrice } from '../Utils/PageFunctions'
+import { FavCard } from '../../components/FavCard/FavCard'
+import { EmptyCard } from '../../components/UI/EmptyCard/EmptyCard'
+import { CartContext } from '../../context/CartContext'
+import { CompareContext } from '../../context/CompareContext'
+import { FavContext } from '../../context/FavContext'
+import { slicePrice } from '../../Utils/PageFunctions'
 import styles from './Favorite.module.scss'
 
 const Favorite = () => {
@@ -48,3 +48,4 @@ const Favorite = () => {
 }
 
 export { Favorite }
+

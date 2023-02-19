@@ -2,7 +2,7 @@ import { About } from '../Pages/About'
 import { Cart } from '../Pages/Cart/Cart'
 import { Compare } from '../Pages/Compare'
 import { Error } from '../Pages/Error'
-import { Favorite } from '../Pages/Favorite'
+import { Favorite } from '../Pages/Favorite/Favorite'
 import { Main } from '../Pages/Main'
 import { ProductPage } from '../Pages/ProductPage/ProductPage'
 

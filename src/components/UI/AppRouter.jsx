@@ -1,21 +1,24 @@
 import { useContext, useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
-import {
-  saveToLocalStorage,
-  getFromLocalStorage,
-} from '../../Utils/PageFunctions'
-import { publicRoutes } from '../../Routes/routes'
 import { CartContext } from '../../context/CartContext'
+import { CompareContext } from '../../context/CompareContext'
 import { FavContext } from '../../context/FavContext'
+import { publicRoutes } from '../../Routes/routes'
+import {
+  getFromLocalStorage,
+  saveToLocalStorage,
+} from '../../Utils/PageFunctions'
 import { Drawer } from '../Drawer/Drawer'
 
 const AppRouter = () => {
   const cart = useContext(CartContext)
   const fav = useContext(FavContext)
+  const comp = useContext(CompareContext)
 
   useEffect(() => {
     getFromLocalStorage('cartItems', cart.setCartItems)
     getFromLocalStorage('favItems', fav.setFavItems)
+    getFromLocalStorage('compareItems', comp.setCompareItems)
   }, [])
 
   useEffect(() => {
@@ -30,7 +33,10 @@ const AppRouter = () => {
     if (fav.favItems) {
       saveToLocalStorage('favItems', fav.favItems)
     }
-  }, [cart.cartItems, fav.favItems])
+    if (comp.compareItems) {
+      saveToLocalStorage('compareItems', comp.compareItems)
+    }
+  }, [cart.cartItems, fav.favItems, comp.compareItems])
 
   return (
     <>
