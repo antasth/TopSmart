@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/ReactShop/static/css/main.2d45d15f.css",
+    "main.js": "/ReactShop/static/js/main.faaeead6.js",
+    "static/media/favorite_phones.jpg": "/ReactShop/static/media/favorite_phones.1c6403d0d272f5232e92.jpg",
+    "static/media/cheaper.jpg": "/ReactShop/static/media/cheaper.bba9d857bb761b886b97.jpg",
+    "static/media/cashback.jpg": "/ReactShop/static/media/cashback.adea7ef77c5f1f8a2ef1.jpg",
+    "static/media/compare_phones.jpg": "/ReactShop/static/media/compare_phones.cd2ee58453861bcc81a8.jpg",
+    "static/media/installment.jpg": "/ReactShop/static/media/installment.2e4f9cda82bb1abce114.jpg",
+    "index.html": "/ReactShop/index.html",
+    "main.2d45d15f.css.map": "/ReactShop/static/css/main.2d45d15f.css.map",
+    "main.faaeead6.js.map": "/ReactShop/static/js/main.faaeead6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2d45d15f.css",
+    "static/js/main.faaeead6.js"
+  ]
+}
