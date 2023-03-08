@@ -52,19 +52,19 @@ const CartContextProvider = (props) => {
   }
 
   const value = {
-    cartItems: cartItems,
-    fullPrice: fullPrice,
-    activeCart: activeCart,
-    cartItemsCount: cartItemsCount,
-    toggleCart: toggleCart,
-    deleteItem: deleteItem,
-    onAddToCart: onAddToCart,
-    getFullPrice: getFullPrice,
-    setCartItems: setCartItems,
-    setActiveCart: setActiveCart,
-    onChangeCount: onChangeCount,
-    getCartItemsCount: getCartItemsCount,
-    checkDeviceInCart: checkDeviceInCart,
+    cartItems,
+    fullPrice,
+    activeCart,
+    cartItemsCount,
+    toggleCart,
+    deleteItem,
+    onAddToCart,
+    getFullPrice,
+    setCartItems,
+    setActiveCart,
+    onChangeCount,
+    getCartItemsCount,
+    checkDeviceInCart,
   }
   return (
     <CartContext.Provider value={value}>{props.children}</CartContext.Provider>
@@ -72,3 +72,4 @@ const CartContextProvider = (props) => {
 }
 
 export { CartContext, CartContextProvider }
+

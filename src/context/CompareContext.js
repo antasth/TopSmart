@@ -26,12 +26,12 @@ const CompareContextProvider = (props) => {
   }
 
   const value = {
-    compareItems: compareItems,
-    setCompareItems: setCompareItems,
-    addToCompare: addToCompare,
-    toggleCompare: toggleCompare,
-    delFromCompare: delFromCompare,
-    checkDeviceInCompare: checkDeviceInCompare,
+    compareItems,
+    setCompareItems,
+    addToCompare,
+    toggleCompare,
+    delFromCompare,
+    checkDeviceInCompare,
   }
 
   return (
