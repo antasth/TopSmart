@@ -152,6 +152,9 @@ const Cards = ({ getTotalCount }) => {
     )
   }
 
+  const skeleton = [...new Array(12)].map((_, index) => (
+    <CardLoader key={index} />
+  ))
   return (
     <>
       {!isLoading && (
@@ -182,20 +185,7 @@ const Cards = ({ getTotalCount }) => {
               )
           )
         ) : (
-          <>
-            <CardLoader />
-            <CardLoader />
-            <CardLoader />
-            <CardLoader />
-            <CardLoader />
-            <CardLoader />
-            <CardLoader />
-            <CardLoader />
-            <CardLoader />
-            <CardLoader />
-            <CardLoader />
-            <CardLoader />
-          </>
+          <>{skeleton}</>
         )}
       </div>
       {!isLoading ? (
