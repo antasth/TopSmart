@@ -33,7 +33,7 @@ const EmptyCard = ({ page }) => {
       <img src={require(`../../../assets/img/${img}.jpg`)} alt="emptyImg" />
       <div className={styles.content}>
         {headerText}
-        <Link to="/">
+        <Link to="/ReactShop">
           <OrderButton>Перейти в каталог</OrderButton>
         </Link>
       </div>
