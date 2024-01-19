@@ -45,7 +45,7 @@ const Cards = ({ getTotalCount }) => {
     setPage(1)
     getDeviceDetails(foundCards).then(() => countCurrrentPages(foundCards))
   }
-  // Функция преобразовывает массив брендов в массив устройств
+
   const getAllDevicesList = (data, callback) => {
     const allDevices = data.reduce((acc, brand) => {
       const devices = brand.device_list.map((device) => ({
@@ -77,7 +77,6 @@ const Cards = ({ getTotalCount }) => {
     fetchData()
   }, [])
 
-  // Функция собирает ключи устройств на текущей странице и делает запросы на сервер по ключам
   const getDeviceDetails = async (data) => {
     const deviceKeysOnPage = await data
       .slice(page * itemsOnPage - itemsOnPage, page * itemsOnPage)
@@ -99,10 +98,9 @@ const Cards = ({ getTotalCount }) => {
   }, [page])
 
   const delay = (ms) => {
-    console.log('delay')
     return new Promise((resolve) => setTimeout(resolve, ms))
   }
-  // Функция делает запрос по деталям устройства, если плохой ответ, то делает повторный запрос
+
   const fetchDeviceDetails = async (key, tryCount) => {
     let raw = `{\n    "route": "device-detail",\n    "key": "${key}"\n}`
     let options = {

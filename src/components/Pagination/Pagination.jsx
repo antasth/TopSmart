@@ -23,12 +23,7 @@ const Pagination = ({ totalPages, page, changePage }) => {
         </a>
       </div>
       <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
-        <div>
-          {/* <p className="text-sm text-gray-700">
-            Showing <span className="font-medium">{page}</span> to <span className="font-medium">20</span> of{' '}
-            <span className="font-medium">{totalPages}</span> results
-          </p> */}
-        </div>
+        <div></div>
         <div>
           <nav
             className="isolate inline-flex -space-x-px rounded-md shadow-sm"

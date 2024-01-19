@@ -6,6 +6,5 @@ export const API_URL_ITEM =
 
 export const API_URL_COMPARE =
   'https://script.google.com/macros/s/AKfycbxNu27V2Y2LuKUIQMK8lX1y0joB6YmG6hUwB1fNeVbgzEh22TcDGrOak03Fk3uBHmz-/exec'
-  
-// Количество товаров на странице
+
 export const itemsOnPage = 12
