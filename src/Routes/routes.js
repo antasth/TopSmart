@@ -9,7 +9,7 @@ import { ProductPage } from '../Pages/ProductPage/ProductPage'
 export const publicRoutes = [
   { id: 1, path: '/about', component: <About />, exact: true },
   { id: 2, path: '/error', component: <Error />, exact: true },
-  { id: 3, path: '/ReactShop', component: <Main />, exact: true },
+  { id: 3, path: '/TopSmart', component: <Main />, exact: true },
   { id: 4, path: '/favorites', component: <Favorite />, exact: true },
   { id: 5, path: '/cart', component: <Cart />, exact: true },
   { id: 6, path: '/product/:id', component: <ProductPage /> },

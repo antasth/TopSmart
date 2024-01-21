@@ -2,7 +2,7 @@
   "name": "react-shop",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://antasth.github.io/ReactShop",
+  "homepage": "https://antasth.github.io/TopSmart",
   "dependencies": {
     "@chakra-ui/react": "^2.4.9",
     "@heroicons/react": "^2.0.13",
