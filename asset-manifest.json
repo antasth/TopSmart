@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/ReactShop/static/css/main.2d45d15f.css",
-    "main.js": "/ReactShop/static/js/main.0c85de44.js",
-    "static/media/favorite_phones.jpg": "/ReactShop/static/media/favorite_phones.1c6403d0d272f5232e92.jpg",
-    "static/media/cheaper.jpg": "/ReactShop/static/media/cheaper.bba9d857bb761b886b97.jpg",
-    "static/media/cashback.jpg": "/ReactShop/static/media/cashback.adea7ef77c5f1f8a2ef1.jpg",
-    "static/media/compare_phones.jpg": "/ReactShop/static/media/compare_phones.cd2ee58453861bcc81a8.jpg",
-    "static/media/installment.jpg": "/ReactShop/static/media/installment.2e4f9cda82bb1abce114.jpg",
-    "index.html": "/ReactShop/index.html",
-    "main.2d45d15f.css.map": "/ReactShop/static/css/main.2d45d15f.css.map",
-    "main.0c85de44.js.map": "/ReactShop/static/js/main.0c85de44.js.map"
+    "main.css": "/TopSmart/static/css/main.68baecdf.css",
+    "main.js": "/TopSmart/static/js/main.ea128dab.js",
+    "static/media/favorite_phones.jpg": "/TopSmart/static/media/favorite_phones.1c6403d0d272f5232e92.jpg",
+    "static/media/cheaper.jpg": "/TopSmart/static/media/cheaper.bba9d857bb761b886b97.jpg",
+    "static/media/cashback.jpg": "/TopSmart/static/media/cashback.adea7ef77c5f1f8a2ef1.jpg",
+    "static/media/compare_phones.jpg": "/TopSmart/static/media/compare_phones.cd2ee58453861bcc81a8.jpg",
+    "static/media/installment.jpg": "/TopSmart/static/media/installment.2e4f9cda82bb1abce114.jpg",
+    "index.html": "/TopSmart/index.html",
+    "main.68baecdf.css.map": "/TopSmart/static/css/main.68baecdf.css.map",
+    "main.ea128dab.js.map": "/TopSmart/static/js/main.ea128dab.js.map"
   },
   "entrypoints": [
-    "static/css/main.2d45d15f.css",
-    "static/js/main.0c85de44.js"
+    "static/css/main.68baecdf.css",
+    "static/js/main.ea128dab.js"
   ]
 }
